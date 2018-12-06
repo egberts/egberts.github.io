@@ -1,0 +1,26 @@
+<!-- article_infos.html begins -->
+<footer class="post-info">
+  <!-- <span class="label">Date</span> -->
+  <abbr class="published" title="{{ article.date.isoformat()|urlencode }}">
+        <i class="fas fa-calendar"></i>{{ article.locale_date }}
+  </abbr>
+<!--
+  {% if article.author %}
+    <span class="label">By</span>
+    <a href="{{ article.author.url }}"><i class="fas fa-user"></i>{{ article.author }}</a>
+  {% endif %}
+-->
+  <span class="label">Category</span>
+  <a href="{{ article.category.url }}"><i class="fas fa-folder-open"></i>{{ article.category }}</a>
+
+  {% if PDF_PROCESSOR %}
+    <span class="label">
+    <a href="pdf/{{ article.slug }}.pdf">PDF</a>
+    </span>
+  {% endif %}
+
+  {% include 'taglist.html' %}
+  {% include 'translations.html' %}
+</footer>
+<!-- article_infos.html ends -->
+
