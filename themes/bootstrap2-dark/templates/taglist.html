@@ -1,0 +1,9 @@
+<!-- taglist.html begins -->
+{% if article.tags %}
+<span class="label">Tags</span>
+{% for tag in article.tags %}
+    <a href="{{ tag.url }}"><i class="fas fa-tag"></i>{{ tag }}</a>
+{% endfor %}
+{% endif %}
+<!-- taglist.html ends -->
+
