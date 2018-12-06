@@ -1,0 +1,1165 @@
+<!-- articles.html begins -->
+<!-- source file: articles/code-syntax-python-rst.rst -->
+<!-- base.html begins, seeded by egberts/articles/code-syntax-python-rst.html  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Python Code Syntax Highlighter using RST format in Pelican</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Security-Policy"
+          content="
+base-uri 'self';
+script-src 'self' https://egberts.github.io;
+object-src 'self';
+img-src 'self' data:;
+media-src 'self' data:;
+frame-src 'none';
+frame-ancestors 'self' https://egberts.github.io;
+worker-src 'self';
+font-src 'self';
+connect-src 'self' https://egbert.github.io;
+form-action 'none';
+sandbox;
+report-uri https://ssoseo1.report-uri.com/r/d/csp/enforce;
+upgrade-insecure-requests
+">
+    <link rel="canonical" href="http://egberts.github.io/egberts/articles/code-syntax-python-rst.html">
+
+    <!-- Le styles -->
+    <link rel="stylesheet"
+          href="/egberts/theme/css/bootstrap.dark.css"
+          type="text/css" />
+    <link rel="stylesheet"
+          href="/egberts/theme/css/justtable.css"
+          type="text/css" />
+    <style>
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 16pt;
+      }
+      .tag-2 {
+        font-size: 14pt;
+      }
+      .tag-3 {
+        font-size: 11pt;
+      }
+      .tag-4 {
+        font-size: 8pt;
+     }
+    </style>
+    <link href="/egberts/theme/css/bootstrap-responsive.dark.css"
+          type="text/css"
+          rel="stylesheet">
+    <link href="/egberts/theme/css/all.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/egberts/theme/css/tag_cloud.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/egberts/theme/css/pygments.css"
+          rel="stylesheet"
+          type="text/css"
+          >
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <!--
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="/"
+          type="application/atom+xml"
+          rel="alternate nofollow noopener noreferrer"
+          title="Egberts ATOM Feed">
+</link>
+    -->
+<!--
+-->
+
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+          </a>
+          <a class="brand" href="/egberts/index.html">Egberts </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/egberts/articles/index.html">Articles</a></li>
+                <!-- base.html MENUITEMS ends -->
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/egberts/tags/index.html">tags</a></li>
+                <!-- base.html MENUITEMS ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/egberts/pages/uses.html">Uses</a></li>
+                  <!-- base.html pages ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/egberts/pages/about.html">About</a></li>
+                  <!-- base.html pages ends -->
+                <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/egberts/categories/formal.html">
+                        <i class="fas fa-folder-open icon-large"></i>formal
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="/egberts/categories/howto.html">
+                        <i class="fas fa-folder-open icon-large"></i>HOWTO
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/javascript.html">
+                        <i class="fas fa-folder-open icon-large"></i>javascript
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/research.html">
+                        <i class="fas fa-folder-open icon-large"></i>research
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/security.html">
+                        <i class="fas fa-folder-open icon-large"></i>security
+                    </a>
+                  </li>
+            </ul>
+
+              <ul class="nav pull-right">
+<!-- search_navbar.html begins -->
+<!-- search_navbar.html ends -->
+                <li>
+                  <a href="/egberts/archives/index.html">
+                    <i class="icon-th-list"></i>
+                    Archives
+                  </a>
+                </li>
+              </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content-base">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href="/egberts/articles/code-syntax-python-rst.html"
+                                        rel="bookmark"
+                                        title="Permalink to Python Code Syntax Highlighter using RST format in Pelican">
+                                        Python Code Syntax Highlighter using RST format in Pelican
+                                </a>
+<!-- twitter_article.html begins -->
+
+<!-- moved Twitter to SOCIAL/SOCIAL_LABELS
+
+<script
+    charset="utf-8"
+    src="../../egberts/theme/js/widgets.js"
+    type="text/javascript">
+    src="http://platform.twitter.com/widgets.js"
+</script>
+
+<a class="fab fa-twitter"
+   target="_blank"
+   rel="nofollow noopener noreferrer"
+   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Python%20Code%20Syntax%20Highlighter%20using%20RST%20format%20in%20Pelican&tw_p=tweetbutton&url=http://egberts.github.io/egberts/articles/code-syntax-python-rst.html&via=egbertst"
+>
+</a>
+-->
+<!-- twitter_article.html ends -->
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<!-- article_infos.html begins -->
+<footer class="post-info">
+  <!-- <span class="label">Date</span> -->
+  <abbr class="published" title="2018-11-13T18%3A13%3A00-05%3A00">
+        <i class="fas fa-calendar"></i>Tue 13 November 2018
+  </abbr>
+<!--
+    <span class="label">By</span>
+    <a href=""><i class="fas fa-user"></i>Eggie</a>
+-->
+  <span class="label">Category</span>
+  <a href="/egberts/categories/howto.html"><i class="fas fa-folder-open"></i>HOWTO</a>
+
+
+<!-- taglist.html begins -->
+<span class="label">Tags</span>
+    <a href="/egberts/tags/code-syntax.html"><i class="fas fa-tag"></i>code syntax</a>
+    <a href="/egberts/tags/pelican.html"><i class="fas fa-tag"></i>pelican</a>
+    <a href="/egberts/tags/rst.html"><i class="fas fa-tag"></i>rst</a>
+    <a href="/egberts/tags/python.html"><i class="fas fa-tag"></i>python</a>
+    <a href="/egberts/tags/pygments.html"><i class="fas fa-tag"></i>pygments</a>
+    <a href="/egberts/tags/css.html"><i class="fas fa-tag"></i>CSS</a>
+    <a href="/egberts/tags/fix.html"><i class="fas fa-tag"></i>fix</a>
+    <a href="/egberts/tags/html.html"><i class="fas fa-tag"></i>HTML</a>
+<!-- taglist.html ends -->
+<!-- translation.html begins -->
+<!-- translation.html ends -->
+</footer>
+<!-- article_infos.html ends -->
+                </div>
+                <div class="section" id="using-rst-code-block-option">
+<h2>Using RST code-block option</h2>
+<p>Python code can be syntax-highlighted by using RST <cite>code-block</cite> directive:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### uses CSS class highlighttable</span>
+<span class="c1">### must have a blank line above</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">===</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table><p>and the above was done using this RST snippet example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span>### uses CSS class highlighttable
+### must have a blank line above
+<span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">python</span>
+
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">===</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+        <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="using-rst-code-option">
+<h2>Using RST code option</h2>
+<p>Or snippet of Python source code can be inserted into the RST file directly
+but with no syntax highlighting used,
+by using RST <cite>code</cite> directive:</p>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">===</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre>
+<p>and the above was done using this RST snippet example:</p>
+<pre class="code rst literal-block">
+<span class="p">..</span> <span class="ow">code</span><span class="p">::</span> <span class="k">python</span>
+
+<span class="kn"></span>    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">===</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+        <span class="n">main</span><span class="p">()</span>
+</pre>
+</div>
+<div class="section" id="using-rst-code-include-option">
+<h2>Using RST code-include option</h2>
+<p>Or Python source files can be included into the RST file directly,
+then using RST <cite>code-include</cite> directive and only displaying line 4 to 7:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    print(&quot;Hello, world!&quot;)
+    sys.exit(1)
+</pre></div>
+</td></tr></table><p>And the above was done using these RST snippet example:</p>
+<pre class="code rst literal-block">
+<span class="p">..</span> <span class="ow">code-include</span><span class="p">::</span> incfile.py
+    <span class="nc">:lexer:</span> <span class="nf">'python'</span>
+    <span class="nc">:encoding:</span> <span class="nf">'utf-8'</span>
+    <span class="nc">:tab-width:</span> <span class="nf">4</span>
+    <span class="nc">:start-line:</span> <span class="nf">4</span>
+    <span class="nc">:end-line:</span> <span class="nf">7</span>
+</pre>
+<div class="section" id="external-references">
+<h3>External References</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html">REST Syntax</a></li>
+</ul>
+</div>
+</div>
+
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="span3 well sidebar-nav" id="sidebar">
+<!-- sidebar.html begins -->
+<ul class="nav nav-list">
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-external-link-alt icon-large"></i>bulletin boards
+      </h4>
+    </li>
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://getpelican.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Pelican</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://split-code.com/external_blogs.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>SPLIT-CODE.COM</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://www.hexacorn.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Hexacorn</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.msreverseengineering.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Möbius Strip RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://fumalwareanalysis.blogspot.com/p/malware-analysis-tutorials-reverse.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Dr. Fu's</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://metova.com/category/security/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Metova</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://blog.quarkslab.com/category/reverseengineering.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Quarkslab</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.reddit.com/r/ReverseEngineering/comments/is2et/can_we_collect_interesting_reverse_engineering/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Reddit RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://0x1338.blogspot.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>0x1338</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-home icon-large"></i>smokesignals</h4>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/" rel="alternate noreferrer noopener">
+        <i class="fas fa-atom icon-large"></i>atom feed</a>
+      </span>
+    </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="mailto:egbert (a)(at) github.com" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fas fa-envelope icon-large"></i>e-mail</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://twitter.com/egbertst" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-twitter icon-large"></i>Twitter</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://github.com/egberts" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-github-square icon-large"></i>GitHub</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://stackoverflow.com/users/4379130/egbert-s" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-stack-overflow icon-large"></i>StackOverflow</a>
+        </span>
+      </li>
+
+  <li class="nav-header"><h4><i class="fas fa-folder icon-large"></i>categories</h4></li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/formal.html">
+        <i class="fas fa-folder-open icon-large"></i>formal
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/howto.html">
+        <i class="fas fa-folder-open icon-large"></i>HOWTO
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/javascript.html">
+        <i class="fas fa-folder-open icon-large"></i>javascript
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/research.html">
+        <i class="fas fa-folder-open icon-large"></i>research
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/security.html">
+        <i class="fas fa-folder-open icon-large"></i>security
+        </a>
+      </span>
+    </li>
+
+  <li class="nav-header"><h4><i class="fas fa-tags icon-large"></i>Tags</h4></li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dns.html" >
+        dns
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bind9.html" >
+        bind9
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dnssec.html" >
+        DNSSEC
+        </a>
+    </span>
+  </li>
+  <li class="tag-3 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bro.html" >
+        Bro
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pelican.html" >
+        pelican
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/security.html" >
+        security
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/comparison.html" >
+        comparison
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/verizon.html" >
+        verizon
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/exploit.html" >
+        exploit
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ethernet.html" >
+        ethernet
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/debugging.html" >
+        debugging
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/css.html" >
+        CSS
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/checklist.html" >
+        checklist
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/isp.html" >
+        isp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/fix.html" >
+        fix
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/html.html" >
+        HTML
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/api.html" >
+        api
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/code-syntax.html" >
+        code syntax
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/systemd.html" >
+        systemd
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/python.html" >
+        python
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pygments.html" >
+        pygments
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rst.html" >
+        rst
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/markdown.html" >
+        markdown
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dhcp.html" >
+        dhcp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/http.html" >
+        http
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/packet.html" >
+        packet
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/machine-code.html" >
+        machine code
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/malware.html" >
+        malware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/testing.html" >
+        testing
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ssh.html" >
+        ssh
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/signal-app.html" >
+        signal app
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/malloc.html" >
+        malloc
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/soap.html" >
+        SOAP
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/debugger.html" >
+        debugger
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/xml.html" >
+        XML
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/vulnerabilities.html" >
+        vulnerabilities
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pcap.html" >
+        pcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/file-vault.html" >
+        file vault
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/javascript.html" >
+        javascript
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/formal-grammar.html" >
+        formal grammar
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/csp.html" >
+        csp
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/hardware.html" >
+        hardware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/js-engine.html" >
+        js engine
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/router.html" >
+        router
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/homelan.html" >
+        homelan
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/sync.html" >
+        sync
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/openldap.html" >
+        openldap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/browser.html" >
+        browser
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/profiling.html" >
+        profiling
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/logging.html" >
+        logging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ont.html" >
+        ONT
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/libpcap.html" >
+        libpcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/port.html" >
+        port
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/firefox.html" >
+        firefox
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ecc.html" >
+        ECC
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/troubleshooting.html" >
+        troubleshooting
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/archives.html" >
+        archives
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/hardening.html" >
+        hardening
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/password.html" >
+        password
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/network.html" >
+        network
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rest.html" >
+        REST
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/mozilla.html" >
+        mozilla
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dynamic-analysis.html" >
+        dynamic analysis
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/automata.html" >
+        automata
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/formal-language.html" >
+        formal language
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ml.html" >
+        ml
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/motorola.html" >
+        Motorola
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/framework.html" >
+        framework
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/nsupdate.html" >
+        nsupdate
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/macos.html" >
+        macos
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rowhammer.html" >
+        Rowhammer
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/fios.html" >
+        FiOS
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/high-speed.html" >
+        high-speed
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bitcoin.html" >
+        bitcoin
+        </a>
+    </span>
+  </li>
+
+<!-- twitter_profile.html begins -->
+<!--
+<li class="nav-header">
+  <h4>
+    <a class="fab fa-twitter"
+       href="https://twitter.com/egbertst"
+       rel="nofollow noopener noreferrer"
+       target="_blank"
+       data-show-screen-name="false"
+       data-show-count="true">egbertst</a>
+  </h4>
+</li>
+-->
+<!-- twitter_profile.html ends -->
+<!-- search_sidebar.html begins -->
+
+<!-- search_sidebar.html ends -->
+
+</ul>
+<!-- sidebar.html ends -->
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+          powered by
+          <a href="http://github.com/getpelican/pelican/"
+             target="_blank"
+             rel="nofollow noopener noreferrer"
+          >
+            Pelican
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          <a href="http://python.org"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Python
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          .  theme
+          <a href="http://twitter.github.com/bootstrap/"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Bootstrap2
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          andi
+          <a href="http://fortawesome.github.com/Font-Awesome/"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Font-Awesome
+            <i class="fas fa-external-link-alt"></i></a>
+          on
+          <a href="https://nginx.com"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            NGINX
+            <i class="fas fa-external-link-alt"></i></a>
+          and
+          <a href="https://kernel.org"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Linux
+            <i class="fas fa-external-link-alt"></i></a>
+          <a href="/private.html">&Phi;</a>
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+<!--analytics.html begins -->
+<!--analytics.html ends -->
+<!-- piwik.html begins -->
+<!-- piwik.html ends -->
+<!-- disqus_script.html begins -->
+<!-- disqus_script.html ends -->
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script async src="/egberts/theme/js/jquery.min.js"></script>
+    <script async src="/egberts/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
+<!-- base.html ends -->

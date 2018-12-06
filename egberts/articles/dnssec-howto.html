@@ -1,0 +1,1501 @@
+<!-- articles.html begins -->
+<!-- source file: articles/dnssec-howto.md -->
+<!-- base.html begins, seeded by egberts/articles/dnssec-howto.html  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DNSSEC HOWTO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Security-Policy"
+          content="
+base-uri 'self';
+script-src 'self' https://egberts.github.io;
+object-src 'self';
+img-src 'self' data:;
+media-src 'self' data:;
+frame-src 'none';
+frame-ancestors 'self' https://egberts.github.io;
+worker-src 'self';
+font-src 'self';
+connect-src 'self' https://egbert.github.io;
+form-action 'none';
+sandbox;
+report-uri https://ssoseo1.report-uri.com/r/d/csp/enforce;
+upgrade-insecure-requests
+">
+    <link rel="canonical" href="http://egberts.github.io/egberts/articles/dnssec-howto.html">
+
+    <!-- Le styles -->
+    <link rel="stylesheet"
+          href="/egberts/theme/css/bootstrap.dark.css"
+          type="text/css" />
+    <link rel="stylesheet"
+          href="/egberts/theme/css/justtable.css"
+          type="text/css" />
+    <style>
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 16pt;
+      }
+      .tag-2 {
+        font-size: 14pt;
+      }
+      .tag-3 {
+        font-size: 11pt;
+      }
+      .tag-4 {
+        font-size: 8pt;
+     }
+    </style>
+    <link href="/egberts/theme/css/bootstrap-responsive.dark.css"
+          type="text/css"
+          rel="stylesheet">
+    <link href="/egberts/theme/css/all.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/egberts/theme/css/tag_cloud.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/egberts/theme/css/pygments.css"
+          rel="stylesheet"
+          type="text/css"
+          >
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <!--
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="/"
+          type="application/atom+xml"
+          rel="alternate nofollow noopener noreferrer"
+          title="Egberts ATOM Feed">
+</link>
+    -->
+<!--
+-->
+
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+          </a>
+          <a class="brand" href="/egberts/index.html">Egberts </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/egberts/articles/index.html">Articles</a></li>
+                <!-- base.html MENUITEMS ends -->
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/egberts/tags/index.html">tags</a></li>
+                <!-- base.html MENUITEMS ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/egberts/pages/uses.html">Uses</a></li>
+                  <!-- base.html pages ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/egberts/pages/about.html">About</a></li>
+                  <!-- base.html pages ends -->
+                <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/egberts/categories/formal.html">
+                        <i class="fas fa-folder-open icon-large"></i>formal
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/howto.html">
+                        <i class="fas fa-folder-open icon-large"></i>HOWTO
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/javascript.html">
+                        <i class="fas fa-folder-open icon-large"></i>javascript
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="/egberts/categories/research.html">
+                        <i class="fas fa-folder-open icon-large"></i>research
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/security.html">
+                        <i class="fas fa-folder-open icon-large"></i>security
+                    </a>
+                  </li>
+            </ul>
+
+              <ul class="nav pull-right">
+<!-- search_navbar.html begins -->
+<!-- search_navbar.html ends -->
+                <li>
+                  <a href="/egberts/archives/index.html">
+                    <i class="icon-th-list"></i>
+                    Archives
+                  </a>
+                </li>
+              </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content-base">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href="/egberts/articles/dnssec-howto.html"
+                                        rel="bookmark"
+                                        title="Permalink to DNSSEC HOWTO">
+                                        DNSSEC HOWTO
+                                </a>
+<!-- twitter_article.html begins -->
+
+<!-- moved Twitter to SOCIAL/SOCIAL_LABELS
+
+<script
+    charset="utf-8"
+    src="../../egberts/theme/js/widgets.js"
+    type="text/javascript">
+    src="http://platform.twitter.com/widgets.js"
+</script>
+
+<a class="fab fa-twitter"
+   target="_blank"
+   rel="nofollow noopener noreferrer"
+   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20DNSSEC%20HOWTO&tw_p=tweetbutton&url=http://egberts.github.io/egberts/articles/dnssec-howto.html&via=egbertst"
+>
+</a>
+-->
+<!-- twitter_article.html ends -->
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<!-- article_infos.html begins -->
+<footer class="post-info">
+  <!-- <span class="label">Date</span> -->
+  <abbr class="published" title="2018-08-08T16%3A25%3A00-04%3A00">
+        <i class="fas fa-calendar"></i>Wed 08 August 2018
+  </abbr>
+<!--
+    <span class="label">By</span>
+    <a href=""><i class="fas fa-user"></i></a>
+-->
+  <span class="label">Category</span>
+  <a href="/egberts/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
+
+
+<!-- taglist.html begins -->
+<span class="label">Tags</span>
+    <a href="/egberts/tags/dnssec.html"><i class="fas fa-tag"></i>dnssec</a>
+    <a href="/egberts/tags/bind9.html"><i class="fas fa-tag"></i>bind9</a>
+    <a href="/egberts/tags/dns.html"><i class="fas fa-tag"></i>dns</a>
+<!-- taglist.html ends -->
+<!-- translation.html begins -->
+<!-- translation.html ends -->
+</footer>
+<!-- article_infos.html ends -->
+                </div>
+                <h2 id="dnssec-two-steps">DNSSEC Two Steps</h2>
+<p>Signing your domain with DNSSEC involves two components:</p>
+<ol>
+<li>The registrar of your domain name needs to be able to accept what are called “Delegation Signor (DS)” records and be able to send those up to the Top-Level-Domain (TLD) for your domain (ex. .com, .org, .net).</li>
+<li>The DNS hosting provider who operates the DNS name servers for your domain must support DNSSEC and be able to sign (and re-sign) your DNS zone files.</li>
+</ol>
+<h2 id="dnssec-resource-records">DNSSEC Resource Records</h2>
+<p>A Resource Record (RR) contains a specific information about the domain.
+Some common ones are A record which contains the IP address of the
+domain, AAAA record which holds the IPv6 information, and MX record
+which has mail servers of a domain. A complete list of DNS RRs can be
+found here.</p>
+<p>Likewise DNSSEC too requires several RRs.</p>
+<ul>
+<li>DNSKEY Holds the public key which resolvers use to verify.</li>
+<li>RRSIG Exists for each RR and contains the digital signature of a record.</li>
+<li>DS - Delegation Signer – this record exists in the TLD&rsquo;s nameservers. So if example.com was your domain name, the TLD is &ldquo;com&rdquo; and its nameservers are a.gtld-servers.net., b.gtld-servers.net. up to m.gtld-servers.net..  The purpose of this record is to verify the authenticity of the DNSKEY itself.</li>
+</ul>
+<h2 id="setup-environment">Setup Environment</h2>
+<p>Domain Name: example.com</p>
+<p>I used a real .COM domain to do this, but have replaced it with
+example.com for this article.</p>
+<div class="codehilite"><pre><span></span>    Master Nameserver:
+    IP Address: 1.1.1.1
+    Hostname: master.example.com
+    OS: Debian 7
+
+    Slave Nameserver:
+    IP Address: 2.2.2.2
+    Hostname: slave.example.com
+    OS: CentOS
+</pre></div>
+
+
+<p>== File locations and names ==</p>
+<p>The names and locations of configuration and zone files of BIND different according to the Linux distribution used. Debian/Ubuntu</p>
+<p>Service name: bind9
+Main configuration file: /etc/bind/named.conf.options
+Zone names file: /etc/bind/named.conf.local
+Default zone file location: /var/cache/bind/
+CentOS/Fedora Service name: named
+Main configuration and zone names file: /etc/named.conf
+Default zone file location: /var/named/</p>
+<p>These may change if you&rsquo;re using bind-chroot. For this tutorial, I&rsquo;ve
+used Debian for the Master NS and CentOS for the Slave NS, so change it
+according to your distribution.</p>
+<h2 id="dnssec-master-configuration">DNSSEC Master Configuration</h2>
+<p>Enable DNSSEC by adding the following configuration directives inside
+options{ }</p>
+<div class="codehilite"><pre><span></span>nano /etc/bind/named.conf.options
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>    dnssec-enable yes;
+    dnssec-validation yes;
+    dnssec-lookaside auto;
+</pre></div>
+
+
+<p>It is possible that these are already added in some distributions.
+Navigate to the location of your zone files.</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> /var/lib/bind <span class="p">;</span> Debian
+<span class="c1"># or</span>
+<span class="nb">cd</span> /var/cache/named <span class="p">;</span> RedHat
+</pre></div>
+
+
+<p>Create a Zone Signing Key(ZSK) with the following command.</p>
+<div class="codehilite"><pre><span></span>dnssec-keygen -a NSEC3RSASHA1 -b <span class="m">2048</span> -n ZONE example.com
+</pre></div>
+
+
+<p>If you have installed haveged, it&rsquo;ll take only a few seconds for this
+key to be generated; otherwise it&rsquo;ll take a very long time. Sample
+output.</p>
+<div class="codehilite"><pre><span></span>root@master# <span class="nb">cd</span> /var/cache/bind
+root@master# dnssec-keygen -a NSEC3RSASHA1 <span class="se">\</span>
+                           -b <span class="m">2048</span> <span class="se">\</span>
+                           -n ZONE <span class="se">\</span>
+                           example.com
+   Generating key pair..................+++ .............+++
+   Kexample.com.+007+40400
+</pre></div>
+
+
+<p>Create a Key Signing Key(KSK) with the following command.</p>
+<div class="codehilite"><pre><span></span>dnssec-keygen -f KSK -a NSEC3RSASHA1 -b <span class="m">4096</span> -n ZONE example.com
+</pre></div>
+
+
+<p>Sample output.</p>
+<div class="codehilite"><pre><span></span>root@master# <span class="nb">cd</span> /var/cache/bind
+root@master# dnssec-keygen -f KSK <span class="se">\</span>
+                           -a NSEC3RSASHA1 <span class="se">\</span>
+                           -b <span class="m">4096</span> <span class="se">\</span>
+                           -n ZONE <span class="se">\</span>
+                           example.com
+   Generating key pair......................++.............................................................................................................................................................................................................++
+   Kexample.com.+007+62910
+</pre></div>
+
+
+<p>The directory will now have 4 keys - private/public pairs of ZSK and
+KSK. We have to add the public keys which contain the DNSKEY record to
+the zone file. The following for loop will do this.</p>
+<div class="codehilite"><pre><span></span><span class="k">for</span> key in <span class="sb">`</span>ls Kexample.com*.key<span class="sb">`</span>
+<span class="k">do</span>
+<span class="nb">echo</span> <span class="s2">&quot;\$INCLUDE </span><span class="nv">$key</span><span class="s2">&quot;</span>&gt;&gt; example.com.zone
+<span class="k">done</span>
+</pre></div>
+
+
+<p>Sign the zone with the dnssec-signzone command.</p>
+<div class="codehilite"><pre><span></span>dnssec-signzone -3 <span class="sb">`</span>&lt;salt&gt;<span class="sb">`</span> <span class="se">\</span>
+                -A <span class="se">\</span>
+                -N INCREMENT <span class="se">\</span>
+                -o <span class="sb">`</span>&lt;zonename&gt;<span class="sb">`</span> <span class="se">\</span>
+                -t <span class="sb">`</span>&lt;zonefilename&gt;
+</pre></div>
+
+
+<p>Replace salt with something random. Here is an example with the output.</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> /var/cache/bind
+dnssec-signzone -A -3 <span class="se">\</span>
+    <span class="k">$(</span>head -c <span class="m">1000</span> /dev/random <span class="p">|</span> sha1sum <span class="p">|</span> cut -b <span class="m">1</span>-16<span class="k">)</span> <span class="se">\</span>
+    -N INCREMENT <span class="se">\</span>
+    -o example.com <span class="se">\</span>
+    -t example.com.zone
+
+   Verifying the zone using the following algorithms: NSEC3RSASHA1.
+   Zone signing complete:
+   Algorithm: NSEC3RSASHA1: KSKs: <span class="m">1</span> active, <span class="m">0</span> stand-by, <span class="m">0</span> revoked
+                           ZSKs: <span class="m">1</span> active, <span class="m">0</span> stand-by, <span class="m">0</span> revoked
+   example.com.zone.signed
+   Signatures generated:                       <span class="m">14</span>
+   Signatures retained:                         <span class="m">0</span>
+   Signatures dropped:                          <span class="m">0</span>
+   Signatures successfully verified:            <span class="m">0</span>
+   Signatures unsuccessfully verified:          <span class="m">0</span>
+   Signing <span class="nb">time</span> in seconds:                 <span class="m">0</span>.046
+   Signatures per second:                 <span class="m">298</span>.310
+   Runtime in seconds:                      <span class="m">0</span>.056
+</pre></div>
+
+
+<p>A 16 character string must be entered as the &ldquo;salt&rdquo;. The following
+command</p>
+<div class="codehilite"><pre><span></span>head -c <span class="m">1000</span> /dev/random <span class="p">|</span> sha1sum <span class="p">|</span> cut -b <span class="m">1</span>-16
+</pre></div>
+
+
+<p>outputs a random string of 16 characters which will be used as the salt.</p>
+<p>This creates a new file named example.com.zone.signed which contains
+RRSIG records for each DNS record. We have to tell BIND to load this
+&ldquo;signed&rdquo; zone.</p>
+<div class="codehilite"><pre><span></span>nano /etc/bind/named.conf.local
+</pre></div>
+
+
+<p>Change the file option inside the zone { } section.</p>
+<div class="codehilite"><pre><span></span>   zone &quot;example.com&quot; IN {
+       type master;
+       file &quot;example.com.zone.signed&quot;;
+       allow-transfer { 2.2.2.2; };
+       allow-update { none; };
+   };
+</pre></div>
+
+
+<p>Save this file and reload bind</p>
+<div class="codehilite"><pre><span></span>service bind9 reload
+</pre></div>
+
+
+<p>Check if for the DNSKEY record using dig on the same server.</p>
+<div class="codehilite"><pre><span></span>dig DNSKEY example.com. @localhost +multiline
+</pre></div>
+
+
+<p>Sample output</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> /var/cache/bind
+dig DNSKEY example.com. @localhost +multiline
+<span class="p">;;</span> Truncated, retrying in TCP mode.
+
+<span class="p">;</span> &lt;&lt;&gt;&gt; DiG <span class="m">9</span>.8.4-rpz2+rl005.12-P1 &lt;&lt;&gt;&gt; DNSKEY example.com. @localhost +multiline
+<span class="p">;;</span> global options: +cmd
+<span class="p">;;</span> Got answer:
+<span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: <span class="m">43986</span>
+<span class="p">;;</span> flags: qr aa rd<span class="p">;</span> QUERY: <span class="m">1</span>, ANSWER: <span class="m">2</span>, AUTHORITY: <span class="m">0</span>, ADDITIONAL: <span class="m">0</span>
+<span class="p">;;</span> WARNING: recursion requested but not available
+
+<span class="p">;;</span> QUESTION SECTION:
+<span class="p">;</span>example.com.       IN DNSKEY
+
+<span class="p">;;</span> ANSWER SECTION:
+example.com.        <span class="m">86400</span> IN DNSKEY   <span class="m">256</span> <span class="m">3</span> <span class="m">7</span> <span class="o">(</span>
+                AwEAActPMYurNEyhUgHjPctbLCI1VuSj3xcjI8QFTpdM
+                8k3cYrfwB/WlNKjnnjt98nPmHv6frnuvs2LKIvvGzz++
+                kVwVc8uMLVyLOxVeKhygDurFQpLNNdPumuc2MMRvV9me
+                fPrdKWtEEtOxq6Pce3DW2qRLjyE1n1oEq44gixn6hjgo
+                sG2FzV4fTQdxdYCzlYjsaZwy0Kww4HpIaozGNjoDQVI/
+                f3JtLpE1MYEb9DiUVMjkwVR5yH2UhJwZH6VVvDOZg6u6
+                YPOSUDVvyofCGcICLqUOG+qITYVucyIWgZtHZUb49dpG
+                aJTAdVKlOTbYV9sbmHNuMuGt+1/rc+StsjTPTHU<span class="o">=</span>
+                <span class="o">)</span> <span class="p">;</span> key <span class="nv">id</span> <span class="o">=</span> <span class="m">40400</span>
+example.com.        <span class="m">86400</span> IN DNSKEY   <span class="m">257</span> <span class="m">3</span> <span class="m">7</span> <span class="o">(</span>
+                AwEAAa2BE0dAvMs0pe2f+D6HaCyiFSHw47BA82YGs7Sj
+                qSqH3MprNra9/4S0aV6SSqHM3iYZt5NRQNTNTRzkE18e
+                3j9AGV8JA+xbEow74n0eu33phoxq7rOpd/N1GpCrxUsG
+                kK4PDkm+R0hhfufe1ZOSoiZUV7y8OVGFB+cmaVb7sYqB
+                RxeWPi1Z6Fj1/5oKwB6Zqbs7s7pmxl/GcjTvdQkMFtOQ
+                AFGqaaSxVrisjq7H3nUj4hJIJ+SStZ59qfW3rO7+Eqgo
+                1aDYaz+jFHZ+nTc/os4Z51eMWsZPYRnPRJG2EjJmkBrJ
+                huZ9x0qnjEjUPAcUgMVqTo3hkRv0D24I10LAVQLETuw/
+                QOuWMG1VjybzLbXi5YScwcBDAgtEpsQA9o7u6VC00DGh
+                +2+4RmgrQ7mQ5A9MwhglVPaNXKuI6sEGlWripgTwm425
+                JFv2tGHROS55Hxx06A416MtxBpSEaPMYUs6jSIyf9cjB
+                BMV24OjkCxdz29zi+OyUyHwirW51BFSaOQuzaRiOsovM
+                NSEgKWLwzwsQ5cVJBEMw89c2V0sHa4yuI5rr79msRgZT
+                KCD7wa1Hyp7s/r+ylHhjpqrZwViOPU7tAGZ3IkkJ2SMI
+                e/h+FGiwXXhr769EHbVE/PqvdbpcsgsDqFu0K2oqY70u
+                SxnsLB8uVKYlzjG+UIoQzefBluQl
+                <span class="o">)</span> <span class="p">;</span> key <span class="nv">id</span> <span class="o">=</span> <span class="m">62910</span>
+
+<span class="p">;;</span> Query time: <span class="m">0</span> msec
+<span class="p">;;</span> SERVER: <span class="m">127</span>.0.0.1#53<span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span>
+<span class="p">;;</span> WHEN: Wed Nov <span class="m">27</span> <span class="m">18</span>:18:30 <span class="m">2013</span>
+<span class="p">;;</span> MSG SIZE  rcvd: <span class="m">839</span>
+</pre></div>
+
+
+<p>Check for the presence of RRSIG records.</p>
+<div class="codehilite"><pre><span></span>dig A example.com. @localhost +noadditional +dnssec +multiline
+<span class="p">;</span> &lt;&lt;&gt;&gt; DiG <span class="m">9</span>.8.4-rpz2+rl005.12-P1 &lt;&lt;&gt;&gt; A example.com. @localhost +noadditional
++dnssec +multiline
+<span class="p">;;</span> global options: +cmd
+<span class="p">;;</span> Got answer:
+<span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: <span class="m">32902</span>
+<span class="p">;;</span> flags: qr aa rd<span class="p">;</span> QUERY: <span class="m">1</span>, ANSWER: <span class="m">2</span>, AUTHORITY: <span class="m">3</span>, ADDITIONAL: <span class="m">5</span>
+<span class="p">;;</span> WARNING: recursion requested but not available
+
+<span class="p">;;</span> OPT PSEUDOSECTION:
+<span class="p">;</span> EDNS: version: <span class="m">0</span>, flags: <span class="k">do</span><span class="p">;</span> udp: <span class="m">4096</span>
+<span class="p">;;</span> QUESTION SECTION:
+<span class="p">;</span>example.com.         IN A
+
+<span class="p">;;</span> ANSWER SECTION:
+example.com.          <span class="m">86400</span> IN A <span class="m">93</span>.184.216.119
+example.com.          <span class="m">86400</span> IN RRSIG A <span class="m">7</span> <span class="m">2</span> <span class="m">86400</span> <span class="m">20131227171405</span> <span class="o">(</span>
+                            <span class="m">20131127171405</span> <span class="m">40400</span> example.com.
+                            JCoL8L7As1a8CXnx1W62O94eQl6zvVQ3prtNK7BWIW9O
+                            lir/4V+a6c+0tbt4z4lhgmb0sb+qdvqRnlI7CydaSZDb
+                            hlrJA93fHqFqNXw084YD1gWC+M8m3ewbobiZgBUh5W66
+                            1hsVjWZGvvQL+HmobuSvsF8WBMAFgJgYLg0YzBAvwHIk
+                            886be6vbNeAltvPl9I+tjllXkMK5dReMH40ulgKo+Cwb
+                            xNQ+RfHhCQIwKgyvL1JGuHB125rdEQEVnMy26bDcC9R+
+                            qJNYj751CEUZxEEGI9cZkD44oHwDvPgF16hpNZGUdo8P
+                            <span class="nv">GtuH4JwP3hDIpNtGTsQrFWYWL5pUuuQRwA</span><span class="o">==</span> <span class="o">)</span>
+
+<span class="p">;;</span> AUTHORITY SECTION:
+example.com.          <span class="m">86400</span> IN NS master.example.com.
+example.com.          <span class="m">86400</span> IN NS slave.example.com.
+example.com.          <span class="m">86400</span> IN RRSIG NS <span class="m">7</span> <span class="m">2</span> <span class="m">86400</span> <span class="m">20131227171405</span> <span class="o">(</span>
+                            <span class="m">20131127171405</span> <span class="m">40400</span> example.com.
+                            hEGzNvKnc3sXkiQKo9/+ylU5WSFWudbUc3PAZvFMjyRA
+                            j7dzcVwM5oArK5eXJ8/77CxL3rfwGvi4LJzPQjw2xvDI
+                            oVKei2GJNYekU38XUwzSMrA9hnkremX/KoT4Wd0K1NPy
+                            giaBgyyGR+PT3jIP95Ud6J0YS3+zg60Zmr9iQPBifH3p
+                            QrvvY3OjXWYL1FKBK9+rJcwzlsSslbmj8ndL1OBKPEX3
+                            psSwneMAE4PqSgbcWtGlzySdmJLKqbI1oB+d3I3bVWRJ
+                            4F6CpIRRCb53pqLvxWQw/NXyVefNTX8CwOb/uanCCMH8
+                            wTYkCS3APl/hu20Y4R5f6xyt8JZx3zkZEQ<span class="o">==</span> <span class="o">)</span>
+
+<span class="p">;;</span> Query time: <span class="m">0</span> msec
+<span class="p">;;</span> SERVER: <span class="m">127</span>.0.0.1#53<span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span>
+<span class="p">;;</span> WHEN: Thu Nov <span class="m">28</span> <span class="m">00</span>:01:06 <span class="m">2013</span>
+<span class="p">;;</span> MSG SIZE  rcvd: <span class="m">1335</span>
+</pre></div>
+
+
+<p>The configuration of the master server is complete.</p>
+<h2 id="dnssec-slave-configuration">DNSSEC Slave Configuration</h2>
+<p>The slave servers only require DNSSEC to be enabled and the zone file
+location to be changed. Edit the main configuration file of BIND.</p>
+<div class="codehilite"><pre><span></span>nano /etc/named.conf
+</pre></div>
+
+
+<p>Place these lines inside the options { } section if they don&rsquo;t exist.</p>
+<div class="codehilite"><pre><span></span>   dnssec-enable yes;
+   dnssec-validation yes;
+   dnssec-lookaside auto;
+</pre></div>
+
+
+<p>Edit the file option inside the zone { } section.</p>
+<div class="codehilite"><pre><span></span>    zone &quot;example.com&quot; IN {
+        type slave;
+        file &quot;example.com.zone.signed&quot;;
+        masters { 1.1.1.1; };
+        allow-notify { 1.1.1.1; };
+    };
+</pre></div>
+
+
+<p>Reload the BIND service.</p>
+<div class="codehilite"><pre><span></span>service named reload
+</pre></div>
+
+
+<p>Check if there is a new .signed zone file.</p>
+<div class="codehilite"><pre><span></span>    $ ls -l /var/named/slaves/
+    total <span class="m">16</span>
+    -rw-r--r-- <span class="m">1</span> named named  <span class="m">472</span> Nov <span class="m">27</span> <span class="m">17</span>:25 example.com.zone
+    -rw-r--r-- <span class="m">1</span> named named <span class="m">9180</span> Nov <span class="m">27</span> <span class="m">18</span>:29 example.com.zone.signed
+</pre></div>
+
+
+<p>Voila! That&rsquo;s it. Just to make sure things are working as they should
+,query the DNSKEY using dig as mentioned in the previous section.</p>
+<h3 id="configure-ds-records-with-the-registrar">Configure DS records with the registrar</h3>
+<p>When we ran the dnssec-signzone command apart from the .signed zone
+file, a file named dsset-example.com was also created, this contains the
+DS records.</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> /var/cache/bind
+cat dsset-example.com.
+    example.com.        IN DS <span class="m">62910</span> <span class="m">7</span> <span class="m">1</span> 1D6AC75083F3CEC31861993E325E0EEC7E97D1DD
+    example.com.        IN DS <span class="m">62910</span> <span class="m">7</span> <span class="m">2</span>
+    198303E265A856DE8FE6330EDB5AA76F3537C10783151AEF3577859F FFC3F59D
+</pre></div>
+
+
+<p>These have to be entered in your domain registrar&rsquo;s control panel. The
+screenshots below will illustrate the steps on GoDaddy.</p>
+<p>Login to your domain registrar&rsquo;s control panel, choose your domain, and
+select the option to manage DS records. GoDaddy&rsquo;s control panel looks
+like this.</p>
+<p>GoDaddy&rsquo;s Domain control panel</p>
+<p>Here is a breakup of the data in the dsset-example.com. file. DS record
+1:</p>
+<p>Key tag: 62910 Algorithm: 7 Digest Type: 1 Digest:
+1D6AC75083F3CEC31861993E325E0EEC7E97D1DD</p>
+<p>DS record 1 DS record 2:</p>
+<p>Key tag: 62910 Algorithm: 7 Digest Type: 2 Digest:
+198303E265A856DE8FE6330EDB5AA76F3537C10783151AEF3577859FFFC3F59D</p>
+<p>DS record 2</p>
+<p>The second DS record in the dsset-example.com. file had a space in the
+digest, but when entering it in the form you should omit it. Click Next,
+click Finish and Save the records.</p>
+<p>It&rsquo;ll take a few minutes for these changes to be saved. To check if the
+DS records have been created query the nameservers of your TLD. Instead
+of finding the TLD&rsquo;s nameservers we can do a dig +trace which is much
+simpler.</p>
+<p>root@master:~# dig +trace +noadditional DS example.com. @8.8.8.8 | grep
+DS</p>
+<p>&lt;&lt;&gt;&gt; DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 &lt;&lt;&gt;&gt; +trace +noadditional DS</p>
+<p>example.com. @8.8.8.8 example.com. 86400 IN DS 62910 7 2
+198303E265A856DE8FE6330EDB5AA76F3537C10783151AEF3577859F FFC3F59D
+example.com. 86400 IN DS 62910 7 1
+1D6AC75083F3CEC31861993E325E0EEC7E97D1DD</p>
+<p>Once this is confirmed, we can check if DNSSEC is working fine using any
+of the following online services.</p>
+<p><code></code><a href="http://dnssec-debugger.verisignlabs.com"><code>http://dnssec-debugger.verisignlabs.com</code></a></p>
+<p><code></code><a href="http://dnsviz.net/"><code>http://dnsviz.net/</code></a></p>
+<p>The first tool is a simple one, while the second gives you a visual
+representation of things. Here is a screenshot from the first tool.</p>
+<p>Notice the lines I&rsquo;ve marked. The first one mentions the Key tag value
+(62910) of the DS record while the second one key id (40400) of the
+DNSKEY record which holds the ZSK (Zone Signing Key).</p>
+<h2 id="modifying-zone-records">Modifying Zone Records</h2>
+<p>Each time you edit the zone by adding or removing records, it has to be
+signed to make it work. So we will create a script for this so that we
+don&rsquo;t have to type long commands every time.</p>
+<p># nano /usr/sbin/zonesigner.sh</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nv">PDIR</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
+<span class="nv">ZONEDIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/bind&quot;</span> <span class="c1">#Debian location of your zone files</span>
+<span class="nv">ZONE</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">ZONEFILE</span><span class="o">=</span><span class="nv">$2</span>
+<span class="nv">DNSSERVICE</span><span class="o">=</span><span class="s2">&quot;bind9&quot;</span> <span class="c1">#On CentOS/Fedora replace this with &quot;named&quot;</span>
+<span class="nb">cd</span> <span class="nv">$ZONEDIR</span>
+<span class="nv">SERIAL</span><span class="o">=</span><span class="sb">`</span>/usr/sbin/named-checkzone <span class="nv">$ZONE</span> <span class="nv">$ZONEFILE</span> <span class="p">|</span> egrep -ho <span class="s1">&#39;[0-9]{10}&#39;</span><span class="sb">`</span> sed -i <span class="s1">&#39;s/&#39;</span><span class="nv">$SERIAL</span><span class="s1">&#39;/&#39;</span><span class="k">$((</span><span class="nv">$SERIAL</span><span class="o">+</span><span class="m">1</span><span class="k">))</span><span class="s1">&#39;/&#39;</span> <span class="nv">$ZONEFILE</span>
+/usr/sbin/dnssec-signzone -A -3 <span class="k">$(</span>head -c <span class="m">1000</span> /dev/random <span class="p">|</span> sha1sum <span class="p">|</span> cut -b <span class="m">1</span>-16<span class="k">)</span> -N increment -o <span class="nv">$1</span> -t <span class="nv">$2</span>
+service <span class="nv">$DNSSERVICE</span> reload
+<span class="nb">cd</span> <span class="nv">$PDIR</span>
+</pre></div>
+
+
+<p>Save the file and make it executable.</p>
+<div class="codehilite"><pre><span></span>chmod +x /usr/sbin/zonesigner.sh
+</pre></div>
+
+
+<p>Whenever you want to add or remove records, edit the example.com.zone
+and NOT the .signed file. This file also takes care of incrementing the
+serial value, so you needn&rsquo;t do it each time you edit the file. After
+editing it run the script by passing the domain name and zone filename
+as parameters.</p>
+<div class="codehilite"><pre><span></span>   root@master# zonesigner.sh example.com example.com.zone
+</pre></div>
+
+
+<p>You do not have to do anything on the slave nameserver as the
+incremented serial will ensure the zone if transferred and updated.</p>
+<h2 id="securing-the-dnssec-setup-from-zone-walking">Securing the DNSSEC setup from Zone Walking</h2>
+<p>Zone Walking is a technique used to find all the Resource Records of a
+zone by querying the NSEC (Next-Secure) record. NSEC3 was released which
+&ldquo;hashed&rdquo; this information using a salt. Recall the dnssec-signzone
+command in which we specified a -3 option followed by another elaborate
+command to generate a random string. This is the salt which can be found
+using the following dig query.</p>
+<div class="codehilite"><pre><span></span>dig NSEC3PARAM example.com. @master.example.com. +short
+   <span class="m">1</span> <span class="m">0</span> <span class="m">10</span> 7CBAA916230368F2
+</pre></div>
+
+
+<p>All this makes zone walking difficult but not impossible. A determined
+hacker using rainbow tables can break the hash, though it&rsquo;ll take a long
+time. To prevent this we can recompute this salt at regular intervals,
+which makes a hacker&rsquo;s attempt futile as there is a new salt before
+he/she can find the hash with the old salt. Create a cron job to do this
+for you using the zonesigner.sh script we created previously. If you run
+the cronjob as root you don&rsquo;t have to worry about file ownership. Or
+else make sure the user under whom you&rsquo;re placing the cron has write
+permission on the zone directory and read permission on the private keys
+(Kexample.com.*.private).</p>
+<div class="codehilite"><pre><span></span>crontab -e
+</pre></div>
+
+
+<p>And insert in the following:</p>
+<div class="codehilite"><pre><span></span>    0 0 */3 * * /usr/sbin/zonesigner.sh example.com example.com.zone
+</pre></div>
+
+
+<p>This will sign the zone every 3 days and as a result a new salt will be
+generated. You&rsquo;ll also receive an email containing the output of the
+dnssec-signzone command.</p>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="span3 well sidebar-nav" id="sidebar">
+<!-- sidebar.html begins -->
+<ul class="nav nav-list">
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-external-link-alt icon-large"></i>bulletin boards
+      </h4>
+    </li>
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://getpelican.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Pelican</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://split-code.com/external_blogs.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>SPLIT-CODE.COM</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://www.hexacorn.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Hexacorn</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.msreverseengineering.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Möbius Strip RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://fumalwareanalysis.blogspot.com/p/malware-analysis-tutorials-reverse.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Dr. Fu's</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://metova.com/category/security/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Metova</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://blog.quarkslab.com/category/reverseengineering.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Quarkslab</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.reddit.com/r/ReverseEngineering/comments/is2et/can_we_collect_interesting_reverse_engineering/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Reddit RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://0x1338.blogspot.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>0x1338</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-home icon-large"></i>smokesignals</h4>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/" rel="alternate noreferrer noopener">
+        <i class="fas fa-atom icon-large"></i>atom feed</a>
+      </span>
+    </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="mailto:egbert (a)(at) github.com" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fas fa-envelope icon-large"></i>e-mail</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://twitter.com/egbertst" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-twitter icon-large"></i>Twitter</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://github.com/egberts" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-github-square icon-large"></i>GitHub</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://stackoverflow.com/users/4379130/egbert-s" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-stack-overflow icon-large"></i>StackOverflow</a>
+        </span>
+      </li>
+
+  <li class="nav-header"><h4><i class="fas fa-folder icon-large"></i>categories</h4></li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/formal.html">
+        <i class="fas fa-folder-open icon-large"></i>formal
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/howto.html">
+        <i class="fas fa-folder-open icon-large"></i>HOWTO
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/javascript.html">
+        <i class="fas fa-folder-open icon-large"></i>javascript
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/research.html">
+        <i class="fas fa-folder-open icon-large"></i>research
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/security.html">
+        <i class="fas fa-folder-open icon-large"></i>security
+        </a>
+      </span>
+    </li>
+
+  <li class="nav-header"><h4><i class="fas fa-tags icon-large"></i>Tags</h4></li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dns.html" >
+        dns
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bind9.html" >
+        bind9
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dnssec.html" >
+        DNSSEC
+        </a>
+    </span>
+  </li>
+  <li class="tag-3 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bro.html" >
+        Bro
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pelican.html" >
+        pelican
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/security.html" >
+        security
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/comparison.html" >
+        comparison
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/verizon.html" >
+        verizon
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/exploit.html" >
+        exploit
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ethernet.html" >
+        ethernet
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/debugging.html" >
+        debugging
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/css.html" >
+        CSS
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/checklist.html" >
+        checklist
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/isp.html" >
+        isp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/fix.html" >
+        fix
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/html.html" >
+        HTML
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/api.html" >
+        api
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/code-syntax.html" >
+        code syntax
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/systemd.html" >
+        systemd
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/python.html" >
+        python
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pygments.html" >
+        pygments
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rst.html" >
+        rst
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/markdown.html" >
+        markdown
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dhcp.html" >
+        dhcp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/http.html" >
+        http
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/packet.html" >
+        packet
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/machine-code.html" >
+        machine code
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/malware.html" >
+        malware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/testing.html" >
+        testing
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ssh.html" >
+        ssh
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/signal-app.html" >
+        signal app
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/malloc.html" >
+        malloc
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/soap.html" >
+        SOAP
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/debugger.html" >
+        debugger
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/xml.html" >
+        XML
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/vulnerabilities.html" >
+        vulnerabilities
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pcap.html" >
+        pcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/file-vault.html" >
+        file vault
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/javascript.html" >
+        javascript
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/formal-grammar.html" >
+        formal grammar
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/csp.html" >
+        csp
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/hardware.html" >
+        hardware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/js-engine.html" >
+        js engine
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/router.html" >
+        router
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/homelan.html" >
+        homelan
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/sync.html" >
+        sync
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/openldap.html" >
+        openldap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/browser.html" >
+        browser
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/profiling.html" >
+        profiling
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/logging.html" >
+        logging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ont.html" >
+        ONT
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/libpcap.html" >
+        libpcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/port.html" >
+        port
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/firefox.html" >
+        firefox
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ecc.html" >
+        ECC
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/troubleshooting.html" >
+        troubleshooting
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/archives.html" >
+        archives
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/hardening.html" >
+        hardening
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/password.html" >
+        password
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/network.html" >
+        network
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rest.html" >
+        REST
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/mozilla.html" >
+        mozilla
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dynamic-analysis.html" >
+        dynamic analysis
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/automata.html" >
+        automata
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/formal-language.html" >
+        formal language
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ml.html" >
+        ml
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/motorola.html" >
+        Motorola
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/framework.html" >
+        framework
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/nsupdate.html" >
+        nsupdate
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/macos.html" >
+        macos
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rowhammer.html" >
+        Rowhammer
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/fios.html" >
+        FiOS
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/high-speed.html" >
+        high-speed
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bitcoin.html" >
+        bitcoin
+        </a>
+    </span>
+  </li>
+
+<!-- twitter_profile.html begins -->
+<!--
+<li class="nav-header">
+  <h4>
+    <a class="fab fa-twitter"
+       href="https://twitter.com/egbertst"
+       rel="nofollow noopener noreferrer"
+       target="_blank"
+       data-show-screen-name="false"
+       data-show-count="true">egbertst</a>
+  </h4>
+</li>
+-->
+<!-- twitter_profile.html ends -->
+<!-- search_sidebar.html begins -->
+
+<!-- search_sidebar.html ends -->
+
+</ul>
+<!-- sidebar.html ends -->
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+          powered by
+          <a href="http://github.com/getpelican/pelican/"
+             target="_blank"
+             rel="nofollow noopener noreferrer"
+          >
+            Pelican
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          <a href="http://python.org"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Python
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          .  theme
+          <a href="http://twitter.github.com/bootstrap/"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Bootstrap2
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          andi
+          <a href="http://fortawesome.github.com/Font-Awesome/"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Font-Awesome
+            <i class="fas fa-external-link-alt"></i></a>
+          on
+          <a href="https://nginx.com"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            NGINX
+            <i class="fas fa-external-link-alt"></i></a>
+          and
+          <a href="https://kernel.org"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Linux
+            <i class="fas fa-external-link-alt"></i></a>
+          <a href="/private.html">&Phi;</a>
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+<!--analytics.html begins -->
+<!--analytics.html ends -->
+<!-- piwik.html begins -->
+<!-- piwik.html ends -->
+<!-- disqus_script.html begins -->
+<!-- disqus_script.html ends -->
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script async src="/egberts/theme/js/jquery.min.js"></script>
+    <script async src="/egberts/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
+<!-- base.html ends -->
