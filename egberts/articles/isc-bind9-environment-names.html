@@ -1,0 +1,1141 @@
+<!-- articles.html begins -->
+<!-- source file: articles/bind9-environment.md -->
+<!-- base.html begins, seeded by egberts/articles/isc-bind9-environment-names.html  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ISC Bind9 Environment Names</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Security-Policy"
+          content="
+base-uri 'self';
+script-src 'self';
+object-src 'self';
+img-src 'self' data:;
+media-src 'self' data:;
+frame-src 'none';
+frame-ancestors 'self' https://egberts.github.io;
+worker-src 'self';
+font-src 'self';
+connect-src 'self' https://egbert.github.io;
+form-action 'none';
+sandbox;
+report-uri https://ssoseo1.report-uri.com/r/d/csp/enforce;
+upgrade-insecure-requests
+">
+    <link rel="canonical" href="http://egberts.github.io/egberts/articles/isc-bind9-environment-names.html">
+
+    <!-- Le styles -->
+    <link rel="stylesheet"
+          href="/egberts/theme/css/bootstrap.dark.css"
+          type="text/css" />
+    <link rel="stylesheet"
+          href="/egberts/theme/css/justtable.css"
+          type="text/css" />
+    <style>
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 16pt;
+      }
+      .tag-2 {
+        font-size: 14pt;
+      }
+      .tag-3 {
+        font-size: 11pt;
+      }
+      .tag-4 {
+        font-size: 8pt;
+     }
+    </style>
+    <link href="/egberts/theme/css/bootstrap-responsive.dark.css"
+          type="text/css"
+          rel="stylesheet">
+    <link href="/egberts/theme/css/all.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/egberts/theme/css/tag_cloud.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/egberts/theme/css/pygments.css"
+          rel="stylesheet"
+          type="text/css"
+          >
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <!--
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="/"
+          type="application/atom+xml"
+          rel="alternate nofollow noopener noreferrer"
+          title="Egberts ATOM Feed">
+</link>
+    -->
+<!--
+-->
+
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+          </a>
+          <a class="brand" href="/egberts/index.html">Egberts </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/egberts/articles/index.html">Articles</a></li>
+                <!-- base.html MENUITEMS ends -->
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/egberts/tags/index.html">tags</a></li>
+                <!-- base.html MENUITEMS ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/egberts/pages/uses.html">Uses</a></li>
+                  <!-- base.html pages ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/egberts/pages/about.html">About</a></li>
+                  <!-- base.html pages ends -->
+                <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/egberts/categories/formal.html">
+                        <i class="fas fa-folder-open icon-large"></i>formal
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/howto.html">
+                        <i class="fas fa-folder-open icon-large"></i>HOWTO
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/javascript.html">
+                        <i class="fas fa-folder-open icon-large"></i>javascript
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="/egberts/categories/research.html">
+                        <i class="fas fa-folder-open icon-large"></i>research
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/egberts/categories/security.html">
+                        <i class="fas fa-folder-open icon-large"></i>security
+                    </a>
+                  </li>
+            </ul>
+
+              <ul class="nav pull-right">
+<!-- search_navbar.html begins -->
+<!-- search_navbar.html ends -->
+                <li>
+                  <a href="/egberts/archives/index.html">
+                    <i class="icon-th-list"></i>
+                    Archives
+                  </a>
+                </li>
+              </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content-base">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href="/egberts/articles/isc-bind9-environment-names.html"
+                                        rel="bookmark"
+                                        title="Permalink to ISC Bind9 Environment Names">
+                                        ISC Bind9 Environment Names
+                                </a>
+<!-- twitter_article.html begins -->
+
+<!-- moved Twitter to SOCIAL/SOCIAL_LABELS
+
+<script
+    charset="utf-8"
+    src="../../egberts/theme/js/widgets.js"
+    type="text/javascript">
+    src="http://platform.twitter.com/widgets.js"
+</script>
+
+<a class="fab fa-twitter"
+   target="_blank"
+   rel="nofollow noopener noreferrer"
+   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20ISC%20Bind9%20Environment%20Names&tw_p=tweetbutton&url=http://egberts.github.io/egberts/articles/isc-bind9-environment-names.html&via=egbertst"
+>
+</a>
+-->
+<!-- twitter_article.html ends -->
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<!-- article_infos.html begins -->
+<footer class="post-info">
+  <!-- <span class="label">Date</span> -->
+  <abbr class="published" title="2018-10-17T13%3A16%3A00-04%3A00">
+        <i class="fas fa-calendar"></i>Wed 17 October 2018
+  </abbr>
+<!--
+    <span class="label">By</span>
+    <a href=""><i class="fas fa-user"></i></a>
+-->
+  <span class="label">Category</span>
+  <a href="/egberts/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
+
+
+<!-- taglist.html begins -->
+<span class="label">Tags</span>
+    <a href="/egberts/tags/bind9.html"><i class="fas fa-tag"></i>bind9</a>
+<!-- taglist.html ends -->
+<!-- translation.html begins -->
+<!-- translation.html ends -->
+</footer>
+<!-- article_infos.html ends -->
+                </div>
+                <p>Bind9 environment</p>
+<h2 id="environment-variables">Environment variables</h2>
+<h3 id="bind9-environment-variables">Bind9 environment variables</h3>
+<p>
+<div class="justtable">
+    <table class="justtable">
+        <thead class="justtable">
+        <tr class="justtable">
+            <th class="justtable">variable name</th>
+            <th class="justtable"> description</th>
+        </tr>
+        </thead>
+        <tbody class="justtable">
+            <tr class="justtable">
+                <td class="justtable"><code>PATH</code></td>
+                <td class="justtable"> &ldquo;The sequence of path prefixes that certain functions and utilities apply in searching for an executable file known only by a filename. The prefixes are separated by a colon (:) When a non-zero-length prefix is applied to this filename, a slash is inserted between the prefix and the filename. A zero-length prefix is a legacy feature that indicates the current working directory. It appears as two adjacent colons (::), as an initial colon preceding the rest of the list, or as a trailing colon following the rest of the list. A portable application must use an actual pathname (such as .) to represent the current working directory in PATH. The list is searched from beginning to end, applying the filename to each prefix, until an executable file with the specified name and appropriate execution permissions is found. If the pathname being sought contains a slash, the search through the path prefixes will not be performed. If the pathname begins with a slash, the specified path is resolved (see pathname resolution ). If PATH is unset or is set to null, the path search is implementation-dependent.  <p>The path separator on Windows is a semicolon, not a colon, as in the Unix world. Setting the path has the effect of automatically locating, say, dig or nsupdate. However, there is a Windows version of nslookup that will be found first. Using the BIND version of nslookup either requires a full path command, such as C:\Program Files\ISC BIND 9\bin\nslookup.exe (or C:\Program Files (x86)\ISC BIND 9\bin\nslookup.exe for a 32-bit BIND install on a Windows 64 bit platform) when running it from the command line. Alternatively, the preceding path directive can be placed first in the path list, which, in turn, has the disadvantage that it will add an extra check for all other program loading operations that use normal Windows locations.&rdquo;</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>COMSPEC</code> </td>
+                <td class="justtable"> &ldquo;COMSPEC or ComSpec is one of the environment variables used in DOS, OS/2 and Windows, which normally points to the command line interpreter, which is by default COMMAND.COM in DOS or CMD.EXE in OS/2 and Windows NT. The variable name is written in all-uppercase under DOS and OS/2. Under Windows, which also supports lowercase environment variable names, the variable name is COMSPEC inside the DOS emulator NTVDM and for any DOS programs, and ComSpec under CMD.EXE.<br /> The variable&rsquo;s contents can be displayed by typing SET or ECHO %COMSPEC% at the command prompt.<br /> The environment variable by default points to the full path of the command line interpreter. It can also be made by a different company or be a different version.&rdquo;</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>IDN_DISABLE</code></td>
+                <td class="justtable"> &ldquo;If you’d like to turn off the IDN support for some reason, defines the <code>IDN_DISABLE</code> environment variable. The IDN support is disabled if the variable is set when dig runs.</p>&rdquo;</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>ISC_TASK_WORKERS</code> </td>
+                <td class="justtable"> Used during unit testing of Bind9. This is not used during production.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>ISC_TASKS_MIN</code> </td>
+                <td class="justtable"> Used during unit testing of Bind9. This is not used during production.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>KRB5_KTNAME</code></td>
+                <td class="justtable"> Used to minimize memory leakage associated with KRB5 API calls</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>LANG</code></td>
+                <td class="justtable"> &ldquo;This variable determines the locale category for native language, local customs and coded character set in the absence of the <code>LC_ALL</code> and other <code>LC_*</code> (<code>LC_COLLATE</code>, <code>LC_CTYPE</code>, <code>LC_MESSAGES</code>, <code>LC_MONETARY</code>, <code>LC_NUMERIC</code>, <code>LC_TIME</code>) environment variables. This can be used by applications to determine the language to use for error messages and instructions, collating sequences, date formats, and so forth. Always use a value for LANG that is supported by the UNIX or Linux operating system you are using. To obtain the locale names for your UNIX or Linux system, enter the following command: locale -a.</p> <p>If you specify the LANG environment variable and also modify the regional settings then the LANG environment variable will override the regional setting. As specified by open systems standards, other environment variables override LANG for some or all locale categories. These variables include the following:</p> <p><code>   LC_COLLATE</code><br /> <code>   LC_CTYPE</code><br /> <code>   LC_MONETARY</code><br /> <code>   LC_NUMERIC</code><br /> <code>   LC_TIME</code><br /> <code>   LC_MESSAGES</code><br /> <code>   LC_ALL</code></p> <p>If any of the previous variables are set, you must remove their setting for the LANG variable to have full effect. Some values found on Linux platforms (via <code>locale</code> <code>-a</code>) are: C C.UTF-8 en_US en_US.iso88591 en_US.iso885915 en_US.utf8 POSIX&rdquo;</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>LC_ALL</code></td>
+                <td class="justtable"> &ldquo;This variable determines the values for all locale categories. The value of the LC_ALL environment variable has precedence over any of the other environment variables starting with LC_ (LC_COLLATE, LC_CTYPE, LC_MESSAGES, LC_MONETARY, LC_NUMERIC, LC_TIME) and the LANG environment variable.&rdquo;</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>LC_CTYPE</code></td>
+                <td class="justtable"> &ldquo;This variable determines the locale category for character handling functions, such as <code>tolower()</code>, <code>toupper()</code> and <code>isalpha()</code>. This environment variable determines the interpretation of sequences of bytes of text data as characters (for example, single- as opposed to multi-byte characters), the classification of characters (for example, alpha, digit, graph) and the behavior of character classes. Additional semantics of this variable, if any, are implementation-dependent.&rdquo;</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>NET_ORDER</code></td>
+                <td class="justtable"> Set the sorting order of multiple IP addresses being displayed. Valid values are &quot;<code>inet4</code>&quot; or &quot;<code>inet6</code>&quot;.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>PKCS11_PROVIDER</code></td>
+                <td class="justtable"> &ldquo;Declares the PKCS11 provider being used. Valid values are: &quot;<code>undefined</code>&quot;, &quot;<code>libsofthsm2</code>&quot;, &quot;<code>openssl</code>&quot;&rdquo;</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>TEMP</code></td>
+                <td class="justtable"> A pathname of a directory made available for programs that need a place to create temporary files.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>TERM</code></td>
+                <td class="justtable"> The terminal type for which output is to be prepared. This information is used by utilities and application programs wishing to exploit special capabilities specific to a terminal. The format and allowable values of this environment variable are unspecified.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>TZ</code></td>
+                <td class="justtable"> &ldquo;Timezone information. The contents of the environment variable named <code>TZ</code> are used by the <code>ctime()</code>, <code>localtime()</code>, <code>strftime()</code> and <code>mktime()</code> functions, and by various utilities, to override the default timezone. The value of <code>TZ</code> has one of the two forms (spaces inserted for clarity):</p> <p><code>   :characters</code></p> <p>or:</p> <p><code>   std offset dst offset, rule</code></tt></p> <p>If <code>TZ</code> is of the first format (that is, if the first character is a colon), the characters following the colon are handled in an implementation-dependent manner. The expanded format (for all TZs whose value does not have a colon as the first character) is as follows:</p> <p><code>   stdoffset[dst[offset][,start[/time],end[/time]]]</code>&rdquo;</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable"><code>ZKT_CONFFILE</code></td>
+                <td class="justtable"> &ldquo;Specifies the name of the default global configuration files.</p> <p><code>/var/lib/named/dnssec.conf</code>: Built-in default global configuration file. The name of the default global config file is settable via the environment variable <code>ZKT_CONFFILE</code>. (For non-Debian platform, file is <code>/var/named/dnssec.conf</code>). Man page is dnssec.zkt(5).&rdquo;</td>
+            </tr>
+        </tbody>
+    </table>
+</div></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="http://pubs.opengroup.org/onlinepubs/7908799/xbd/envvar.html">UNIX Specification</a></li>
+</ul>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="span3 well sidebar-nav" id="sidebar">
+<!-- sidebar.html begins -->
+<ul class="nav nav-list">
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-external-link-alt icon-large"></i>bulletin boards
+      </h4>
+    </li>
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://getpelican.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Pelican</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://split-code.com/external_blogs.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>SPLIT-CODE.COM</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://www.hexacorn.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Hexacorn</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.msreverseengineering.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Möbius Strip RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://fumalwareanalysis.blogspot.com/p/malware-analysis-tutorials-reverse.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Dr. Fu's</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://metova.com/category/security/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Metova</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://blog.quarkslab.com/category/reverseengineering.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Quarkslab</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.reddit.com/r/ReverseEngineering/comments/is2et/can_we_collect_interesting_reverse_engineering/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Reddit RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://0x1338.blogspot.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>0x1338</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-home icon-large"></i>smokesignals</h4>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/" rel="alternate noreferrer noopener">
+        <i class="fas fa-atom icon-large"></i>atom feed</a>
+      </span>
+    </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="mailto:egbert (a)(at) github.com" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fas fa-envelope icon-large"></i>e-mail</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://twitter.com/egbertst" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-twitter icon-large"></i>Twitter</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://github.com/egberts" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-github-square icon-large"></i>GitHub</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://stackoverflow.com/users/4379130/egbert-s" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-stack-overflow icon-large"></i>StackOverflow</a>
+        </span>
+      </li>
+
+  <li class="nav-header"><h4><i class="fas fa-folder icon-large"></i>categories</h4></li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/formal.html">
+        <i class="fas fa-folder-open icon-large"></i>formal
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/howto.html">
+        <i class="fas fa-folder-open icon-large"></i>HOWTO
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/javascript.html">
+        <i class="fas fa-folder-open icon-large"></i>javascript
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/research.html">
+        <i class="fas fa-folder-open icon-large"></i>research
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/egberts/categories/security.html">
+        <i class="fas fa-folder-open icon-large"></i>security
+        </a>
+      </span>
+    </li>
+
+  <li class="nav-header"><h4><i class="fas fa-tags icon-large"></i>Tags</h4></li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dns.html" >
+        dns
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bind9.html" >
+        bind9
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dnssec.html" >
+        DNSSEC
+        </a>
+    </span>
+  </li>
+  <li class="tag-3 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bro.html" >
+        Bro
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/python.html" >
+        python
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/security.html" >
+        security
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pelican.html" >
+        pelican
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/verizon.html" >
+        verizon
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/comparison.html" >
+        comparison
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rst.html" >
+        rst
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/http.html" >
+        http
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/api.html" >
+        api
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/checklist.html" >
+        checklist
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/exploit.html" >
+        exploit
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/code-syntax.html" >
+        code syntax
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/markdown.html" >
+        markdown
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pygments.html" >
+        pygments
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/css.html" >
+        CSS
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/fix.html" >
+        fix
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/html.html" >
+        HTML
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/isp.html" >
+        isp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dhcp.html" >
+        dhcp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/systemd.html" >
+        systemd
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ethernet.html" >
+        ethernet
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/debugging.html" >
+        debugging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/automata.html" >
+        automata
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/formal-language.html" >
+        formal language
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/formal-grammar.html" >
+        formal grammar
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/csp.html" >
+        csp
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rest.html" >
+        REST
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/soap.html" >
+        SOAP
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/xml.html" >
+        XML
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rowhammer.html" >
+        Rowhammer
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ecc.html" >
+        ECC
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/hardware.html" >
+        hardware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/debugger.html" >
+        debugger
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/malware.html" >
+        malware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/testing.html" >
+        testing
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/router.html" >
+        router
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/homelan.html" >
+        homelan
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/nsupdate.html" >
+        nsupdate
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/troubleshooting.html" >
+        troubleshooting
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/logging.html" >
+        logging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/motorola.html" >
+        Motorola
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ont.html" >
+        ONT
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/fios.html" >
+        FiOS
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/archives.html" >
+        archives
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/javascript.html" >
+        javascript
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/js-engine.html" >
+        js engine
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/browser.html" >
+        browser
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/mozilla.html" >
+        mozilla
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/framework.html" >
+        framework
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/machine-code.html" >
+        machine code
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dynamic-analysis.html" >
+        dynamic analysis
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/packet.html" >
+        packet
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/profiling.html" >
+        profiling
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/bitcoin.html" >
+        bitcoin
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/vulnerabilities.html" >
+        vulnerabilities
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/macos.html" >
+        macos
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/password.html" >
+        password
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/file-vault.html" >
+        file vault
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/hardening.html" >
+        hardening
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/signal-app.html" >
+        signal app
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ml.html" >
+        ml
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/openldap.html" >
+        openldap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/malloc.html" >
+        malloc
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/firefox.html" >
+        firefox
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/sync.html" >
+        sync
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ssh.html" >
+        ssh
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pcap.html" >
+        pcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/libpcap.html" >
+        libpcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/high-speed.html" >
+        high-speed
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/network.html" >
+        network
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/port.html" >
+        port
+        </a>
+    </span>
+  </li>
+
+<!-- twitter_profile.html begins -->
+<!--
+<li class="nav-header">
+  <h4>
+    <a class="fab fa-twitter"
+       href="https://twitter.com/egbertst"
+       rel="nofollow noopener noreferrer"
+       target="_blank"
+       data-show-screen-name="false"
+       data-show-count="true">egbertst</a>
+  </h4>
+</li>
+-->
+<!-- twitter_profile.html ends -->
+<!-- search_sidebar.html begins -->
+
+<!-- search_sidebar.html ends -->
+
+</ul>
+<!-- sidebar.html ends -->
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+          powered by
+          <a href="http://github.com/getpelican/pelican/"
+             target="_blank"
+             rel="nofollow noopener noreferrer"
+          >
+            Pelican
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          <a href="http://python.org"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Python
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          .  theme
+          <a href="http://twitter.github.com/bootstrap/"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Bootstrap2
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          andi
+          <a href="http://fortawesome.github.com/Font-Awesome/"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Font-Awesome
+            <i class="fas fa-external-link-alt"></i></a>
+          on
+          <a href="https://nginx.com"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            NGINX
+            <i class="fas fa-external-link-alt"></i></a>
+          and
+          <a href="https://kernel.org"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Linux
+            <i class="fas fa-external-link-alt"></i></a>
+          <a href="/private.html">&Phi;</a>
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+<!--analytics.html begins -->
+<!--analytics.html ends -->
+<!-- piwik.html begins -->
+<!-- piwik.html ends -->
+<!-- disqus_script.html begins -->
+<!-- disqus_script.html ends -->
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script async src="/egberts/theme/js/jquery.min.js"></script>
+    <script async src="/egberts/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
+<!-- base.html ends -->
