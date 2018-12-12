@@ -14,7 +14,9 @@ from pelicanconf import *
 SITEURL = 'https://egberts.github.io'
 developing_site = False
 # RELATIVE_URLS = False
-DELETE_OUTPUT_DIRECTORY = True
+
+# Since output is a separate repo, no need to delete
+DELETE_OUTPUT_DIRECTORY = False
 
 FEED_ALL_ATOM = 'atom.xml'
 

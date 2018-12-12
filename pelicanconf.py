@@ -175,7 +175,8 @@ OUTPUT_PATH = 'output'
 ## older, unnecessary files from persisting in your output. However, this is a
 ## destructive setting and should be
 ## handled with extreme care.
-DELETE_OUTPUT_DIRECTORY = True
+
+DELETE_OUTPUT_DIRECTORY = False
 ## Set to True if you want to copy the articles and pages in
 ## their original format (e.g. Markdown or reStructured-
 ## Text) to the specified OUTPUT_PATH.
