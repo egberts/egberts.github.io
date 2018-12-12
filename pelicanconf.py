@@ -23,8 +23,8 @@ PDF_PROCESSOR = False
 ##    * HTTP protocol (https://)
 ##    * HTTP domain (example.com)
 ##    * TCP port (if not 80 with http: or 443 with https)
-SITEURL = 'http://sandbay.leo:8000'
-SITE_SUBPATH = 'blog'
+SITEURL = 'https://egberts.github.io'
+SITE_SUBPATH = 'egberts'
 SITE_DIR = ''
 SITE_URL_TOP_LVL = '/'   # do not use double-slash here
 if len(SITE_SUBPATH):

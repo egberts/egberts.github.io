@@ -11,7 +11,7 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 # Special live-site-only variables
-SITEURL = 'https://arca.egbert.net'
+SITEURL = 'https://egberts.github.io'
 developing_site = False
 # RELATIVE_URLS = False
 DELETE_OUTPUT_DIRECTORY = True
