@@ -1,15 +1,15 @@
 <!-- articles.html begins -->
-<!-- source file: articles/linux-network-packet-large-using.md -->
-<!-- base.html begins, seeded by egberts/articles/using-large-network-packet.html  -->
+<!-- source file: articles/python-development-loop.md -->
+<!-- base.html begins, seeded by egberts/articles/tight-multiversion-python-re-development-cycle.html  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Using Large Network Packet</title>
+    <title>Tight Multiversion Python Re-development Cycle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="canonical" href="https://egberts.github.io/egberts/articles/using-large-network-packet.html">
+    <link rel="canonical" href="https://egberts.github.io/egberts/articles/tight-multiversion-python-re-development-cycle.html">
 
     <!-- Le styles -->
     <link rel="stylesheet"
@@ -152,10 +152,10 @@
         <article>
                 <header>
                         <h1>
-                                <a href="/egberts/articles/using-large-network-packet.html"
+                                <a href="/egberts/articles/tight-multiversion-python-re-development-cycle.html"
                                         rel="bookmark"
-                                        title="Permalink to Using Large Network Packet">
-                                        Using Large Network Packet
+                                        title="Permalink to Tight Multiversion Python Re-development Cycle">
+                                        Tight Multiversion Python Re-development Cycle
                                 </a>
 <!-- twitter_article.html begins -->
 
@@ -171,7 +171,7 @@
 <a class="fab fa-twitter"
    target="_blank"
    rel="nofollow noopener noreferrer"
-   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Using%20Large%20Network%20Packet&tw_p=tweetbutton&url=https://egberts.github.io/egberts/articles/using-large-network-packet.html&via=egbertst"
+   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Tight%20Multiversion%20Python%20Re-development%20Cycle&tw_p=tweetbutton&url=https://egberts.github.io/egberts/articles/tight-multiversion-python-re-development-cycle.html&via=egbertst"
 >
 </a>
 -->
@@ -183,8 +183,8 @@
 <!-- article_infos.html begins -->
 <footer class="post-info">
   <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2018-09-24T09%3A38%3A00-04%3A00">
-        <i class="fas fa-calendar"></i>Mon 24 September 2018
+  <abbr class="published" title="2018-12-12T10%3A45%3A00-05%3A00">
+        <i class="fas fa-calendar"></i>Wed 12 December 2018
   </abbr>
 <!--
     <span class="label">By</span>
@@ -196,42 +196,49 @@
 
 <!-- taglist.html begins -->
 <span class="label">Tags</span>
-    <a href="/egberts/tags/ethernet.html"><i class="fas fa-tag"></i>ethernet</a>
-    <a href="/egberts/tags/packet.html"><i class="fas fa-tag"></i>packet</a>
+    <a href="/egberts/tags/python.html"><i class="fas fa-tag"></i>python</a>
 <!-- taglist.html ends -->
 <!-- translation.html begins -->
 <!-- translation.html ends -->
 </footer>
 <!-- article_infos.html ends -->
                 </div>
-                <p>Your customer is using large network packets. And by large packets, this
-means packet size greater than 1514 bytes.</p>
-<p>In computer networking, the maximum transmission unit (MTU) of a
-communications protocol of a layer is the size (in bytes) of the largest
-protocol data unit that the layer can pass onwards. MTU parameters
-usually appear in association with a communications interface (NIC,
-serial port, etc.). Standards (Ethernet, for example) can fix the size
-of an MTU; or systems (such as point-to-point serial links) may decide
-MTU at connect time.</p>
-<h2 id="step-by-step-guide">Step-by-step guide</h2>
-<p>Enter root shell</p>
-<p>Add MTU to the motherboard NIC (eth0)</p>
-<div class="codehilite"><pre><span></span>echo <span class="s2">&quot;MTU=65535&quot;</span> &gt;&gt; /etc/sysconfig/network-scripts/ifcfg-eth0
+                <p>Tight Multiversion Python Re-development Cycle</p>
+<hr>
+<h3 id="set-up-a-new-python-virtual-environment">Set up a new Python virtual environment</h3>
+<div class="codehilite"><pre><span></span><span class="n">cd</span> \<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">python</span>
+<span class="n">mkdir</span> <span class="n">env3</span>
+<span class="c1"># Create the virtual environment support</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">env</span>
+<span class="c1"># subdirectory bin created with all symlink&#39;d executables (ie., pytest,</span>
+<span class="n">python3</span><span class="p">,</span> <span class="n">activate</span><span class="p">)</span>
+
+<span class="c1"># Following source command CANNOT be done from a script file but only</span>
+<span class="kn">from</span> <span class="nn">the</span> <span class="nn">CURRENT</span> <span class="nn">shell</span>
+<span class="n">source</span> <span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+
+<span class="c1"># Now ready to add new (or existing) Python package to within Python3</span>
+<span class="n">environment</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jdoe</span><span class="o">/</span><span class="n">myrepo</span><span class="o">.</span><span class="n">git</span><span class="o">&gt;</span>
+
+<span class="c1"># Go into newly created package repo</span>
+<span class="n">cd</span> <span class="n">myrepo</span>
+
+<span class="c1"># Depending if package is ready, make said package &#39;pseudo-installed&#39;</span>
+<span class="ow">and</span> <span class="n">live</span> <span class="n">edit</span><span class="o">-</span><span class="n">able</span>
+<span class="c1"># This enables you to skip the &quot;install&quot; part</span>
+<span class="c1"># of the tight &quot;edit python source→pip install→ pytest → edit python</span>
+<span class="n">source</span><span class="s2">&quot; development loop.</span>
+<span class="k">if</span> \<span class="p">[</span> <span class="o">-</span><span class="n">r</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> \<span class="p">];</span> <span class="n">then</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<span class="k">else</span>
+<span class="n">echo</span> <span class="s2">&quot;No setup.py file found; must be a new environment or incorrect</span>
+<span class="n">subdirectory</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="n">fi</span>
 </pre></div>
 
 
-<p>Turn off hardware-assist offloading on the Ethernet interface.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># set the MSS</span>
-ifconfig eth0 mtu 65535
-<span class="c1"># turn off TCP offload</span>
-ethtool -K eth0 tso off
-<span class="c1"># turn off GRE offload</span>
-ethtool -K eth0 gso off
-</pre></div>
-
-
-<p>To make it permanent, edit and insert the above code into
-```/etc/rc.local``` and reboot.</p>
+<p>Nice, uh?</p>
                 </div><!-- /.entry-content -->
         </article>
 </section>

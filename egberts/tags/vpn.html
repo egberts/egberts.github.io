@@ -1,15 +1,15 @@
-<!-- articles.html begins -->
-<!-- source file: articles/linux-network-packet-large-using.md -->
-<!-- base.html begins, seeded by egberts/articles/using-large-network-packet.html  -->
+<!-- tag.html begins -->
+<!-- index.html begins -->
+<!-- base.html begins, seeded by egberts/tags/vpn.html  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Using Large Network Packet</title>
+    <title>Egbert Networks - vpn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="canonical" href="https://egberts.github.io/egberts/articles/using-large-network-packet.html">
+    <link rel="canonical" href="https://egberts.github.io/egberts/tags/vpn.html">
 
     <!-- Le styles -->
     <link rel="stylesheet"
@@ -117,7 +117,7 @@
                         <i class="fas fa-folder-open icon-large"></i>javascript
                     </a>
                   </li>
-                  <li class="active">
+                  <li >
                     <a href="/egberts/categories/research.html">
                         <i class="fas fa-folder-open icon-large"></i>research
                     </a>
@@ -148,43 +148,15 @@
     <div class="container-fluid">
       <div class="row">
         <div class="span9" id="content-base">
-<section id="content">
-        <article>
-                <header>
-                        <h1>
-                                <a href="/egberts/articles/using-large-network-packet.html"
-                                        rel="bookmark"
-                                        title="Permalink to Using Large Network Packet">
-                                        Using Large Network Packet
-                                </a>
-<!-- twitter_article.html begins -->
-
-<!-- moved Twitter to SOCIAL/SOCIAL_LABELS
-
-<script
-    charset="utf-8"
-    src="../../egberts/theme/js/widgets.js"
-    type="text/javascript">
-    src="http://platform.twitter.com/widgets.js"
-</script>
-
-<a class="fab fa-twitter"
-   target="_blank"
-   rel="nofollow noopener noreferrer"
-   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Using%20Large%20Network%20Packet&tw_p=tweetbutton&url=https://egberts.github.io/egberts/articles/using-large-network-packet.html&via=egbertst"
->
-</a>
--->
-<!-- twitter_article.html ends -->
-                        </h1>
-                </header>
-                <div class="entry-content">
-                <div class="well">
-<!-- article_infos.html begins -->
+      <div class="article">
+        <h2>
+          <a href="/egberts/articles/comparison-of-vpn-specification.html">Comparison of VPN specification</a>
+        </h2>
+        <div class="well small"><!-- article_infos.html begins -->
 <footer class="post-info">
   <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2018-09-24T09%3A38%3A00-04%3A00">
-        <i class="fas fa-calendar"></i>Mon 24 September 2018
+  <abbr class="published" title="2018-07-17T13%3A01%3A00-04%3A00">
+        <i class="fas fa-calendar"></i>Tue 17 July 2018
   </abbr>
 <!--
     <span class="label">By</span>
@@ -196,45 +168,25 @@
 
 <!-- taglist.html begins -->
 <span class="label">Tags</span>
-    <a href="/egberts/tags/ethernet.html"><i class="fas fa-tag"></i>ethernet</a>
-    <a href="/egberts/tags/packet.html"><i class="fas fa-tag"></i>packet</a>
+    <a href="/egberts/tags/comparison.html"><i class="fas fa-tag"></i>comparison</a>
+    <a href="/egberts/tags/vpn.html"><i class="fas fa-tag"></i>vpn</a>
 <!-- taglist.html ends -->
 <!-- translation.html begins -->
 <!-- translation.html ends -->
 </footer>
 <!-- article_infos.html ends -->
-                </div>
-                <p>Your customer is using large network packets. And by large packets, this
-means packet size greater than 1514 bytes.</p>
-<p>In computer networking, the maximum transmission unit (MTU) of a
-communications protocol of a layer is the size (in bytes) of the largest
-protocol data unit that the layer can pass onwards. MTU parameters
-usually appear in association with a communications interface (NIC,
-serial port, etc.). Standards (Ethernet, for example) can fix the size
-of an MTU; or systems (such as point-to-point serial links) may decide
-MTU at connect time.</p>
-<h2 id="step-by-step-guide">Step-by-step guide</h2>
-<p>Enter root shell</p>
-<p>Add MTU to the motherboard NIC (eth0)</p>
-<div class="codehilite"><pre><span></span>echo <span class="s2">&quot;MTU=65535&quot;</span> &gt;&gt; /etc/sysconfig/network-scripts/ifcfg-eth0
-</pre></div>
+</div>
+        <div class="summary"><p>A comparison of VPN and its specification.</p>
+          <a class="btn primary xsmall" href="/egberts/articles/comparison-of-vpn-specification.html">more ...</a>
+        </div>
+      </div>
+      <hr />
 
-
-<p>Turn off hardware-assist offloading on the Ethernet interface.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># set the MSS</span>
-ifconfig eth0 mtu 65535
-<span class="c1"># turn off TCP offload</span>
-ethtool -K eth0 tso off
-<span class="c1"># turn off GRE offload</span>
-ethtool -K eth0 gso off
-</pre></div>
-
-
-<p>To make it permanent, edit and insert the above code into
-```/etc/rc.local``` and reboot.</p>
-                </div><!-- /.entry-content -->
-        </article>
-</section>
+      <section id="content" class="body">
+        <h1>Pages</h1>
+          <li><a href="/egberts/pages/uses.html">Uses</a></li>
+          <li><a href="/egberts/pages/about.html">About</a></li>
+      </section>
         </div><!--/span-->
 
         <div class="span3 well sidebar-nav" id="sidebar">

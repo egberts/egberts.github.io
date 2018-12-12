@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Egberts</title><link href="https://egbert.github.io/" rel="alternate"></link><link href="https://egbert.github.io/atom.xml" rel="self"></link><id>https://egbert.github.io/</id><updated>2018-11-29T10:09:00-05:00</updated><entry><title>Automata theory: formal languages and formal grammars</title><link href="/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html" rel="alternate"></link><published>2018-11-29T10:09:00-05:00</published><updated>2018-11-29T10:09:00-05:00</updated><author><name></name></author><id>tag:None,2018-11-29:/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html</id><summary type="html">&lt;p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2018-12-12T10:45:00-05:00</updated><entry><title>Tight Multiversion Python Re-development Cycle</title><link href="/egberts/articles/tight-multiversion-python-re-development-cycle.html" rel="alternate"></link><published>2018-12-12T10:45:00-05:00</published><updated>2018-12-12T10:45:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-12:/egberts/articles/tight-multiversion-python-re-development-cycle.html</id><summary type="html">&lt;p&gt;Tight Multiversion Python Re-development Cycle&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="set-up-a-new-python-virtual-environment"&gt;Set up a new Python virtual environment&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt; \&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;work&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;
+&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;env3&lt;/span&gt;
+&lt;span class="c1"&gt;# Create the virtual environment support&lt;/span&gt;
+&lt;span class="n"&gt;python3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;
+&lt;span class="c1"&gt;# subdirectory bin created with all symlink&amp;#39;d executables (ie., pytest,&lt;/span&gt;
+&lt;span class="n"&gt;python3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;activate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Following source command CANNOT be done from a script file but only …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Tight Multiversion Python Re-development Cycle&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="set-up-a-new-python-virtual-environment"&gt;Set up a new Python virtual environment&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt; \&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;work&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;
+&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;env3&lt;/span&gt;
+&lt;span class="c1"&gt;# Create the virtual environment support&lt;/span&gt;
+&lt;span class="n"&gt;python3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;
+&lt;span class="c1"&gt;# subdirectory bin created with all symlink&amp;#39;d executables (ie., pytest,&lt;/span&gt;
+&lt;span class="n"&gt;python3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;activate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Following source command CANNOT be done from a script file but only&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;the&lt;/span&gt; &lt;span class="nn"&gt;CURRENT&lt;/span&gt; &lt;span class="nn"&gt;shell&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="nb"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Now ready to add new (or existing) Python package to within Python3&lt;/span&gt;
+&lt;span class="n"&gt;environment&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;jdoe&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;myrepo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Go into newly created package repo&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;myrepo&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Depending if package is ready, make said package &amp;#39;pseudo-installed&amp;#39;&lt;/span&gt;
+&lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;live&lt;/span&gt; &lt;span class="n"&gt;edit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;able&lt;/span&gt;
+&lt;span class="c1"&gt;# This enables you to skip the &amp;quot;install&amp;quot; part&lt;/span&gt;
+&lt;span class="c1"&gt;# of the tight &amp;quot;edit python source→pip install→ pytest → edit python&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; development loop.&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; \&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; \&lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;No setup.py file found; must be a new environment or incorrect&lt;/span&gt;
+&lt;span class="n"&gt;subdirectory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Nice, uh?&lt;/p&gt;</content><category term="python"></category></entry><entry><title>Automata theory: formal languages and formal grammars</title><link href="/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html" rel="alternate"></link><published>2018-11-29T10:09:00-05:00</published><updated>2018-11-29T10:09:00-05:00</updated><author><name></name></author><id>tag:None,2018-11-29:/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html</id><summary type="html">&lt;p&gt;
 &lt;div class="justtable"&gt;
     &lt;table class="justtable"&gt;
         &lt;thead class="justtable"&gt;
@@ -857,7 +902,7 @@ entire zone, and subdomain dyn.example.com has the obvious meaning.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  $ nsupdate -k tsig-key.private
   &amp;gt; zone example.com
   &amp;gt; del myserver.example.com
-  &amp;gt; add myserver.example.com &lt;span class="m"&gt;3600&lt;/span&gt; A &lt;span class="m"&gt;100&lt;/span&gt;.64.1.1
+  &amp;gt; add myserver.example.com 3600 A 100.64.1.1
   &amp;gt; send
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1593,7 +1638,7 @@ entire zone, and subdomain dyn.example.com has the obvious meaning.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nsupdate -k tsig-key.private
 &amp;gt; zone example.com
 &amp;gt; del myserver.example.com
-&amp;gt; add myserver.example.com &lt;span class="m"&gt;3600&lt;/span&gt; A &lt;span class="m"&gt;100&lt;/span&gt;.64.1.1
+&amp;gt; add myserver.example.com 3600 A 100.64.1.1
 &amp;gt; send
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1658,7 +1703,7 @@ reported that there is no dissector for HMAC-SHA256.&lt;/p&gt;
 
 &lt;h3 id="update-failed-notauthbadkey"&gt;update failed: NOTAUTH(BADKEY)&lt;/h3&gt;
 &lt;p&gt;Check the /var/log/bind/security.log for:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;security&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="mf"&gt;127.0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;25080&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;view&lt;/span&gt; &lt;span class="n"&gt;gateway&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;invalid&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;signature&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;TSIG&lt;/span&gt; &lt;span class="n"&gt;ddns&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;arca&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;example&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;net&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;tsig&lt;/span&gt; &lt;span class="n"&gt;verify&lt;/span&gt; &lt;span class="n"&gt;failure&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BADKEY&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;security: error: client 127.0.0.1#25080: view gateway: request has invalid` signature: TSIG ddns-key.arca.example.net: tsig verify failure (BADKEY)
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2414,13 +2459,13 @@ MTU at connect time.&lt;/p&gt;
 &lt;h2 id="step-by-step-guide"&gt;Step-by-step guide&lt;/h2&gt;
 &lt;p&gt;Enter root shell&lt;/p&gt;
 &lt;p&gt;Add MTU to the motherboard NIC (eth0)&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;MTU=65535&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysconfig/network-scripts/ifcfg-eth0
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo &lt;span class="s2"&gt;&amp;quot;MTU=65535&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysconfig/network-scripts/ifcfg-eth0
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Turn off hardware-assist offloading on the Ethernet interface.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# set the MSS&lt;/span&gt;
-ifconfig eth0 mtu &lt;span class="m"&gt;65535&lt;/span&gt;
+ifconfig eth0 mtu 65535
 &lt;span class="c1"&gt;# turn off TCP offload&lt;/span&gt;
 ethtool -K eth0 tso off
 &lt;span class="c1"&gt;# turn off GRE offload&lt;/span&gt;
@@ -2447,7 +2492,7 @@ opcontrol --setup --no-vmlinux
 &lt;p&gt;Note: vmlinux must be UNSTRIPPED (HAVE symbols) in its ELF2 file.
 Extracting from /boot/vmlinuz-&amp;hellip; will not work.&lt;/p&gt;
 &lt;p&gt;Configure Kernel to run oprofile:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &amp;gt; /proc/sys/kernel/nmi_watchdog
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo 0 &amp;gt; /proc/sys/kernel/nmi_watchdog
 &lt;span class="c1"&gt;#  and collect&lt;/span&gt;
 opcontrol --reset
 opcontrol --separate&lt;span class="o"&gt;=&lt;/span&gt;lib,kernel
@@ -2614,7 +2659,7 @@ Navigate to the location of your zone files.&lt;/p&gt;
 
 
 &lt;p&gt;Create a Zone Signing Key(ZSK) with the following command.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dnssec-keygen -a NSEC3RSASHA1 -b &lt;span class="m"&gt;2048&lt;/span&gt; -n ZONE example.com
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dnssec-keygen -a NSEC3RSASHA1 -b 2048 -n ZONE example.com
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2623,7 +2668,7 @@ key to be generated; otherwise it&amp;rsquo;ll take a very long time. Sample
 output.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@master# &lt;span class="nb"&gt;cd&lt;/span&gt; /var/cache/bind
 root@master# dnssec-keygen -a NSEC3RSASHA1 &lt;span class="se"&gt;\&lt;/span&gt;
-                           -b &lt;span class="m"&gt;2048&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+                           -b 2048 &lt;span class="se"&gt;\&lt;/span&gt;
                            -n ZONE &lt;span class="se"&gt;\&lt;/span&gt;
                            example.com
    Generating key pair..................+++ .............+++
@@ -2632,7 +2677,7 @@ root@master# dnssec-keygen -a NSEC3RSASHA1 &lt;span class="se"&gt;\&lt;/span
 
 
 &lt;p&gt;Create a Key Signing Key(KSK) with the following command.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dnssec-keygen -f KSK -a NSEC3RSASHA1 -b &lt;span class="m"&gt;4096&lt;/span&gt; -n ZONE example.com
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -n ZONE example.com
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2640,7 +2685,7 @@ root@master# dnssec-keygen -a NSEC3RSASHA1 &lt;span class="se"&gt;\&lt;/span
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@master# &lt;span class="nb"&gt;cd&lt;/span&gt; /var/cache/bind
 root@master# dnssec-keygen -f KSK &lt;span class="se"&gt;\&lt;/span&gt;
                            -a NSEC3RSASHA1 &lt;span class="se"&gt;\&lt;/span&gt;
-                           -b &lt;span class="m"&gt;4096&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+                           -b 4096 &lt;span class="se"&gt;\&lt;/span&gt;
                            -n ZONE &lt;span class="se"&gt;\&lt;/span&gt;
                            example.com
    Generating key pair......................++.............................................................................................................................................................................................................++
@@ -2653,7 +2698,7 @@ KSK. We have to add the public keys which contain the DNSKEY record to
 the zone file. The following for loop will do this.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; key in &lt;span class="sb"&gt;`&lt;/span&gt;ls Kexample.com*.key&lt;span class="sb"&gt;`&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\$INCLUDE &lt;/span&gt;&lt;span class="nv"&gt;$key&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&amp;gt;&amp;gt; example.com.zone
+echo &lt;span class="s2"&gt;&amp;quot;\$INCLUDE &lt;/span&gt;&lt;span class="nv"&gt;$key&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&amp;gt;&amp;gt; example.com.zone
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -2670,30 +2715,30 @@ the zone file. The following for loop will do this.&lt;/p&gt;
 &lt;p&gt;Replace salt with something random. Here is an example with the output.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /var/cache/bind
 dnssec-signzone -A -3 &lt;span class="se"&gt;\&lt;/span&gt;
-    &lt;span class="k"&gt;$(&lt;/span&gt;head -c &lt;span class="m"&gt;1000&lt;/span&gt; /dev/random &lt;span class="p"&gt;|&lt;/span&gt; sha1sum &lt;span class="p"&gt;|&lt;/span&gt; cut -b &lt;span class="m"&gt;1&lt;/span&gt;-16&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="k"&gt;$(&lt;/span&gt;head -c 1000 /dev/random &lt;span class="p"&gt;|&lt;/span&gt; sha1sum &lt;span class="p"&gt;|&lt;/span&gt; cut -b &lt;span class="m"&gt;1&lt;/span&gt;-16&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
     -N INCREMENT &lt;span class="se"&gt;\&lt;/span&gt;
     -o example.com &lt;span class="se"&gt;\&lt;/span&gt;
     -t example.com.zone
 
    Verifying the zone using the following algorithms: NSEC3RSASHA1.
    Zone signing complete:
-   Algorithm: NSEC3RSASHA1: KSKs: &lt;span class="m"&gt;1&lt;/span&gt; active, &lt;span class="m"&gt;0&lt;/span&gt; stand-by, &lt;span class="m"&gt;0&lt;/span&gt; revoked
-                           ZSKs: &lt;span class="m"&gt;1&lt;/span&gt; active, &lt;span class="m"&gt;0&lt;/span&gt; stand-by, &lt;span class="m"&gt;0&lt;/span&gt; revoked
+   Algorithm: NSEC3RSASHA1: KSKs: 1 active, 0 stand-by, 0 revoked
+                           ZSKs: 1 active, 0 stand-by, 0 revoked
    example.com.zone.signed
-   Signatures generated:                       &lt;span class="m"&gt;14&lt;/span&gt;
-   Signatures retained:                         &lt;span class="m"&gt;0&lt;/span&gt;
-   Signatures dropped:                          &lt;span class="m"&gt;0&lt;/span&gt;
-   Signatures successfully verified:            &lt;span class="m"&gt;0&lt;/span&gt;
-   Signatures unsuccessfully verified:          &lt;span class="m"&gt;0&lt;/span&gt;
-   Signing &lt;span class="nb"&gt;time&lt;/span&gt; in seconds:                 &lt;span class="m"&gt;0&lt;/span&gt;.046
-   Signatures per second:                 &lt;span class="m"&gt;298&lt;/span&gt;.310
-   Runtime in seconds:                      &lt;span class="m"&gt;0&lt;/span&gt;.056
+   Signatures generated:                       14
+   Signatures retained:                         0
+   Signatures dropped:                          0
+   Signatures successfully verified:            0
+   Signatures unsuccessfully verified:          0
+   Signing time in seconds:                 0.046
+   Signatures per second:                 298.310
+   Runtime in seconds:                      0.056
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;A 16 character string must be entered as the &amp;ldquo;salt&amp;rdquo;. The following
 command&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;head -c &lt;span class="m"&gt;1000&lt;/span&gt; /dev/random &lt;span class="p"&gt;|&lt;/span&gt; sha1sum &lt;span class="p"&gt;|&lt;/span&gt; cut -b &lt;span class="m"&gt;1&lt;/span&gt;-16
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;head -c 1000 /dev/random &lt;span class="p"&gt;|&lt;/span&gt; sha1sum &lt;span class="p"&gt;|&lt;/span&gt; cut -b 1-16
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2958,7 +3003,7 @@ command in which we specified a -3 option followed by another elaborate
 command to generate a random string. This is the salt which can be found
 using the following dig query.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dig NSEC3PARAM example.com. @master.example.com. +short
-   &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt; 7CBAA916230368F2
+   1 0 10 7CBAA916230368F2
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2983,7 +3028,117 @@ permission on the zone directory and read permission on the private keys
 
 &lt;p&gt;This will sign the zone every 3 days and as a result a new salt will be
 generated. You&amp;rsquo;ll also receive an email containing the output of the
-dnssec-signzone command.&lt;/p&gt;</content><category term="dnssec"></category><category term="bind9"></category><category term="dns"></category></entry><entry><title>Change password to MacOS File Vault</title><link href="/egberts/articles/change-password-to-macos-file-vault.html" rel="alternate"></link><published>2018-07-07T16:43:00-04:00</published><updated>2018-07-07T16:43:00-04:00</updated><author><name></name></author><id>tag:None,2018-07-07:/egberts/articles/change-password-to-macos-file-vault.html</id><summary type="html">&lt;p&gt;How to change FileVault password. This is useful when wanting to have
+dnssec-signzone command.&lt;/p&gt;</content><category term="dnssec"></category><category term="bind9"></category><category term="dns"></category></entry><entry><title>Comparison of VPN specification</title><link href="/egberts/articles/comparison-of-vpn-specification.html" rel="alternate"></link><published>2018-07-17T13:01:00-04:00</published><updated>2018-07-17T13:01:00-04:00</updated><author><name></name></author><id>tag:None,2018-07-17:/egberts/articles/comparison-of-vpn-specification.html</id><summary type="html">&lt;p&gt;A comparison of VPN and its specification.&lt;/p&gt;</summary><content type="html">&lt;p&gt;
+&lt;div class="justtable"&gt;
+    &lt;table class="justtable"&gt;
+        &lt;thead class="justtable"&gt;
+        &lt;tr class="justtable"&gt;
+            &lt;th class="justtable"&gt;Comparison&lt;/th&gt;
+            &lt;th class="justtable"&gt; PPTP&lt;/th&gt;
+            &lt;th class="justtable"&gt; L2TP&lt;/th&gt;
+            &lt;th class="justtable"&gt; &lt;a href="OpenVPN" class="uri" title="wikilink"&gt;OpenVPN&lt;/a&gt;&lt;/th&gt;
+            &lt;th class="justtable"&gt; IPSec&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody class="justtable"&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;VPN Encryption &lt;/td&gt;
+                &lt;td class="justtable"&gt; 128-bit &lt;/td&gt;
+                &lt;td class="justtable"&gt; 256-bit &lt;/td&gt;
+                &lt;td class="justtable"&gt; 160-bit &lt;br&gt; 256-bit &lt;/td&gt;
+                &lt;td class="justtable"&gt; 256-bit |-&lt;br&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Manual Setup Supported &lt;/td&gt;
+                &lt;td class="justtable"&gt; Windows &lt;br&gt; Mac OS X &lt;br&gt; Linux &lt;br&gt; iOS &lt;br&gt; Android &lt;br&gt; DD-WRT &lt;/td&gt;
+                &lt;td class="justtable"&gt; Windows &lt;br&gt; Mac OS X &lt;br&gt; Linux &lt;br&gt; iOS &lt;br&gt; Android &lt;/td&gt;
+                &lt;td class="justtable"&gt; Windows &lt;br&gt; Mac OS X &lt;br&gt; Linux &lt;br&gt; iOS &lt;br&gt; Android &lt;/td&gt;
+                &lt;td class="justtable"&gt; Windows &lt;br&gt; Mac OS X &lt;br&gt; Android&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;VPN Security &lt;/td&gt;
+                &lt;td class="justtable"&gt; Basic encryption &lt;/td&gt;
+                &lt;td class="justtable"&gt; Highest encryption. Checks data integrity and encapsulates the data twice.  &lt;/td&gt;
+                &lt;td class="justtable"&gt; Highest encryption. Authenticates data with digital certificates.  &lt;/td&gt;
+                &lt;td class="justtable"&gt; Highest encryption. Authenticates data with digital certificates.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;VPN Speed &lt;/td&gt;
+                &lt;td class="justtable"&gt; Fast due to lower encryption. &lt;/td&gt;
+                &lt;td class="justtable"&gt; Requires more CPU processing to encapsulate data twice. &lt;/td&gt;
+                &lt;td class="justtable"&gt; &amp;ldquo;Best performing protocol. Fast speeds even on connections with high latency and across great distances.&amp;rdquo; &lt;/td&gt;
+                &lt;td class="justtable"&gt; Best performing protocol. Defeats deep packet inspection. Fast speeds; even on connections with high latency and across great distances.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Stability &lt;/td&gt;
+                &lt;td class="justtable"&gt; Works well on most Wi-Fi hotspots very stable. &lt;/td&gt;
+                &lt;td class="justtable"&gt; Stable on NAT-supported devices.&lt;/td&gt;
+                &lt;td class="justtable"&gt; Most reliable and stable; even behind wireless routers; on non-reliable networks; and on Wi-Fi hotspots.&lt;/td&gt;
+                &lt;td class="justtable"&gt; Masks VPN traffic so it cannot be identified as a VPN connection (via deep packet inspection) and blocked.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Compatibility &lt;/td&gt;
+                &lt;td class="justtable"&gt; Native in most desktop; mobile device and tablet operating systems.&lt;/td&gt;
+                &lt;td class="justtable"&gt; Native in most desktop; mobile device and tablet operating systems.&lt;/td&gt;
+                &lt;td class="justtable"&gt; Supported by most desktop computer operating systems and Android mobile and tablet devices.&lt;/td&gt;
+                &lt;td class="justtable"&gt; Supported by most desktop computer operating systems and Android mobile and tablet devices.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Conclusion &lt;/td&gt;
+                &lt;td class="justtable"&gt; PPTP is a fast; easy-to-use protocol. It is a good choice if OpenVPN isn&amp;rsquo;t supported by your device.&lt;/td&gt;
+                &lt;td class="justtable"&gt; L2TP/IPsec is a good choice if OpenVPN isn&amp;rsquo;t supported by your device and security is top priority.&lt;/td&gt;
+                &lt;td class="justtable"&gt; OpenVPN is the recommended protocol for desktops including Windows/Mac OS X/Linux. Highest performance - fast&lt;/td&gt;
+                &lt;td class="justtable"&gt; secure and reliable.&amp;rdquo;, &amp;ldquo;Chameleon is great for VPN users being blocked in countries such as China, or if you are experiencing speed issues due to bandwidth throttling.&amp;rdquo;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h3 id="technical-features"&gt;Technical features&lt;/h3&gt;
+&lt;td&gt;
+&lt;p&gt;&lt;ref name="acevpn-openvpn"&gt;{{cite web |url=&lt;a href="https://www.acevpn.com" class="uri"&gt;https://www.acevpn.com&lt;/a&gt;
+&lt;td&gt;&lt;p&gt;"title=Fast, Secure, Anonymous VPN and Smart DNS Service. Free Installation"
+&lt;td&gt;&lt;p&gt;work=Multiple Devices and Protocols |deadurl=no
+&lt;td&gt;&lt;p&gt;archiveurl=&lt;a href="https://web.archive.org/web/20180103183838/https://www.acevpn.com/" class="uri"&gt;https://web.archive.org/web/20180103183838/https://www.acevpn.com/&lt;/a&gt;
+&lt;td&gt;&lt;p&gt;archivedate=2018-01-03 }}&lt;/ref&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Website
+-------
+
+![](Antipat4.svg "fig:Antipat4.svg")|Library [warrant
+canary](warrant_canary "wikilink") relying on active removal designed by
+[Jessamyn West](Jessamyn_West_(librarian) "wikilink").\]\] The rating of
+the services' websites according to SSL server certificate and HTTP
+cookie test tools. Also listed is whether the websites maintain a
+[warrant canary](warrant_canary "wikilink").
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class="header"&gt;
+&lt;th&gt;&lt;p&gt;Service&lt;/p&gt;&lt;/th&gt;
+&lt;th&gt;&lt;p&gt;&lt;a href="Public_key_certificate#TLS/SSL_server_certificate" title="wikilink"&gt;SSL certificate&lt;/a&gt;&lt;/p&gt;&lt;/th&gt;
+&lt;th&gt;&lt;p&gt;&lt;a href="#Privacy_Impact_Score" title="wikilink"&gt;Privacy Impact Score&lt;/a&gt;&lt;/p&gt;&lt;/th&gt;
+&lt;th&gt;&lt;p&gt;&lt;a href="#Warrant_canary" title="wikilink"&gt;Warrant canary&lt;/a&gt;&lt;/p&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="odd"&gt;
+&lt;td&gt;&lt;p&gt;&lt;a href="#Holder" title="wikilink"&gt;Holder&lt;/a&gt;
+&lt;td&gt;&lt;p&gt;&lt;a href="#Issued_to" title="wikilink"&gt;Issued to&lt;/a&gt;
+&lt;td&gt;&lt;p&gt;data-sort-type=&amp;quot;number&amp;quot; | &lt;a href="#SSL_Rating" title="wikilink"&gt;SSL rating&lt;/a&gt;
+&lt;/tr&gt;
+&lt;tr class="even"&gt;
+&lt;td&gt;&lt;p&gt;&lt;a href="AceVPN" class="uri" title="wikilink"&gt;AceVPN&lt;/a&gt;
+&lt;td&gt;
+&lt;p&gt;&lt;ref name="ssltest-acevpn"&gt;{{cite web
+&lt;td&gt;&lt;p&gt;url=&lt;a href="https://www.ssllabs.com/ssltest/analyze.html?d=acevpn.com&amp;amp;s=104.28.23.38" class="uri"&gt;https://www.ssllabs.com/ssltest/analyze.html?d=acevpn.com&amp;amp;s=104.28.23.38&lt;/a&gt;
+&lt;td&gt;&lt;p&gt;title=SSL Server Test: acevpn.com (Powered by Qualys SSL Labs) |deadurl=no
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</content><category term="comparison"></category><category term="vpn"></category></entry><entry><title>Change password to MacOS File Vault</title><link href="/egberts/articles/change-password-to-macos-file-vault.html" rel="alternate"></link><published>2018-07-07T16:43:00-04:00</published><updated>2018-07-07T16:43:00-04:00</updated><author><name></name></author><id>tag:None,2018-07-07:/egberts/articles/change-password-to-macos-file-vault.html</id><summary type="html">&lt;p&gt;How to change FileVault password. This is useful when wanting to have
 two separate passwords; one for the disk and one for the login account.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://support.apple.com/en-us/HT202842"&gt;https://support.apple.com/en-us/HT202842&lt;/a&gt;&lt;/li&gt;
@@ -3021,9 +3176,9 @@ Engine, add the analyzer::mime:: namespace to its full function name:&lt;/p&gt;
 local.bro script in /usr/share/bro/sfa/policy directory. This is also
 useful for troubleshooting script-land memory leakage.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;@load misc/profiling&lt;/span&gt;
-&lt;span class="k"&gt;redef&lt;/span&gt; &lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="nn"&gt;::&lt;/span&gt;&lt;span class="n"&gt;enable_local_logging&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;T&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;redef&lt;/span&gt; &lt;span class="n"&gt;profiling_interval&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="n"&gt;secs&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;redef&lt;/span&gt; &lt;span class="n"&gt;expensive_profiling_multiple&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;redef&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="nn"&gt;::&lt;/span&gt;&lt;span class="n"&gt;enable_local_logging&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="kc"&gt;T&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;redef&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="n"&gt;profiling_interval&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="n"&gt;secs&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;redef&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="n"&gt;expensive_profiling_multiple&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3535,7 +3690,7 @@ the table below. The possible values for &lt;level&gt; are:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo yum install mongodb-devel
 sudo service bro start
 sudo yum install cmake28
-sudo alternatives --install /usr/bin/cmake cmake /usr/bin/cmake28 &lt;span class="m"&gt;90&lt;/span&gt;
+sudo alternatives --install /usr/bin/cmake cmake /usr/bin/cmake28 90
 sudo yum install python-devel
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -3545,7 +3700,7 @@ sudo yum install python-devel
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./configure --enable-debug &lt;span class="se"&gt;\&lt;/span&gt;
    --disable-broccoli --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr --conf-files-dir&lt;span class="o"&gt;=&lt;/span&gt;/etc/bro
 make
-sudo make install  &lt;span class="c1"&gt;# goes into /usr/local&lt;/span&gt;
+sudo make install  # goes into /usr/local
 &lt;/pre&gt;&lt;/div&gt;
 
 

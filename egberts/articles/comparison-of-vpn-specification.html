@@ -1,15 +1,15 @@
 <!-- articles.html begins -->
-<!-- source file: articles/linux-network-packet-large-using.md -->
-<!-- base.html begins, seeded by egberts/articles/using-large-network-packet.html  -->
+<!-- source file: articles/comparison-vpn-specs.md -->
+<!-- base.html begins, seeded by egberts/articles/comparison-of-vpn-specification.html  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Using Large Network Packet</title>
+    <title>Comparison of VPN specification</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="canonical" href="https://egberts.github.io/egberts/articles/using-large-network-packet.html">
+    <link rel="canonical" href="https://egberts.github.io/egberts/articles/comparison-of-vpn-specification.html">
 
     <!-- Le styles -->
     <link rel="stylesheet"
@@ -152,10 +152,10 @@
         <article>
                 <header>
                         <h1>
-                                <a href="/egberts/articles/using-large-network-packet.html"
+                                <a href="/egberts/articles/comparison-of-vpn-specification.html"
                                         rel="bookmark"
-                                        title="Permalink to Using Large Network Packet">
-                                        Using Large Network Packet
+                                        title="Permalink to Comparison of VPN specification">
+                                        Comparison of VPN specification
                                 </a>
 <!-- twitter_article.html begins -->
 
@@ -171,7 +171,7 @@
 <a class="fab fa-twitter"
    target="_blank"
    rel="nofollow noopener noreferrer"
-   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Using%20Large%20Network%20Packet&tw_p=tweetbutton&url=https://egberts.github.io/egberts/articles/using-large-network-packet.html&via=egbertst"
+   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Comparison%20of%20VPN%20specification&tw_p=tweetbutton&url=https://egberts.github.io/egberts/articles/comparison-of-vpn-specification.html&via=egbertst"
 >
 </a>
 -->
@@ -183,8 +183,8 @@
 <!-- article_infos.html begins -->
 <footer class="post-info">
   <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2018-09-24T09%3A38%3A00-04%3A00">
-        <i class="fas fa-calendar"></i>Mon 24 September 2018
+  <abbr class="published" title="2018-07-17T13%3A01%3A00-04%3A00">
+        <i class="fas fa-calendar"></i>Tue 17 July 2018
   </abbr>
 <!--
     <span class="label">By</span>
@@ -196,42 +196,125 @@
 
 <!-- taglist.html begins -->
 <span class="label">Tags</span>
-    <a href="/egberts/tags/ethernet.html"><i class="fas fa-tag"></i>ethernet</a>
-    <a href="/egberts/tags/packet.html"><i class="fas fa-tag"></i>packet</a>
+    <a href="/egberts/tags/comparison.html"><i class="fas fa-tag"></i>comparison</a>
+    <a href="/egberts/tags/vpn.html"><i class="fas fa-tag"></i>vpn</a>
 <!-- taglist.html ends -->
 <!-- translation.html begins -->
 <!-- translation.html ends -->
 </footer>
 <!-- article_infos.html ends -->
                 </div>
-                <p>Your customer is using large network packets. And by large packets, this
-means packet size greater than 1514 bytes.</p>
-<p>In computer networking, the maximum transmission unit (MTU) of a
-communications protocol of a layer is the size (in bytes) of the largest
-protocol data unit that the layer can pass onwards. MTU parameters
-usually appear in association with a communications interface (NIC,
-serial port, etc.). Standards (Ethernet, for example) can fix the size
-of an MTU; or systems (such as point-to-point serial links) may decide
-MTU at connect time.</p>
-<h2 id="step-by-step-guide">Step-by-step guide</h2>
-<p>Enter root shell</p>
-<p>Add MTU to the motherboard NIC (eth0)</p>
-<div class="codehilite"><pre><span></span>echo <span class="s2">&quot;MTU=65535&quot;</span> &gt;&gt; /etc/sysconfig/network-scripts/ifcfg-eth0
-</pre></div>
+                <p>
+<div class="justtable">
+    <table class="justtable">
+        <thead class="justtable">
+        <tr class="justtable">
+            <th class="justtable">Comparison</th>
+            <th class="justtable"> PPTP</th>
+            <th class="justtable"> L2TP</th>
+            <th class="justtable"> <a href="OpenVPN" class="uri" title="wikilink">OpenVPN</a></th>
+            <th class="justtable"> IPSec</th>
+        </tr>
+        </thead>
+        <tbody class="justtable">
+            <tr class="justtable">
+                <td class="justtable">VPN Encryption </td>
+                <td class="justtable"> 128-bit </td>
+                <td class="justtable"> 256-bit </td>
+                <td class="justtable"> 160-bit <br> 256-bit </td>
+                <td class="justtable"> 256-bit |-<br></td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">Manual Setup Supported </td>
+                <td class="justtable"> Windows <br> Mac OS X <br> Linux <br> iOS <br> Android <br> DD-WRT </td>
+                <td class="justtable"> Windows <br> Mac OS X <br> Linux <br> iOS <br> Android </td>
+                <td class="justtable"> Windows <br> Mac OS X <br> Linux <br> iOS <br> Android </td>
+                <td class="justtable"> Windows <br> Mac OS X <br> Android</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">VPN Security </td>
+                <td class="justtable"> Basic encryption </td>
+                <td class="justtable"> Highest encryption. Checks data integrity and encapsulates the data twice.  </td>
+                <td class="justtable"> Highest encryption. Authenticates data with digital certificates.  </td>
+                <td class="justtable"> Highest encryption. Authenticates data with digital certificates.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">VPN Speed </td>
+                <td class="justtable"> Fast due to lower encryption. </td>
+                <td class="justtable"> Requires more CPU processing to encapsulate data twice. </td>
+                <td class="justtable"> &ldquo;Best performing protocol. Fast speeds even on connections with high latency and across great distances.&rdquo; </td>
+                <td class="justtable"> Best performing protocol. Defeats deep packet inspection. Fast speeds; even on connections with high latency and across great distances.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">Stability </td>
+                <td class="justtable"> Works well on most Wi-Fi hotspots very stable. </td>
+                <td class="justtable"> Stable on NAT-supported devices.</td>
+                <td class="justtable"> Most reliable and stable; even behind wireless routers; on non-reliable networks; and on Wi-Fi hotspots.</td>
+                <td class="justtable"> Masks VPN traffic so it cannot be identified as a VPN connection (via deep packet inspection) and blocked.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">Compatibility </td>
+                <td class="justtable"> Native in most desktop; mobile device and tablet operating systems.</td>
+                <td class="justtable"> Native in most desktop; mobile device and tablet operating systems.</td>
+                <td class="justtable"> Supported by most desktop computer operating systems and Android mobile and tablet devices.</td>
+                <td class="justtable"> Supported by most desktop computer operating systems and Android mobile and tablet devices.</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">Conclusion </td>
+                <td class="justtable"> PPTP is a fast; easy-to-use protocol. It is a good choice if OpenVPN isn&rsquo;t supported by your device.</td>
+                <td class="justtable"> L2TP/IPsec is a good choice if OpenVPN isn&rsquo;t supported by your device and security is top priority.</td>
+                <td class="justtable"> OpenVPN is the recommended protocol for desktops including Windows/Mac OS X/Linux. Highest performance - fast</td>
+                <td class="justtable"> secure and reliable.&rdquo;, &ldquo;Chameleon is great for VPN users being blocked in countries such as China, or if you are experiencing speed issues due to bandwidth throttling.&rdquo;</td>
+            </tr>
+        </tbody>
+    </table>
+</div></p>
+<h3 id="technical-features">Technical features</h3>
+<td>
+<p><ref name="acevpn-openvpn">{{cite web |url=<a href="https://www.acevpn.com" class="uri">https://www.acevpn.com</a>
+<td><p>"title=Fast, Secure, Anonymous VPN and Smart DNS Service. Free Installation"
+<td><p>work=Multiple Devices and Protocols |deadurl=no
+<td><p>archiveurl=<a href="https://web.archive.org/web/20180103183838/https://www.acevpn.com/" class="uri">https://web.archive.org/web/20180103183838/https://www.acevpn.com/</a>
+<td><p>archivedate=2018-01-03 }}</ref>
+<td></td>
+</tr>
+</tbody>
+</table>
 
+Website
+-------
 
-<p>Turn off hardware-assist offloading on the Ethernet interface.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># set the MSS</span>
-ifconfig eth0 mtu 65535
-<span class="c1"># turn off TCP offload</span>
-ethtool -K eth0 tso off
-<span class="c1"># turn off GRE offload</span>
-ethtool -K eth0 gso off
-</pre></div>
+![](Antipat4.svg "fig:Antipat4.svg")|Library [warrant
+canary](warrant_canary "wikilink") relying on active removal designed by
+[Jessamyn West](Jessamyn_West_(librarian) "wikilink").\]\] The rating of
+the services' websites according to SSL server certificate and HTTP
+cookie test tools. Also listed is whether the websites maintain a
+[warrant canary](warrant_canary "wikilink").
 
-
-<p>To make it permanent, edit and insert the above code into
-```/etc/rc.local``` and reboot.</p>
+<table>
+<thead>
+<tr class="header">
+<th><p>Service</p></th>
+<th><p><a href="Public_key_certificate#TLS/SSL_server_certificate" title="wikilink">SSL certificate</a></p></th>
+<th><p><a href="#Privacy_Impact_Score" title="wikilink">Privacy Impact Score</a></p></th>
+<th><p><a href="#Warrant_canary" title="wikilink">Warrant canary</a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><a href="#Holder" title="wikilink">Holder</a>
+<td><p><a href="#Issued_to" title="wikilink">Issued to</a>
+<td><p>data-sort-type=&quot;number&quot; | <a href="#SSL_Rating" title="wikilink">SSL rating</a>
+</tr>
+<tr class="even">
+<td><p><a href="AceVPN" class="uri" title="wikilink">AceVPN</a>
+<td>
+<p><ref name="ssltest-acevpn">{{cite web
+<td><p>url=<a href="https://www.ssllabs.com/ssltest/analyze.html?d=acevpn.com&amp;s=104.28.23.38" class="uri">https://www.ssllabs.com/ssltest/analyze.html?d=acevpn.com&amp;s=104.28.23.38</a>
+<td><p>title=SSL Server Test: acevpn.com (Powered by Qualys SSL Labs) |deadurl=no
+</tr>
+</tbody>
+</table>
                 </div><!-- /.entry-content -->
         </article>
 </section>
