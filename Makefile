@@ -112,6 +112,7 @@ cf_upload: publish
 github: publish
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	git push origin $(GITHUB_PAGES_BRANCH)
+	git push https://github.com/egberts/egberts.github.io.git origin$(GITHUB_PAGES_BRANCH)
 
 validate: publish
 	html5validator --root $(OUTPUTDIR)
