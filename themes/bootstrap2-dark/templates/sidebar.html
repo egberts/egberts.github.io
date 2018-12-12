@@ -1,0 +1,81 @@
+<!-- sidebar.html begins -->
+<ul class="nav nav-list">
+  {% if LINKS %}
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-external-link-alt icon-large"></i>bulletin boards
+      </h4>
+    </li>
+    {% for name, link in LINKS %}
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="{{ link }}" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>{{ name }}</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+    {% endfor %}
+  {% endif %}
+  {% if SOCIAL %}
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-home icon-large"></i>smokesignals</h4>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/{{ FEED }}" rel="alternate noreferrer noopener">
+        <i class="fas fa-atom icon-large"></i>atom feed</a>
+      </span>
+    </li>
+    {% if FEED_RSS %}
+      <li>
+        <span style="white-space: nowrap">
+          <a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate noreferrer
+noopener">
+          <i class="fas fa-bookmark icon-large"></i>rss feed</a>
+        </span>
+      </li>
+    {% endif %}
+    {% for label, icony, link in SOCIAL_LABELS %}
+      <li>
+        <span style="white-space: nowrap">
+          <a href="{{ link }}" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="{{ icony }} icon-large"></i>{{ label }}</a>
+        </span>
+      </li>
+    {% endfor %}
+  {% endif %}
+
+  <li class="nav-header"><h4><i class="fas fa-folder icon-large"></i>categories</h4></li>
+  {% for cat, null in categories %}
+    <li>
+      <span style="white-space: nowrap">
+        <a href="{{ cat.url }}">
+        <i class="fas fa-folder-open icon-large"></i>{{ cat }}
+        </a>
+      </span>
+    </li>
+  {% endfor %}
+
+  <li class="nav-header"><h4><i class="fas fa-tags icon-large"></i>Tags</h4></li>
+  {% for tag in tag_cloud %}
+  <li class="tag-{{ tag.1 }} nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="{{ tag.0.url }}" >
+        {{ tag.0 }}
+        </a>
+    </span>
+  </li>
+{% endfor %}
+
+{% include 'twitter_profile.html' %}
+{% include 'search_sidebar.html' %}
+
+{% if SIDEBAR_CUSTOM %}
+    {{ SIDEBAR_CUSTOM }}
+{% endif %}
+</ul>
+<!-- sidebar.html ends -->
+
