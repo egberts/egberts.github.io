@@ -1,4 +1,4 @@
-# https://egbert.net robots.txt -- just crawl it.
+# https://egberts.github.io robots.txt -- just crawl it.
 
 User-agent: Baiduspider
 Disallow: /ae/
