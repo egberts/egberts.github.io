@@ -1,0 +1,10 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Egbert Networks",
+    "home_page_url": ".",
+    "feed_url": "./feed.json",
+    "description": "Egbert Networks conducts researches on bleeding edges of malicious behaviors and its applicability toward multiple compiler languages.  Researching for many customers.",
+    "icon": "./theme/feed-icon.png",
+    "items": [
+    ]
+}
