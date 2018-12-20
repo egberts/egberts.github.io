@@ -1,15 +1,15 @@
 <!-- tag.html begins -->
 <!-- index.html begins -->
-<!-- base.html begins, seeded by egberts/tags/dynamic-analysis.html  -->
+<!-- base.html begins, seeded by egberts/tags/schema.html  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Egbert Networks - dynamic analysis</title>
+    <title>Egbert Networks - schema</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="canonical" href="https://egberts.github.io/egberts/tags/dynamic-analysis.html">
+    <link rel="canonical" href="https://egberts.github.io/egberts/tags/schema.html">
 
     <!-- Le styles -->
     <link rel="stylesheet"
@@ -150,13 +150,13 @@
         <div class="span9" id="content-base">
       <div class="article">
         <h2>
-          <a href="/egberts/articles/comparison-of-dynamic-analysis-framework-for-machine-code.html">Comparison of dynamic analysis framework for machine code</a>
+          <a href="/egberts/articles/open-standard-on-data-schema-and-serialization.html">Open standard on Data Schema and Serialization</a>
         </h2>
         <div class="well small"><!-- article_infos.html begins -->
 <footer class="post-info">
   <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2018-09-24T10%3A11%3A00-04%3A00">
-        <i class="fas fa-calendar"></i>Mon 24 September 2018
+  <abbr class="published" title="2015-08-31T05%3A00%3A00-04%3A00">
+        <i class="fas fa-calendar"></i>Mon 31 August 2015
   </abbr>
 <!--
     <span class="label">By</span>
@@ -168,18 +168,71 @@
 
 <!-- taglist.html begins -->
 <span class="label">Tags</span>
-    <a href="/egberts/tags/framework.html"><i class="fas fa-tag"></i>framework</a>
-    <a href="/egberts/tags/comparison.html"><i class="fas fa-tag"></i>comparison</a>
-    <a href="/egberts/tags/machine-code.html"><i class="fas fa-tag"></i>machine code</a>
-    <a href="/egberts/tags/dynamic-analysis.html"><i class="fas fa-tag"></i>dynamic analysis</a>
+    <a href="/egberts/tags/schema.html"><i class="fas fa-tag"></i>schema</a>
+    <a href="/egberts/tags/xsd.html"><i class="fas fa-tag"></i>xsd</a>
+    <a href="/egberts/tags/serialization.html"><i class="fas fa-tag"></i>serialization</a>
 <!-- taglist.html ends -->
 <!-- translation.html begins -->
 <!-- translation.html ends -->
 </footer>
 <!-- article_infos.html ends -->
 </div>
-        <div class="summary"><p>A table of comparison of dynamic analysis framework for machine code processing.</p>
-          <a class="btn primary xsmall" href="/egberts/articles/comparison-of-dynamic-analysis-framework-for-machine-code.html">more ...</a>
+        <div class="summary"><p>Doing a bit of research with regard to data schema and serializaton,
+preferably without being JSON_centric.</p>
+<p>
+<div class="justtable">
+    <table class="justtable">
+        <thead class="justtable">
+        <tr class="justtable">
+            <th class="justtable">Name</th>
+            <th class="justtable"> Defining Structure/Type</th>
+            <th class="justtable"> Structure is Extensible</th>
+            <th class="justtable"> Data Serialization</th>
+            <th class="justtable"> Data Validation</th>
+            <th class="justtable"> Human-Friendly</th>
+        </tr>
+        </thead>
+        <tbody class="justtable">
+            <tr class="justtable">
+                <td class="justtable">XML/XBRL</td>
+                <td class="justtable">         YES</td>
+                <td class="justtable"> YES</td>
+                <td class="justtable">  </td>
+                <td class="justtable"> YES</td>
+                <td class="justtable"></td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">Protocol Buffers</td>
+                <td class="justtable"> YES</td>
+                <td class="justtable"> ?</td>
+                <td class="justtable"> YES</td>
+                <td class="justtable"> YES</td>
+                <td class="justtable"> YES</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">JSON</td>
+                <td class="justtable">              </td>
+                <td class="justtable">  </td>
+                <td class="justtable">  </td>
+                <td class="justtable">  </td>
+                <td class="justtable"> YES</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">Avro</td>
+                <td class="justtable">             YES</td>
+                <td class="justtable">YES?</td>
+                <td class="justtable"> YES</td>
+                <td class="justtable"> YES</td>
+                <td class="justtable"> sort of</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">CSV</td>
+                <td class="justtable">               </td>
+                <td class="justtable">  </td>
+                <td class="justtable">  </td>
+                <td class="justtable">  </td>
+                <td class="justtable"> YES …</td></tr></tbody></table></div></p>
+          <a class="btn primary xsmall" href="/egberts/articles/open-standard-on-data-schema-and-serialization.html">more ...</a>
         </div>
       </div>
       <hr />

@@ -4746,7 +4746,7 @@ preferably without being JSON_centric.&lt;/p&gt;
             &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
-&lt;/div&gt;&lt;/p&gt;</content><category term="research"></category></entry><entry><title>Libpcap to capture 10Gbps</title><link href="/egberts/articles/libpcap-to-capture-10gbps.html" rel="alternate"></link><published>2014-12-14T20:34:00-05:00</published><updated>2014-12-14T20:34:00-05:00</updated><author><name></name></author><id>tag:None,2014-12-14:/egberts/articles/libpcap-to-capture-10gbps.html</id><summary type="html">&lt;p&gt;Someone asked:&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</content><category term="schema"></category><category term="xsd"></category><category term="serialization"></category></entry><entry><title>Libpcap to capture 10Gbps</title><link href="/egberts/articles/libpcap-to-capture-10gbps.html" rel="alternate"></link><published>2014-12-14T20:34:00-05:00</published><updated>2014-12-14T20:34:00-05:00</updated><author><name></name></author><id>tag:None,2014-12-14:/egberts/articles/libpcap-to-capture-10gbps.html</id><summary type="html">&lt;p&gt;Someone asked:&lt;/p&gt;
 &lt;p&gt;I want to capture packets from 10Gbps network card with 0 packet loss. I am
 using lipcap for 100Mbps NIC and it is working fine. Will libpcap be able to
 handle 10Gbps NIC traffic? If not what are the other alternative ways to achive
