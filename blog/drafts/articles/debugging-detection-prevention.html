@@ -1,0 +1,1074 @@
+<!-- articles.html begins -->
+<!-- source file: articles/debugging-detection-prevention.md -->
+<!-- base.html begins, seeded by blog/drafts/articles/debugging-detection-prevention.html  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Debugging Detection & Prevention</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="canonical" href="http://sandbay.leo:8000/blog/drafts/articles/debugging-detection-prevention.html">
+
+    <!-- Le styles -->
+    <link rel="stylesheet"
+          href="/blog/theme/css/bootstrap.dark.css"
+          type="text/css" />
+    <link rel="stylesheet"
+          href="/blog/theme/css/justtable.css"
+          type="text/css" />
+    <style>
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 16pt;
+      }
+      .tag-2 {
+        font-size: 14pt;
+      }
+      .tag-3 {
+        font-size: 11pt;
+      }
+      .tag-4 {
+        font-size: 8pt;
+     }
+    </style>
+    <link href="/blog/theme/css/bootstrap-responsive.dark.css"
+          type="text/css"
+          rel="stylesheet">
+    <link href="/blog/theme/css/all.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/blog/theme/css/tag_cloud.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/blog/theme/css/pygments.css"
+          rel="stylesheet"
+          type="text/css"
+          >
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <!--
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="/"
+          type="application/atom+xml"
+          rel="alternate nofollow noopener noreferrer"
+          title="Egbert Networks ATOM Feed">
+</link>
+    -->
+<!--
+-->
+
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+          </a>
+          <a class="brand" href="/blog/index.html">Egbert Networks </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/blog/articles/index.html">Articles</a></li>
+                <!-- base.html MENUITEMS ends -->
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/blog/tags/index.html">tags</a></li>
+                <!-- base.html MENUITEMS ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/blog/pages/uses.html">Uses</a></li>
+                  <!-- base.html pages ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/blog/pages/about.html">About</a></li>
+                  <!-- base.html pages ends -->
+                <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/blog/categories/formal.html">
+                        <i class="fas fa-folder-open icon-large"></i>formal
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/blog/categories/howto.html">
+                        <i class="fas fa-folder-open icon-large"></i>HOWTO
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/blog/categories/javascript.html">
+                        <i class="fas fa-folder-open icon-large"></i>javascript
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="/blog/categories/research.html">
+                        <i class="fas fa-folder-open icon-large"></i>research
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/blog/categories/security.html">
+                        <i class="fas fa-folder-open icon-large"></i>security
+                    </a>
+                  </li>
+            </ul>
+
+              <ul class="nav pull-right">
+<!-- search_navbar.html begins -->
+<!-- search_navbar.html ends -->
+                <li>
+                  <a href="/blog/archives/index.html">
+                    <i class="icon-th-list"></i>
+                    Archives
+                  </a>
+                </li>
+              </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content-base">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href="/blog/drafts/articles/debugging-detection-prevention.html"
+                                        rel="bookmark"
+                                        title="Permalink to Debugging Detection & Prevention">
+                                        Debugging Detection & Prevention
+                                </a>
+<!-- twitter_article.html begins -->
+
+<!-- moved Twitter to SOCIAL/SOCIAL_LABELS
+
+<script
+    charset="utf-8"
+    src="../../../blog/theme/js/widgets.js"
+    type="text/javascript">
+    src="http://platform.twitter.com/widgets.js"
+</script>
+
+<a class="fab fa-twitter"
+   target="_blank"
+   rel="nofollow noopener noreferrer"
+   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Debugging%20Detection%20%26%C2%A0Prevention&tw_p=tweetbutton&url=http://sandbay.leo:8000/blog/drafts/articles/debugging-detection-prevention.html&via=egbertst"
+>
+</a>
+-->
+<!-- twitter_article.html ends -->
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<!-- article_infos.html begins -->
+<footer class="post-info">
+  <!-- <span class="label">Date</span> -->
+  <abbr class="published" title="2018-11-14T00%3A00%3A00-05%3A00">
+        <i class="fas fa-calendar"></i>Wed 14 November 2018
+  </abbr>
+<!--
+    <span class="label">By</span>
+    <a href=""><i class="fas fa-user"></i></a>
+-->
+  <span class="label">Category</span>
+  <a href="/blog/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
+
+
+<!-- taglist.html begins -->
+<!-- taglist.html ends -->
+<!-- translation.html begins -->
+<!-- translation.html ends -->
+</footer>
+<!-- article_infos.html ends -->
+                </div>
+                <p>research tags: debugger, malware</p>
+<p>Debugger Detection/Prevention</p>
+<ul>
+<li>some source in [LordNoteworthy@github]. Most common/interesting ones:</li>
+<li>IsDebuggerPresent(), CheckRemoteDebuggerPresent() etc. (quite silly,</li>
+<li>mostly as a kinda-decoy) OS calls are not 100% obfuscatable =&gt; using them (unless they’re actually inlines or macros) is a Bad Idea™ (Bad Example: [zer0fl4g@github]). IF using them – obfuscate system calls and literals (such as obfuscating “OllyDbg” for FindWindow(), and obfuscating “FindWindow” for GetProcAddress()); more on obfuscating system calls below</li>
+<li>Not-so-obvious system calls, such as OpenProcess(“csrss.exe”),</li>
+<li>OutputDebugString(), UnhandledExceptionFilter() FindWindow() (silly, but…)</li>
+<li>Memory reads. NtGlobalFlag, heap flags, KdDebuggerEnabled, GetLastError() (cmp</li>
+<li>fs:[ebp+34h], ebp, cmp gs:[rbp+68h], ebp), TODO – anything else?  Reading from</li>
+<li>RAM without function call(!). DON’T USE DIRECTLY FOR COMPARISONS; INSTEAD – USE AS A PART OF DATA OBFUSCATION (IN PARTICULAR, WILL LOOK SIMILAR TO ‘GLOBAL READ OF KNOWN VALUE’ USED TO PREVENT OPTIMIZING OUT). EFFECTIVE PARTIAL COMPARES WHEN USING FOR DATA OBFUSCATION (USING &amp;MASK1 IN ONE PLACE, |MASK2 IN ANOTHER PLACE).  More devious: use the value to generate decryption key, then try to decrypt several pieces of code (with one decrypted by “correct” key, and another by “being-debugged” key, other combinations of “being-debugged” flags also can be accounted for). Then use this code to communicate to the server – which now can distinguish clients which are being debugged (gotcha!). Hare wondering if you are crazy:“Even more devious: use the value to generate encryption key, which is used to encrypt a well-defined constant, which is sent to the server – which then can try different keys to decrypt (gotcha!) ** Even more devious: use the value to generate encryption key, which is used to encrypt a well-defined constant, which is sent to the server – which then can try different keys to decrypt (gotcha!)</li>
+<li>“self-debug” (actually – debug a copy of the process). Only one ring 3</li>
+<li>debugger allowed at least in Windows.</li>
+<li>Hiding thread from debugger: NtSetInformationThread, NtCreateThreadEx (reportedly used by Steam at least at some point)</li>
+<li>MOV SS</li>
+<li>INT 2D</li>
+<li>“check within TLS callback” trick</li>
+<li>NB: using Zw* counterparts [TODO – elaborate]</li>
+<li>Messing with debuggers: BLOCKINPUT; NOT REALLY DETECTION, BUT… REP * [Kulchytskyy] Most interesting techniques (beyond [Ferrie]) NTCREATETHREADEX TO HIDE THREADS Asm to set SEH handlers (32-bit only); on table-based SEH in x64 Windows – see [NTInsider] ** KiUserExceptionDispatcher</li>
+<li>[Falliere].Techniques going beyond previous refs: PUSH SS/POP SS (ACTUALLY, IT IS DESCRIBED IN [FERRIE], BUT IMO EXPLANATION HERE IS BETTER) ICE breakpoint (0xF1); not to be confused with SoftICE.  ** Scanning for INT 3 (0xCC). False positives. Also should scan for 0xFA [Falliere] and probably others. Checksums are generally preferred.</li>
+<li>[OpenRCE] Techniques going beyond previous refs: LOCK CMPXCHG8B AS AN INVALID INSTRUCTION TO RAISE SEH Lots of debugger-specific trickery</li>
+<li>[Tully]. Techniques going beyond previous refs: REMOVING PE HEADER Messing with debuggers: *** OutputDebugString Exploit for OllyDbg (TODO: is it still up-to-date?)</li>
+<li>SoftICE detection (doesn’t make much sense now, esp. if your program is 64-bit, but some ideas might be applicable to other debuggers): lots of discussion in [Crackproof your software]</li>
+</ul>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="span3 well sidebar-nav" id="sidebar">
+<!-- sidebar.html begins -->
+<ul class="nav nav-list">
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-external-link-alt icon-large"></i>bulletin boards
+      </h4>
+    </li>
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://getpelican.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Pelican</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://split-code.com/external_blogs.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>SPLIT-CODE.COM</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://www.hexacorn.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Hexacorn</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.msreverseengineering.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Möbius Strip RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://fumalwareanalysis.blogspot.com/p/malware-analysis-tutorials-reverse.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Dr. Fu's</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://metova.com/category/security/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Metova</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://blog.quarkslab.com/category/reverseengineering.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Quarkslab</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.reddit.com/r/ReverseEngineering/comments/is2et/can_we_collect_interesting_reverse_engineering/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Reddit RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://0x1338.blogspot.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>0x1338</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-home icon-large"></i>smokesignals</h4>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/" rel="alternate noreferrer noopener">
+        <i class="fas fa-atom icon-large"></i>atom feed</a>
+      </span>
+    </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="mailto:me at egbert.net" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fas fa-envelope icon-large"></i>e-mail</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://twitter.com/egbertst" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-twitter icon-large"></i>Twitter</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://github.com/egberts" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-github-square icon-large"></i>GitHub</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://stackoverflow.com/users/4379130/egbert-s" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-stack-overflow icon-large"></i>StackOverflow</a>
+        </span>
+      </li>
+
+  <li class="nav-header"><h4><i class="fas fa-folder icon-large"></i>categories</h4></li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/formal.html">
+        <i class="fas fa-folder-open icon-large"></i>formal
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/howto.html">
+        <i class="fas fa-folder-open icon-large"></i>HOWTO
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/javascript.html">
+        <i class="fas fa-folder-open icon-large"></i>javascript
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/research.html">
+        <i class="fas fa-folder-open icon-large"></i>research
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/security.html">
+        <i class="fas fa-folder-open icon-large"></i>security
+        </a>
+      </span>
+    </li>
+
+  <li class="nav-header"><h4><i class="fas fa-tags icon-large"></i>Tags</h4></li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/dns.html" >
+        dns
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/bind9.html" >
+        bind9
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/dnssec.html" >
+        DNSSEC
+        </a>
+    </span>
+  </li>
+  <li class="tag-3 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/comparison.html" >
+        comparison
+        </a>
+    </span>
+  </li>
+  <li class="tag-3 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/bro.html" >
+        Bro
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/pelican.html" >
+        pelican
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/verizon.html" >
+        verizon
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/python.html" >
+        python
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/security.html" >
+        security
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/markdown.html" >
+        markdown
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/debugging.html" >
+        debugging
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/exploit.html" >
+        exploit
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/api.html" >
+        api
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/fix.html" >
+        fix
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/html.html" >
+        HTML
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/dhcp.html" >
+        dhcp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/code-syntax.html" >
+        code syntax
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/css.html" >
+        CSS
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/http.html" >
+        http
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/checklist.html" >
+        checklist
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ethernet.html" >
+        ethernet
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/rst.html" >
+        rst
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/isp.html" >
+        isp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/systemd.html" >
+        systemd
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/pygments.html" >
+        pygments
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/malloc.html" >
+        malloc
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/firefox.html" >
+        firefox
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/debugger.html" >
+        debugger
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/password.html" >
+        password
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/testing.html" >
+        testing
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/sync.html" >
+        sync
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/rest.html" >
+        REST
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/hardware.html" >
+        hardware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/troubleshooting.html" >
+        troubleshooting
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/homelan.html" >
+        homelan
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ecc.html" >
+        ECC
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/port.html" >
+        port
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ont.html" >
+        ONT
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/xml.html" >
+        XML
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/malware.html" >
+        malware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/vpn.html" >
+        vpn
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/hardening.html" >
+        hardening
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/nsupdate.html" >
+        nsupdate
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/libpcap.html" >
+        libpcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/rowhammer.html" >
+        Rowhammer
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/vulnerabilities.html" >
+        vulnerabilities
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/bitcoin.html" >
+        bitcoin
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/openldap.html" >
+        openldap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/automata.html" >
+        automata
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/archives.html" >
+        archives
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/soap.html" >
+        SOAP
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/signal-app.html" >
+        signal app
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/mozilla.html" >
+        mozilla
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/javascript.html" >
+        javascript
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/fios.html" >
+        FiOS
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/formal-grammar.html" >
+        formal grammar
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/high-speed.html" >
+        high-speed
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/framework.html" >
+        framework
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/machine-code.html" >
+        machine code
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/packet.html" >
+        packet
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/formal-language.html" >
+        formal language
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/pcap.html" >
+        pcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/js-engine.html" >
+        js engine
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ssh.html" >
+        ssh
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/network.html" >
+        network
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/macos.html" >
+        macos
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/motorola.html" >
+        Motorola
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/logging.html" >
+        logging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ml.html" >
+        ml
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/csp.html" >
+        csp
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/dynamic-analysis.html" >
+        dynamic analysis
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/file-vault.html" >
+        file vault
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/router.html" >
+        router
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/profiling.html" >
+        profiling
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/browser.html" >
+        browser
+        </a>
+    </span>
+  </li>
+
+<!-- twitter_profile.html begins -->
+<!--
+<li class="nav-header">
+  <h4>
+    <a class="fab fa-twitter"
+       href="https://twitter.com/egbertst"
+       rel="nofollow noopener noreferrer"
+       target="_blank"
+       data-show-screen-name="false"
+       data-show-count="true">egbertst</a>
+  </h4>
+</li>
+-->
+<!-- twitter_profile.html ends -->
+<!-- search_sidebar.html begins -->
+
+<!-- search_sidebar.html ends -->
+
+</ul>
+<!-- sidebar.html ends -->
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+          powered by
+          <a href="http://github.com/getpelican/pelican/"
+             target="_blank"
+             rel="nofollow noopener noreferrer"
+          >
+            Pelican
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          <a href="http://python.org"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Python
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          .  theme
+          <a href="http://twitter.github.com/bootstrap/"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Bootstrap2
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          andi
+          <a href="http://fortawesome.github.com/Font-Awesome/"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Font-Awesome
+            <i class="fas fa-external-link-alt"></i></a>
+          on
+          <a href="https://nginx.com"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            NGINX
+            <i class="fas fa-external-link-alt"></i></a>
+          and
+          <a href="https://kernel.org"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Linux
+            <i class="fas fa-external-link-alt"></i></a>
+          <a href="/private.html">&Phi;</a>
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+<!--analytics.html begins -->
+<!--analytics.html ends -->
+<!-- piwik.html begins -->
+<!-- piwik.html ends -->
+<!-- disqus_script.html begins -->
+<!-- disqus_script.html ends -->
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script async src="/blog/theme/js/jquery.min.js"></script>
+    <script async src="/blog/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
+<!-- base.html ends -->

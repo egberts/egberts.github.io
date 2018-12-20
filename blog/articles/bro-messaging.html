@@ -1,0 +1,1271 @@
+<!-- articles.html begins -->
+<!-- source file: articles/bro-messaging.md -->
+<!-- base.html begins, seeded by blog/articles/bro-messaging.html  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bro messaging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="canonical" href="http://sandbay.leo:8000/blog/articles/bro-messaging.html">
+
+    <!-- Le styles -->
+    <link rel="stylesheet"
+          href="/blog/theme/css/bootstrap.dark.css"
+          type="text/css" />
+    <link rel="stylesheet"
+          href="/blog/theme/css/justtable.css"
+          type="text/css" />
+    <style>
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 16pt;
+      }
+      .tag-2 {
+        font-size: 14pt;
+      }
+      .tag-3 {
+        font-size: 11pt;
+      }
+      .tag-4 {
+        font-size: 8pt;
+     }
+    </style>
+    <link href="/blog/theme/css/bootstrap-responsive.dark.css"
+          type="text/css"
+          rel="stylesheet">
+    <link href="/blog/theme/css/all.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/blog/theme/css/tag_cloud.css"
+          type="text/css"
+          rel="stylesheet"
+          >
+    <link href="/blog/theme/css/pygments.css"
+          rel="stylesheet"
+          type="text/css"
+          >
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <!--
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="/"
+          type="application/atom+xml"
+          rel="alternate nofollow noopener noreferrer"
+          title="Egbert Networks ATOM Feed">
+</link>
+    -->
+<!--
+-->
+
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+            <span class="fas fa-bar"></span>
+          </a>
+          <a class="brand" href="/blog/index.html">Egbert Networks </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/blog/articles/index.html">Articles</a></li>
+                <!-- base.html MENUITEMS ends -->
+                <!-- base.html MENUITEMS begins -->
+                <li><a href="/blog/tags/index.html">tags</a></li>
+                <!-- base.html MENUITEMS ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/blog/pages/uses.html">Uses</a></li>
+                  <!-- base.html pages ends -->
+                  <!-- base.html pages begins -->
+                  <li><a href="/blog/pages/about.html">About</a></li>
+                  <!-- base.html pages ends -->
+                <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/blog/categories/formal.html">
+                        <i class="fas fa-folder-open icon-large"></i>formal
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/blog/categories/howto.html">
+                        <i class="fas fa-folder-open icon-large"></i>HOWTO
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/blog/categories/javascript.html">
+                        <i class="fas fa-folder-open icon-large"></i>javascript
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="/blog/categories/research.html">
+                        <i class="fas fa-folder-open icon-large"></i>research
+                    </a>
+                  </li>
+                  <li >
+                    <a href="/blog/categories/security.html">
+                        <i class="fas fa-folder-open icon-large"></i>security
+                    </a>
+                  </li>
+            </ul>
+
+              <ul class="nav pull-right">
+<!-- search_navbar.html begins -->
+<!-- search_navbar.html ends -->
+                <li>
+                  <a href="/blog/archives/index.html">
+                    <i class="icon-th-list"></i>
+                    Archives
+                  </a>
+                </li>
+              </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content-base">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href="/blog/articles/bro-messaging.html"
+                                        rel="bookmark"
+                                        title="Permalink to Bro messaging">
+                                        Bro messaging
+                                </a>
+<!-- twitter_article.html begins -->
+
+<!-- moved Twitter to SOCIAL/SOCIAL_LABELS
+
+<script
+    charset="utf-8"
+    src="../../blog/theme/js/widgets.js"
+    type="text/javascript">
+    src="http://platform.twitter.com/widgets.js"
+</script>
+
+<a class="fab fa-twitter"
+   target="_blank"
+   rel="nofollow noopener noreferrer"
+   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Bro%20messaging&tw_p=tweetbutton&url=http://sandbay.leo:8000/blog/articles/bro-messaging.html&via=egbertst"
+>
+</a>
+-->
+<!-- twitter_article.html ends -->
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<!-- article_infos.html begins -->
+<footer class="post-info">
+  <!-- <span class="label">Date</span> -->
+  <abbr class="published" title="2018-05-16T14%3A16%3A28-04%3A00">
+        <i class="fas fa-calendar"></i>Wed 16 May 2018
+  </abbr>
+<!--
+    <span class="label">By</span>
+    <a href=""><i class="fas fa-user"></i></a>
+-->
+  <span class="label">Category</span>
+  <a href="/blog/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
+
+
+<!-- taglist.html begins -->
+<span class="label">Tags</span>
+    <a href="/blog/tags/bro.html"><i class="fas fa-tag"></i>Bro</a>
+    <a href="/blog/tags/api.html"><i class="fas fa-tag"></i>API</a>
+<!-- taglist.html ends -->
+<!-- translation.html begins -->
+<!-- translation.html ends -->
+</footer>
+<!-- article_infos.html ends -->
+                </div>
+                <h2 id="debugging-bro-message-queues">Debugging Bro message queues</h2>
+<p>To enable debugging Bro message queues, insert the following into the
+local.bro script in /usr/share/bro/sfa/policy directory. This is also
+useful for troubleshooting script-land memory leakage.</p>
+<div class="codehilite"><pre><span></span><span class="cp">@load misc/profiling</span>
+<span class="k">redef</span><span class="err"> </span><span class="n">Log</span><span class="nn">::</span><span class="n">enable_local_logging</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="kc">T</span><span class="p">;</span>
+<span class="k">redef</span><span class="err"> </span><span class="n">profiling_interval</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="mf">10</span><span class="n">secs</span><span class="p">;</span>
+<span class="k">redef</span><span class="err"> </span><span class="n">expensive_profiling_multiple</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="mf">2</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Bro UNIX server created a prof.log file. As a UNIX server, prof.log are
+found in each of the /var/spool/bro/<strong><em>bro-process-type</em></strong> directory.
+Running Bro as standalone puts prof.log in the current working
+directory.</p>
+<p>Example output of prof.log:</p>
+<div class="codehilite"><pre><span></span>    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">------------------------</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Command</span> <span class="nt">line</span><span class="o">:</span> <span class="o">/</span><span class="nt">usr</span><span class="o">/</span><span class="nt">bin</span><span class="o">/</span><span class="nt">bro</span> <span class="nt">-C</span> <span class="nt">-d</span> <span class="nt">-B</span> <span class="nt">threading</span> <span class="nt">-t</span> <span class="nt">trace</span><span class="p">.</span><span class="nc">log</span> <span class="nt">-e</span> <span class="nt">redef</span>
+    <span class="nt">profiling_interval</span><span class="o">=</span><span class="nt">30secs</span><span class="o">;</span>
+    <span class="nt">redef</span> <span class="nt">expensive_profiling_multiple</span><span class="o">=</span><span class="nt">1</span> <span class="o">;</span> <span class="nt">redef</span> <span class="nt">Log</span><span class="p">::</span><span class="nd">enable_local_logging</span><span class="o">=</span><span class="nt">T</span><span class="o">;</span> <span class="nt">redef</span>
+    <span class="nt">Reporter</span><span class="p">::</span><span class="nd">info_to_stderr</span> <span class="o">=</span>
+    <span class="nt">T</span><span class="o">;</span> <span class="nt">redef</span> <span class="nt">Reporter</span><span class="p">::</span><span class="nd">errors_to_stderr</span> <span class="o">=</span> <span class="nt">T</span><span class="o">;</span> <span class="nt">redef</span> <span class="nt">Reporter</span><span class="p">::</span><span class="nd">warnings_to_stderr</span> <span class="o">=</span> <span class="nt">T</span><span class="o">;</span>
+    <span class="nt">-r</span> <span class="nt">ftp</span><span class="p">.</span><span class="nc">pcap</span>
+    <span class="nt">sfa</span><span class="o">/</span><span class="nt">policy</span><span class="o">/</span><span class="nt">local</span><span class="p">.</span><span class="nc">bro</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">------------------------</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Memory</span><span class="o">:</span> <span class="nt">total</span><span class="o">=</span><span class="nt">30160K</span> <span class="nt">total_adj</span><span class="o">=</span><span class="nt">0K</span> <span class="nt">malloced</span><span class="o">:</span> <span class="nt">23126K</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Run-time</span><span class="o">:</span> <span class="nt">user</span><span class="o">+</span><span class="nt">sys</span><span class="o">=</span><span class="nt">0</span><span class="p">.</span><span class="nc">0</span> <span class="nt">user</span><span class="o">=</span><span class="nt">0</span><span class="p">.</span><span class="nc">0</span> <span class="nt">sys</span><span class="o">=</span><span class="nt">0</span><span class="p">.</span><span class="nc">0</span> <span class="nt">real</span><span class="o">=</span><span class="nt">0</span><span class="p">.</span><span class="nc">0</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Conns</span><span class="o">:</span> <span class="nt">total</span><span class="o">=</span><span class="nt">0</span> <span class="nt">current</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span> <span class="nt">ext</span><span class="o">=</span><span class="nt">0</span> <span class="nt">mem</span><span class="o">=</span><span class="nt">0K</span> <span class="nt">avg</span><span class="o">=</span><span class="nt">-nan</span> <span class="nt">table</span><span class="o">=</span><span class="nt">1K</span> <span class="nt">connvals</span><span class="o">=</span><span class="nt">0K</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Conns</span><span class="o">:</span> <span class="nt">tcp</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span> <span class="nt">udp</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span> <span class="nt">icmp</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">TCP-States</span><span class="o">:</span>        <span class="nt">Inact</span><span class="o">.</span>  <span class="nt">Syn</span><span class="o">.</span>    <span class="nt">SA</span>      <span class="nt">Part</span><span class="o">.</span>   <span class="nt">Est</span><span class="o">.</span>    <span class="nt">Fin</span><span class="o">.</span>    <span class="nt">Rst</span><span class="o">.</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">TCP-States</span><span class="p">:</span><span class="nd">Inact</span><span class="o">.</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">TCP-States</span><span class="p">:</span><span class="nd">Syn</span><span class="o">.</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">TCP-States</span><span class="p">:</span><span class="nd">SA</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">TCP-States</span><span class="p">:</span><span class="nd">Part</span><span class="o">.</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">TCP-States</span><span class="p">:</span><span class="nd">Est</span><span class="o">.</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">TCP-States</span><span class="p">:</span><span class="nd">Fin</span><span class="o">.</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">TCP-States</span><span class="p">:</span><span class="nd">Rst</span><span class="o">.</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Connections</span> <span class="nt">expired</span> <span class="nt">due</span> <span class="nt">to</span> <span class="nt">inactivity</span><span class="o">:</span> <span class="nt">0</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Total</span> <span class="nt">reassembler</span> <span class="nt">data</span><span class="o">:</span> <span class="nt">0K</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">RuleMatcher</span><span class="o">:</span> <span class="nt">matchers</span><span class="o">=</span><span class="nt">2</span> <span class="nt">dfa_states</span><span class="o">=</span><span class="nt">2</span> <span class="nt">ncomputed</span><span class="o">=</span><span class="nt">0</span> <span class="nt">mem</span><span class="o">=</span><span class="nt">2K</span>
+    <span class="nt">avg_nfa_states</span><span class="o">=</span><span class="nt">29</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Timers</span><span class="o">:</span> <span class="nt">current</span><span class="o">=</span><span class="nt">19</span> <span class="nt">max</span><span class="o">=</span><span class="nt">19</span> <span class="nt">mem</span><span class="o">=</span><span class="nt">1K</span> <span class="nt">lag</span><span class="o">=</span><span class="nt">0</span><span class="p">.</span><span class="nc">00s</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">DNS_Mgr</span><span class="o">:</span> <span class="nt">requests</span><span class="o">=</span><span class="nt">0</span> <span class="nt">succesful</span><span class="o">=</span><span class="nt">0</span> <span class="nt">failed</span><span class="o">=</span><span class="nt">0</span> <span class="nt">pending</span><span class="o">=</span><span class="nt">0</span> <span class="nt">cached_hosts</span><span class="o">=</span><span class="nt">0</span>
+    <span class="nt">cached_addrs</span><span class="o">=</span><span class="nt">0</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Triggers</span><span class="o">:</span> <span class="nt">total</span><span class="o">=</span><span class="nt">0</span> <span class="nt">pending</span><span class="o">=</span><span class="nt">0</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Threads</span><span class="o">:</span> <span class="nt">current</span><span class="o">=</span><span class="nt">4</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>   <span class="o">/</span><span class="nt">var</span><span class="o">/</span><span class="nt">spool</span><span class="o">/</span><span class="nt">bro</span><span class="o">/</span><span class="nt">bv_intel</span><span class="o">/</span><span class="nt">bv_intel</span><span class="p">.</span><span class="nc">txt</span><span class="o">/</span><span class="nt">Input</span><span class="p">::</span><span class="nd">READER_ASCII</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span> <span class="nt">out</span><span class="o">=</span><span class="nt">1</span>
+    <span class="nt">pending</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">1</span> <span class="o">(</span><span class="p">#</span><span class="nn">queue</span> <span class="nt">r</span><span class="o">/</span><span class="nt">w</span><span class="o">:</span>
+    <span class="nt">in</span><span class="o">=</span><span class="nt">1</span><span class="o">/</span><span class="nt">1</span> <span class="nt">out</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">1</span><span class="o">)</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Global_sizes</span> <span class="o">&gt;</span> <span class="nt">100k</span><span class="o">:</span> <span class="nt">0K</span>
+    <span class="nt">ProfileTimer</span> <span class="o">=</span> <span class="nt">1</span>
+    <span class="nt">ScheduleTimer</span> <span class="o">=</span> <span class="nt">2</span>
+    <span class="nt">TableValTimer</span> <span class="o">=</span> <span class="nt">16</span>
+    <span class="nt">packet_filter</span><span class="o">/</span><span class="nt">Log</span><span class="p">::</span><span class="nd">WRITER_ASCII</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span> <span class="nt">out</span><span class="o">=</span><span class="nt">0</span> <span class="nt">pending</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span> <span class="o">(</span><span class="p">#</span><span class="nn">queue</span> <span class="nt">r</span><span class="o">/</span><span class="nt">w</span><span class="o">:</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span><span class="o">/</span><span class="nt">1</span>
+    <span class="nt">out</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span><span class="o">)</span>
+    <span class="nt">packet_filter</span><span class="o">/</span><span class="nt">Log</span><span class="p">::</span><span class="nd">WRITER_ASCII</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span> <span class="nt">out</span><span class="o">=</span><span class="nt">0</span> <span class="nt">pending</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span> <span class="o">(</span><span class="p">#</span><span class="nn">queue</span> <span class="nt">r</span><span class="o">/</span><span class="nt">w</span><span class="o">:</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span><span class="o">/</span><span class="nt">1</span>
+    <span class="nt">out</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span><span class="o">)</span>
+    <span class="nt">loaded_scripts</span><span class="o">/</span><span class="nt">Log</span><span class="p">::</span><span class="nd">WRITER_ASCII</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span> <span class="nt">out</span><span class="o">=</span><span class="nt">0</span> <span class="nt">pending</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span> <span class="o">(</span><span class="p">#</span><span class="nn">queue</span> <span class="nt">r</span><span class="o">/</span><span class="nt">w</span><span class="o">:</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span><span class="o">/</span><span class="nt">1</span>
+    <span class="nt">out</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span><span class="o">)</span>
+    <span class="nt">reporter</span><span class="o">/</span><span class="nt">Log</span><span class="p">::</span><span class="nd">WRITER_ASCII</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span> <span class="nt">out</span><span class="o">=</span><span class="nt">0</span> <span class="nt">pending</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span> <span class="o">(</span><span class="p">#</span><span class="nn">queue</span> <span class="nt">r</span><span class="o">/</span><span class="nt">w</span><span class="o">:</span> <span class="nt">in</span><span class="o">=</span><span class="nt">1</span><span class="o">/</span><span class="nt">1</span> <span class="nt">out</span><span class="o">=</span><span class="nt">0</span><span class="o">/</span><span class="nt">0</span><span class="o">)</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Global_sizes</span> <span class="nt">total</span><span class="o">:</span> <span class="nt">1173K</span>
+    <span class="nt">0</span><span class="p">.</span><span class="nc">000000</span> <span class="nt">Total</span> <span class="nt">number</span> <span class="nt">of</span> <span class="nt">table</span> <span class="nt">entries</span><span class="o">:</span> <span class="nt">1648</span><span class="o">/</span><span class="nt">1691</span>
+    <span class="nt">SSL</span><span class="p">::</span><span class="nd">cipher_desc</span> <span class="o">=</span> <span class="nt">99K</span> <span class="o">(</span><span class="nt">351</span><span class="o">/</span><span class="nt">351</span> <span class="nt">entries</span><span class="o">)</span>
+    <span class="nt">SSL</span><span class="p">::</span><span class="nd">root_certs</span> <span class="o">=</span> <span class="nt">208K</span> <span class="o">(</span><span class="nt">147</span><span class="o">/</span><span class="nt">147</span> <span class="nt">entries</span><span class="o">)</span>
+    <span class="nt">FTP</span><span class="p">::</span><span class="nd">cmd_reply_code</span> <span class="o">=</span> <span class="nt">48K</span> <span class="o">(</span><span class="nt">325</span><span class="o">/</span><span class="nt">325</span> <span class="nt">entries</span><span class="o">)</span>
+    <span class="nt">Weird</span><span class="p">::</span><span class="nd">actions</span> <span class="o">=</span> <span class="nt">36K</span> <span class="o">(</span><span class="nt">162</span><span class="o">/</span><span class="nt">162</span> <span class="nt">entries</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Please note the (#queue r/w: in=1/1 out=0/1) by
+bv_intel.txt/WRITER_ASCII: this means one message was inserted into
+the input queue and one message was removed from the same input queue,
+while only one message was written to the output queue, but nobody has
+retrieved it yet.</p>
+<p>The prof.log output continues on (note the timestamp):</p>
+<div class="codehilite"><pre><span></span>    1413471640.952530 ------------------------
+    1413471640.952530 Memory: total=30160K total_adj=0K malloced: 23127K
+    1413471640.952530 Run-time: user+sys=0.0 user=0.0 sys=0.0 real=0.0
+    1413471640.952530 Conns: total=0 current=0/0 ext=0 mem=0K avg=-nan table=1K
+    connvals=0K
+    1413471640.952530 Conns: tcp=0/0 udp=0/0 icmp=0/0
+    1413471640.952530 TCP-States:        Inact.  Syn.    SA      Part.   Est.
+    Fin.    Rst.
+    1413471640.952530 TCP-States:Inact.
+    1413471640.952530 TCP-States:Syn.
+    1413471640.952530 TCP-States:SA
+    1413471640.952530 TCP-States:Part.
+    1413471640.952530 TCP-States:Est.
+    1413471640.952530 TCP-States:Est.
+    1413471640.952530 TCP-States:Fin.
+    1413471640.952530 TCP-States:Rst.
+    1413471640.952530 Connections expired due to inactivity: 0
+    1413471640.952530 Total reassembler data: 0K
+    1413471640.952530 RuleMatcher: matchers=2 dfa_states=2 ncomputed=0 mem=2K
+    avg_nfa_states=29
+    1413471640.952530 Timers: current=18 max=19 mem=1K lag=1413471639.95s
+    1413471640.952530 DNS_Mgr: requests=0 succesful=0 failed=0 pending=0
+    cached_hosts=0 cached_addrs=0
+    1413471640.952530 Triggers: total=0 pending=0
+    1413471640.952530         ScheduleTimer = 2
+    1413471640.952530         TableValTimer = 16
+    1413471640.952530 Threads: current=4
+    1413471640.952530   /var/spool/bro/bv_intel/bv_intel.txt/Input::READER_ASCII
+    in=1 out=1 pending=0/0 (#queue
+    r/w: in=1/1 out=1/1)
+    1413471640.952530
+    1413471640.952530
+    1413471640.952530
+    1413471640.952530 Global_sizes &gt; 100k: 0K
+    packet_filter/Log::WRITER_ASCII in=1 out=0 pending=0/0 (#queue r/w: in=1/1
+    out=0/0)
+    loaded_scripts/Log::WRITER_ASCII in=1 out=0 pending=0/0 (#queue r/w: in=1/1
+    out=0/0)
+    reporter/Log::WRITER_ASCII in=1 out=0 pending=0/0 (#queue r/w: in=1/1 out=0/0)
+    1413471640.952530
+    1413471640.952530
+    1413471640.952530
+    1413471640.952530
+    1413471640.952530 Global_sizes total: 1173K
+    1413471640.952530 Total number of table entries: 1648/1691
+    1413471671.003551 ------------------------
+    1413471671.003551 Memory: total=30160K total_adj=0K malloced: 23329K
+    1413471671.003551 Run-time: user+sys=0.1 user=0.0 sys=0.0 real=0.1
+    1413471671.003551 Conns: total=14 current=9/9 ext=0 mem=48488K avg=5387.6
+    table=50K connvals=35K
+    1413471671.003551 Conns: tcp=7/8 udp=2/6 icmp=0/0
+    1413471671.003551 TCP-States:        Inact.  Syn.    SA      Part.   Est.
+    Fin.    Rst.
+    1413471671.003551 TCP-States:Inact.
+    1413471671.003551 TCP-States:Syn.
+    1413471671.003551 TCP-States:SA
+    SSL::cipher_desc = 99K (351/351 entries)
+    SSL::root_certs = 208K (147/147 entries)
+    FTP::cmd_reply_code = 48K (325/325 entries)
+    Weird::actions = 36K (162/162 entries)
+    1413471671.003551 TCP-States:Part.
+    1413471671.003551 TCP-States:Est.
+    1413471671.003551 TCP-States:Fin.
+    1413471671.003551 TCP-States:Rst.
+    1413471671.003551 Connections expired due to inactivity: 0
+    1413471671.003551 Total reassembler data: 0K
+    1413471671.003551 RuleMatcher: matchers=2 dfa_states=40 ncomputed=150 mem=62K
+    avg_nfa_states=1
+    1413471671.003551 Timers: current=36 max=47 mem=2K lag=0.05s
+    1413471671.003551 DNS_Mgr: requests=0 succesful=0 failed=0 pending=0
+    cached_hosts=0 cached_addrs=0
+    1413471671.003551 Triggers: total=0 pending=0
+    1413471671.003551         ConnectionInactivityTimer = 11
+    1413471671.003551         FileAnalysisInactivityTimer = 1
+    ...
+</pre></div>
+
+
+<h2 id="analyzing-proflog">Analyzing prof.log</h2>
+<p>Intel::data_store size should remain unchanged during leakage/polling
+periods. (Note: It is proportional to the size of bv_intel.txt file.)</p>
+<div class="codehilite"><pre><span></span>Global_sizes &gt; 100k: 0K
+               Communication::connected_peers = 2556K (18/18 entries)
+               [FTP::cmd_reply_code](FTP::cmd_reply_code) = 48K (325/325 entries)
+               Cluster::worker2manager_events = 155K
+               Weird::actions = 37K (162/162 entries)
+               Intel::min_data_store = 5386K
+               Intel::data_store = 33904K
+               SSL::cipher_desc = 101K (351/351 entries)
+               Communication::nodes = 2588K (20/20 entries)
+               SSL::root_certs = 209K (147/147 entries)
+Global_sizes total: 45812K
+</pre></div>
+
+
+<p>Also Global_sizes total should remain unchanged during all statistical
+collection periods after initialization.</p>
+<p>READER_ASCII would not leak if it had a perfect one-to-one read/write
+with input portion of Intel reader queue.</p>
+<div class="codehilite"><pre><span></span>/var/spool/bro/bv_intel/bv_intel.txt/Input::READER_ASCII in=151 out=76527
+pending=0/0 (\#queue r/w: in=151/151 out=76527/76527)
+
+Total memory should be closely paid attention to for Bro Core Engine
+leakage as it did in this 20-second example:
+
+    Memory: total=32608K total_adj=0K malloced: 32478K
+    ...
+    Memory: total=123236K total_adj=90628K malloced: 78143K
+    ...
+    Memory: total=143088K total_adj=110480K malloced: 87989K
+    ...
+    Memory: total=164320K total_adj=131712K malloced: 108040K
+    ...
+    Memory: total=177040K total_adj=144432K malloced: 132104K
+    ...
+    Memory: total=177040K total_adj=144432K malloced: 133631K
+    ...
+    Memory: total=177040K total_adj=144432K malloced: 137221K
+    ...
+    Memory: total=177040K total_adj=144432K malloced: 139141K
+</pre></div>
+
+
+<p>Checkpointing of memory structures between Bro workers were less than 1K
+every 20 seconds as denoted by this prof.log output:</p>
+<div class="codehilite"><pre><span></span>    Conns: total=78555 current=1622/1622 ext=0 mem=0K avg=0.0 table=0K connvals=0K
+    ...
+    Conns: total=78555 current=1622/1622 ext=0 mem=0K avg=0.0 table=1K connvals=0K
+    ...
+    Conns: total=78555 current=1622/1622 ext=0 mem=0K avg=0.0 table=0K connvals=0K
+    ...
+</pre></div>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="span3 well sidebar-nav" id="sidebar">
+<!-- sidebar.html begins -->
+<ul class="nav nav-list">
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-external-link-alt icon-large"></i>bulletin boards
+      </h4>
+    </li>
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://getpelican.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Pelican</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://split-code.com/external_blogs.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>SPLIT-CODE.COM</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://www.hexacorn.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Hexacorn</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.msreverseengineering.com/blog/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Möbius Strip RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://fumalwareanalysis.blogspot.com/p/malware-analysis-tutorials-reverse.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Dr. Fu's</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://metova.com/category/security/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Metova</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://blog.quarkslab.com/category/reverseengineering.html" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Quarkslab</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://www.reddit.com/r/ReverseEngineering/comments/is2et/can_we_collect_interesting_reverse_engineering/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>Reddit RE</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+      <!-- sidebar.html LINKS begins -->
+      <li>
+        <span style="white-space: nowrap">
+          <a href="http://0x1338.blogspot.com/" rel="nofollow noreferrer noopener">
+          <i class="fas fa-external-link-alt icon-large"></i>0x1338</a>
+        </span>
+      </li>
+      <!-- sidebar.html LINKS ends -->
+    <li class="nav-header">
+      <h4>
+        <i class="fas fa-home icon-large"></i>smokesignals</h4>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/" rel="alternate noreferrer noopener">
+        <i class="fas fa-atom icon-large"></i>atom feed</a>
+      </span>
+    </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="mailto:me at egbert.net" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fas fa-envelope icon-large"></i>e-mail</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://twitter.com/egbertst" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-twitter icon-large"></i>Twitter</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://github.com/egberts" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-github-square icon-large"></i>GitHub</a>
+        </span>
+      </li>
+      <li>
+        <span style="white-space: nowrap">
+          <a href="https://stackoverflow.com/users/4379130/egbert-s" target="_blank" rel="nofollow noopener noreferrer">
+          <i class="fab fa-stack-overflow icon-large"></i>StackOverflow</a>
+        </span>
+      </li>
+
+  <li class="nav-header"><h4><i class="fas fa-folder icon-large"></i>categories</h4></li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/formal.html">
+        <i class="fas fa-folder-open icon-large"></i>formal
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/howto.html">
+        <i class="fas fa-folder-open icon-large"></i>HOWTO
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/javascript.html">
+        <i class="fas fa-folder-open icon-large"></i>javascript
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/research.html">
+        <i class="fas fa-folder-open icon-large"></i>research
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
+        <a href="/blog/categories/security.html">
+        <i class="fas fa-folder-open icon-large"></i>security
+        </a>
+      </span>
+    </li>
+
+  <li class="nav-header"><h4><i class="fas fa-tags icon-large"></i>Tags</h4></li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/dns.html" >
+        dns
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/bind9.html" >
+        bind9
+        </a>
+    </span>
+  </li>
+  <li class="tag-1 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/dnssec.html" >
+        DNSSEC
+        </a>
+    </span>
+  </li>
+  <li class="tag-3 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/comparison.html" >
+        comparison
+        </a>
+    </span>
+  </li>
+  <li class="tag-3 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/bro.html" >
+        Bro
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/pelican.html" >
+        pelican
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/verizon.html" >
+        verizon
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/python.html" >
+        python
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/security.html" >
+        security
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/markdown.html" >
+        markdown
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/debugging.html" >
+        debugging
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/exploit.html" >
+        exploit
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/api.html" >
+        api
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/fix.html" >
+        fix
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/html.html" >
+        HTML
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/dhcp.html" >
+        dhcp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/code-syntax.html" >
+        code syntax
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/css.html" >
+        CSS
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/http.html" >
+        http
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/checklist.html" >
+        checklist
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ethernet.html" >
+        ethernet
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/rst.html" >
+        rst
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/isp.html" >
+        isp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/systemd.html" >
+        systemd
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/pygments.html" >
+        pygments
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/malloc.html" >
+        malloc
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/firefox.html" >
+        firefox
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/debugger.html" >
+        debugger
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/password.html" >
+        password
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/testing.html" >
+        testing
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/sync.html" >
+        sync
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/rest.html" >
+        REST
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/hardware.html" >
+        hardware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/troubleshooting.html" >
+        troubleshooting
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/homelan.html" >
+        homelan
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ecc.html" >
+        ECC
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/port.html" >
+        port
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ont.html" >
+        ONT
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/xml.html" >
+        XML
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/malware.html" >
+        malware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/vpn.html" >
+        vpn
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/hardening.html" >
+        hardening
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/nsupdate.html" >
+        nsupdate
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/libpcap.html" >
+        libpcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/rowhammer.html" >
+        Rowhammer
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/vulnerabilities.html" >
+        vulnerabilities
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/bitcoin.html" >
+        bitcoin
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/openldap.html" >
+        openldap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/automata.html" >
+        automata
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/archives.html" >
+        archives
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/soap.html" >
+        SOAP
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/signal-app.html" >
+        signal app
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/mozilla.html" >
+        mozilla
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/javascript.html" >
+        javascript
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/fios.html" >
+        FiOS
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/formal-grammar.html" >
+        formal grammar
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/high-speed.html" >
+        high-speed
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/framework.html" >
+        framework
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/machine-code.html" >
+        machine code
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/packet.html" >
+        packet
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/formal-language.html" >
+        formal language
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/pcap.html" >
+        pcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/js-engine.html" >
+        js engine
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ssh.html" >
+        ssh
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/network.html" >
+        network
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/macos.html" >
+        macos
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/motorola.html" >
+        Motorola
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/logging.html" >
+        logging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/ml.html" >
+        ml
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/csp.html" >
+        csp
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/dynamic-analysis.html" >
+        dynamic analysis
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/file-vault.html" >
+        file vault
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/router.html" >
+        router
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/profiling.html" >
+        profiling
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/blog/tags/browser.html" >
+        browser
+        </a>
+    </span>
+  </li>
+
+<!-- twitter_profile.html begins -->
+<!--
+<li class="nav-header">
+  <h4>
+    <a class="fab fa-twitter"
+       href="https://twitter.com/egbertst"
+       rel="nofollow noopener noreferrer"
+       target="_blank"
+       data-show-screen-name="false"
+       data-show-count="true">egbertst</a>
+  </h4>
+</li>
+-->
+<!-- twitter_profile.html ends -->
+<!-- search_sidebar.html begins -->
+
+<!-- search_sidebar.html ends -->
+
+</ul>
+<!-- sidebar.html ends -->
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+          powered by
+          <a href="http://github.com/getpelican/pelican/"
+             target="_blank"
+             rel="nofollow noopener noreferrer"
+          >
+            Pelican
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          <a href="http://python.org"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Python
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          .  theme
+          <a href="http://twitter.github.com/bootstrap/"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            Bootstrap2
+            <i class="fas fa-external-link-alt"></i>
+          </a>,
+          andi
+          <a href="http://fortawesome.github.com/Font-Awesome/"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Font-Awesome
+            <i class="fas fa-external-link-alt"></i></a>
+          on
+          <a href="https://nginx.com"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            NGINX
+            <i class="fas fa-external-link-alt"></i></a>
+          and
+          <a href="https://kernel.org"
+             rel="nofollow noopener noreferrer"
+             target="_blank">
+            Linux
+            <i class="fas fa-external-link-alt"></i></a>
+          <a href="/private.html">&Phi;</a>
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+<!--analytics.html begins -->
+<!--analytics.html ends -->
+<!-- piwik.html begins -->
+<!-- piwik.html ends -->
+<!-- disqus_script.html begins -->
+<!-- disqus_script.html ends -->
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script async src="/blog/theme/js/jquery.min.js"></script>
+    <script async src="/blog/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
+<!-- base.html ends -->
