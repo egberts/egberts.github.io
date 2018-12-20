@@ -1,3 +1,3 @@
 [submodule "output"]
 	path = output
-	url = git@github.com:egberts/egberts.github.io.git
+	url = https://github.com/egberts/egberts.github.io
