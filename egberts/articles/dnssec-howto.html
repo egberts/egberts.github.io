@@ -123,6 +123,11 @@
                     </a>
                   </li>
                   <li >
+                    <a href="/egberts/categories/schema-xsd-serialization.html">
+                        <i class="fas fa-folder-open icon-large"></i>schema, xsd, serialization
+                    </a>
+                  </li>
+                  <li >
                     <a href="/egberts/categories/security.html">
                         <i class="fas fa-folder-open icon-large"></i>security
                     </a>
@@ -273,7 +278,7 @@ Navigate to the location of your zone files.</p>
 
 
 <p>Create a Zone Signing Key(ZSK) with the following command.</p>
-<div class="codehilite"><pre><span></span>dnssec-keygen -a NSEC3RSASHA1 -b 2048 -n ZONE example.com
+<div class="codehilite"><pre><span></span>dnssec-keygen -a NSEC3RSASHA1 -b <span class="m">2048</span> -n ZONE example.com
 </pre></div>
 
 
@@ -282,7 +287,7 @@ key to be generated; otherwise it&rsquo;ll take a very long time. Sample
 output.</p>
 <div class="codehilite"><pre><span></span>root@master# <span class="nb">cd</span> /var/cache/bind
 root@master# dnssec-keygen -a NSEC3RSASHA1 <span class="se">\</span>
-                           -b 2048 <span class="se">\</span>
+                           -b <span class="m">2048</span> <span class="se">\</span>
                            -n ZONE <span class="se">\</span>
                            example.com
    Generating key pair..................+++ .............+++
@@ -291,7 +296,7 @@ root@master# dnssec-keygen -a NSEC3RSASHA1 <span class="se">\</span>
 
 
 <p>Create a Key Signing Key(KSK) with the following command.</p>
-<div class="codehilite"><pre><span></span>dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -n ZONE example.com
+<div class="codehilite"><pre><span></span>dnssec-keygen -f KSK -a NSEC3RSASHA1 -b <span class="m">4096</span> -n ZONE example.com
 </pre></div>
 
 
@@ -299,7 +304,7 @@ root@master# dnssec-keygen -a NSEC3RSASHA1 <span class="se">\</span>
 <div class="codehilite"><pre><span></span>root@master# <span class="nb">cd</span> /var/cache/bind
 root@master# dnssec-keygen -f KSK <span class="se">\</span>
                            -a NSEC3RSASHA1 <span class="se">\</span>
-                           -b 4096 <span class="se">\</span>
+                           -b <span class="m">4096</span> <span class="se">\</span>
                            -n ZONE <span class="se">\</span>
                            example.com
    Generating key pair......................++.............................................................................................................................................................................................................++
@@ -312,7 +317,7 @@ KSK. We have to add the public keys which contain the DNSKEY record to
 the zone file. The following for loop will do this.</p>
 <div class="codehilite"><pre><span></span><span class="k">for</span> key in <span class="sb">`</span>ls Kexample.com*.key<span class="sb">`</span>
 <span class="k">do</span>
-echo <span class="s2">&quot;\$INCLUDE </span><span class="nv">$key</span><span class="s2">&quot;</span>&gt;&gt; example.com.zone
+<span class="nb">echo</span> <span class="s2">&quot;\$INCLUDE </span><span class="nv">$key</span><span class="s2">&quot;</span>&gt;&gt; example.com.zone
 <span class="k">done</span>
 </pre></div>
 
@@ -329,30 +334,30 @@ echo <span class="s2">&quot;\$INCLUDE </span><span class="nv">$key</span><span
 <p>Replace salt with something random. Here is an example with the output.</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> /var/cache/bind
 dnssec-signzone -A -3 <span class="se">\</span>
-    <span class="k">$(</span>head -c 1000 /dev/random <span class="p">|</span> sha1sum <span class="p">|</span> cut -b <span class="m">1</span>-16<span class="k">)</span> <span class="se">\</span>
+    <span class="k">$(</span>head -c <span class="m">1000</span> /dev/random <span class="p">|</span> sha1sum <span class="p">|</span> cut -b <span class="m">1</span>-16<span class="k">)</span> <span class="se">\</span>
     -N INCREMENT <span class="se">\</span>
     -o example.com <span class="se">\</span>
     -t example.com.zone
 
    Verifying the zone using the following algorithms: NSEC3RSASHA1.
    Zone signing complete:
-   Algorithm: NSEC3RSASHA1: KSKs: 1 active, 0 stand-by, 0 revoked
-                           ZSKs: 1 active, 0 stand-by, 0 revoked
+   Algorithm: NSEC3RSASHA1: KSKs: <span class="m">1</span> active, <span class="m">0</span> stand-by, <span class="m">0</span> revoked
+                           ZSKs: <span class="m">1</span> active, <span class="m">0</span> stand-by, <span class="m">0</span> revoked
    example.com.zone.signed
-   Signatures generated:                       14
-   Signatures retained:                         0
-   Signatures dropped:                          0
-   Signatures successfully verified:            0
-   Signatures unsuccessfully verified:          0
-   Signing time in seconds:                 0.046
-   Signatures per second:                 298.310
-   Runtime in seconds:                      0.056
+   Signatures generated:                       <span class="m">14</span>
+   Signatures retained:                         <span class="m">0</span>
+   Signatures dropped:                          <span class="m">0</span>
+   Signatures successfully verified:            <span class="m">0</span>
+   Signatures unsuccessfully verified:          <span class="m">0</span>
+   Signing <span class="nb">time</span> in seconds:                 <span class="m">0</span>.046
+   Signatures per second:                 <span class="m">298</span>.310
+   Runtime in seconds:                      <span class="m">0</span>.056
 </pre></div>
 
 
 <p>A 16 character string must be entered as the &ldquo;salt&rdquo;. The following
 command</p>
-<div class="codehilite"><pre><span></span>head -c 1000 /dev/random <span class="p">|</span> sha1sum <span class="p">|</span> cut -b 1-16
+<div class="codehilite"><pre><span></span>head -c <span class="m">1000</span> /dev/random <span class="p">|</span> sha1sum <span class="p">|</span> cut -b <span class="m">1</span>-16
 </pre></div>
 
 
@@ -617,7 +622,7 @@ command in which we specified a -3 option followed by another elaborate
 command to generate a random string. This is the salt which can be found
 using the following dig query.</p>
 <div class="codehilite"><pre><span></span>dig NSEC3PARAM example.com. @master.example.com. +short
-   1 0 10 7CBAA916230368F2
+   <span class="m">1</span> <span class="m">0</span> <span class="m">10</span> 7CBAA916230368F2
 </pre></div>
 
 
@@ -794,6 +799,13 @@ dnssec-signzone command.</p>
     </li>
     <li>
       <span style="white-space: nowrap">
+        <a href="/egberts/categories/schema-xsd-serialization.html">
+        <i class="fas fa-folder-open icon-large"></i>schema, xsd, serialization
+        </a>
+      </span>
+    </li>
+    <li>
+      <span style="white-space: nowrap">
         <a href="/egberts/categories/security.html">
         <i class="fas fa-folder-open icon-large"></i>security
         </a>
@@ -844,22 +856,6 @@ dnssec-signzone command.</p>
   <li class="tag-4 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/pelican.html" >
-        pelican
-        </a>
-    </span>
-  </li>
-  <li class="tag-4 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/verizon.html" >
-        verizon
-        </a>
-    </span>
-  </li>
-  <li class="tag-4 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
         <a href="/egberts/tags/python.html" >
         python
         </a>
@@ -873,19 +869,51 @@ dnssec-signzone command.</p>
         </a>
     </span>
   </li>
-  <li class="tag-6 nowrap">
+  <li class="tag-4 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/markdown.html" >
-        markdown
+        <a href="/egberts/tags/pelican.html" >
+        pelican
+        </a>
+    </span>
+  </li>
+  <li class="tag-4 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/verizon.html" >
+        verizon
         </a>
     </span>
   </li>
   <li class="tag-6 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/debugging.html" >
-        debugging
+        <a href="/egberts/tags/rst.html" >
+        rst
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/http.html" >
+        http
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/api.html" >
+        api
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/checklist.html" >
+        checklist
         </a>
     </span>
   </li>
@@ -900,8 +928,32 @@ dnssec-signzone command.</p>
   <li class="tag-6 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/api.html" >
-        api
+        <a href="/egberts/tags/code-syntax.html" >
+        code syntax
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/markdown.html" >
+        markdown
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pygments.html" >
+        pygments
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/css.html" >
+        CSS
         </a>
     </span>
   </li>
@@ -924,64 +976,16 @@ dnssec-signzone command.</p>
   <li class="tag-6 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/dhcp.html" >
-        dhcp
-        </a>
-    </span>
-  </li>
-  <li class="tag-6 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/code-syntax.html" >
-        code syntax
-        </a>
-    </span>
-  </li>
-  <li class="tag-6 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/css.html" >
-        CSS
-        </a>
-    </span>
-  </li>
-  <li class="tag-6 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/http.html" >
-        http
-        </a>
-    </span>
-  </li>
-  <li class="tag-6 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/checklist.html" >
-        checklist
-        </a>
-    </span>
-  </li>
-  <li class="tag-6 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/ethernet.html" >
-        ethernet
-        </a>
-    </span>
-  </li>
-  <li class="tag-6 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/rst.html" >
-        rst
-        </a>
-    </span>
-  </li>
-  <li class="tag-6 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
         <a href="/egberts/tags/isp.html" >
         isp
+        </a>
+    </span>
+  </li>
+  <li class="tag-6 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/dhcp.html" >
+        dhcp
         </a>
     </span>
   </li>
@@ -996,192 +1000,16 @@ dnssec-signzone command.</p>
   <li class="tag-6 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/pygments.html" >
-        pygments
+        <a href="/egberts/tags/ethernet.html" >
+        ethernet
         </a>
     </span>
   </li>
-  <li class="tag-10 nowrap">
+  <li class="tag-6 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/malloc.html" >
-        malloc
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/firefox.html" >
-        firefox
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/debugger.html" >
-        debugger
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/password.html" >
-        password
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/testing.html" >
-        testing
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/sync.html" >
-        sync
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/rest.html" >
-        REST
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/hardware.html" >
-        hardware
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/troubleshooting.html" >
-        troubleshooting
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/homelan.html" >
-        homelan
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/ecc.html" >
-        ECC
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/port.html" >
-        port
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/ont.html" >
-        ONT
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/xml.html" >
-        XML
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/malware.html" >
-        malware
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/vpn.html" >
-        vpn
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/hardening.html" >
-        hardening
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/nsupdate.html" >
-        nsupdate
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/libpcap.html" >
-        libpcap
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/rowhammer.html" >
-        Rowhammer
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/vulnerabilities.html" >
-        vulnerabilities
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/bitcoin.html" >
-        bitcoin
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/openldap.html" >
-        openldap
+        <a href="/egberts/tags/debugging.html" >
+        debugging
         </a>
     </span>
   </li>
@@ -1196,48 +1024,8 @@ dnssec-signzone command.</p>
   <li class="tag-10 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/archives.html" >
-        archives
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/soap.html" >
-        SOAP
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/signal-app.html" >
-        signal app
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/mozilla.html" >
-        mozilla
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/javascript.html" >
-        javascript
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/fios.html" >
-        FiOS
+        <a href="/egberts/tags/formal-language.html" >
+        formal language
         </a>
     </span>
   </li>
@@ -1252,8 +1040,184 @@ dnssec-signzone command.</p>
   <li class="tag-10 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/high-speed.html" >
-        high-speed
+        <a href="/egberts/tags/csp.html" >
+        csp
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rest.html" >
+        REST
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/soap.html" >
+        SOAP
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/xml.html" >
+        XML
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/rowhammer.html" >
+        Rowhammer
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ecc.html" >
+        ECC
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/hardware.html" >
+        hardware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/debugger.html" >
+        debugger
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/malware.html" >
+        malware
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/testing.html" >
+        testing
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/router.html" >
+        router
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/homelan.html" >
+        homelan
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/nsupdate.html" >
+        nsupdate
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/troubleshooting.html" >
+        troubleshooting
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/logging.html" >
+        logging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/motorola.html" >
+        Motorola
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ont.html" >
+        ONT
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/fios.html" >
+        FiOS
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/archives.html" >
+        archives
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/javascript.html" >
+        javascript
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/js-engine.html" >
+        js engine
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/browser.html" >
+        browser
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/mozilla.html" >
+        mozilla
         </a>
     </span>
   </li>
@@ -1276,94 +1240,6 @@ dnssec-signzone command.</p>
   <li class="tag-10 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/packet.html" >
-        packet
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/formal-language.html" >
-        formal language
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/pcap.html" >
-        pcap
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/js-engine.html" >
-        js engine
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/ssh.html" >
-        ssh
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/network.html" >
-        network
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/macos.html" >
-        macos
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/motorola.html" >
-        Motorola
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/logging.html" >
-        logging
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/ml.html" >
-        ml
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/csp.html" >
-        csp
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
         <a href="/egberts/tags/dynamic-analysis.html" >
         dynamic analysis
         </a>
@@ -1372,16 +1248,8 @@ dnssec-signzone command.</p>
   <li class="tag-10 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/file-vault.html" >
-        file vault
-        </a>
-    </span>
-  </li>
-  <li class="tag-10 nowrap">
-    <span style="white-space: nowrap">
-    <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/router.html" >
-        router
+        <a href="/egberts/tags/packet.html" >
+        packet
         </a>
     </span>
   </li>
@@ -1396,8 +1264,160 @@ dnssec-signzone command.</p>
   <li class="tag-10 nowrap">
     <span style="white-space: nowrap">
     <!--    <i class="fas fa-tag icon-large"></i> -->
-        <a href="/egberts/tags/browser.html" >
-        browser
+        <a href="/egberts/tags/bitcoin.html" >
+        bitcoin
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/vulnerabilities.html" >
+        vulnerabilities
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/vpn.html" >
+        vpn
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/macos.html" >
+        macos
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/password.html" >
+        password
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/file-vault.html" >
+        file vault
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/hardening.html" >
+        hardening
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/signal-app.html" >
+        signal app
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ml.html" >
+        ml
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/openldap.html" >
+        openldap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/malloc.html" >
+        malloc
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/firefox.html" >
+        firefox
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/sync.html" >
+        sync
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/ssh.html" >
+        ssh
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/research.html" >
+        research
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/pcap.html" >
+        pcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/libpcap.html" >
+        libpcap
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/high-speed.html" >
+        high-speed
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/network.html" >
+        network
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/port.html" >
+        port
         </a>
     </span>
   </li>

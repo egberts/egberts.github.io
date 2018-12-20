@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2018-12-12T10:45:00-05:00</updated><entry><title>Tight Multiversion Python Re-development Cycle</title><link href="/egberts/articles/tight-multiversion-python-re-development-cycle.html" rel="alternate"></link><published>2018-12-12T10:45:00-05:00</published><updated>2018-12-12T10:45:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-12:/egberts/articles/tight-multiversion-python-re-development-cycle.html</id><summary type="html">&lt;p&gt;Tight Multiversion Python Re-development Cycle&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2018-12-20T12:00:00-05:00</updated><entry><title>Tight Multiversion Python Re-development Cycle</title><link href="/egberts/articles/tight-multiversion-python-re-development-cycle.html" rel="alternate"></link><published>2018-12-12T10:45:00-05:00</published><updated>2018-12-12T10:45:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-12:/egberts/articles/tight-multiversion-python-re-development-cycle.html</id><summary type="html">&lt;p&gt;Tight Multiversion Python Re-development Cycle&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id="set-up-a-new-python-virtual-environment"&gt;Set up a new Python virtual environment&lt;/h3&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt; \&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;work&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;
@@ -902,7 +902,7 @@ entire zone, and subdomain dyn.example.com has the obvious meaning.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  $ nsupdate -k tsig-key.private
   &amp;gt; zone example.com
   &amp;gt; del myserver.example.com
-  &amp;gt; add myserver.example.com 3600 A 100.64.1.1
+  &amp;gt; add myserver.example.com &lt;span class="m"&gt;3600&lt;/span&gt; A &lt;span class="m"&gt;100&lt;/span&gt;.64.1.1
   &amp;gt; send
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1638,7 +1638,7 @@ entire zone, and subdomain dyn.example.com has the obvious meaning.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nsupdate -k tsig-key.private
 &amp;gt; zone example.com
 &amp;gt; del myserver.example.com
-&amp;gt; add myserver.example.com 3600 A 100.64.1.1
+&amp;gt; add myserver.example.com &lt;span class="m"&gt;3600&lt;/span&gt; A &lt;span class="m"&gt;100&lt;/span&gt;.64.1.1
 &amp;gt; send
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1703,7 +1703,7 @@ reported that there is no dissector for HMAC-SHA256.&lt;/p&gt;
 
 &lt;h3 id="update-failed-notauthbadkey"&gt;update failed: NOTAUTH(BADKEY)&lt;/h3&gt;
 &lt;p&gt;Check the /var/log/bind/security.log for:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;security: error: client 127.0.0.1#25080: view gateway: request has invalid` signature: TSIG ddns-key.arca.example.net: tsig verify failure (BADKEY)
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;security&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="mf"&gt;127.0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;25080&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;view&lt;/span&gt; &lt;span class="n"&gt;gateway&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;invalid&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;signature&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;TSIG&lt;/span&gt; &lt;span class="n"&gt;ddns&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;arca&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;example&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;net&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;tsig&lt;/span&gt; &lt;span class="n"&gt;verify&lt;/span&gt; &lt;span class="n"&gt;failure&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BADKEY&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2459,13 +2459,13 @@ MTU at connect time.&lt;/p&gt;
 &lt;h2 id="step-by-step-guide"&gt;Step-by-step guide&lt;/h2&gt;
 &lt;p&gt;Enter root shell&lt;/p&gt;
 &lt;p&gt;Add MTU to the motherboard NIC (eth0)&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo &lt;span class="s2"&gt;&amp;quot;MTU=65535&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysconfig/network-scripts/ifcfg-eth0
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;MTU=65535&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysconfig/network-scripts/ifcfg-eth0
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Turn off hardware-assist offloading on the Ethernet interface.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# set the MSS&lt;/span&gt;
-ifconfig eth0 mtu 65535
+ifconfig eth0 mtu &lt;span class="m"&gt;65535&lt;/span&gt;
 &lt;span class="c1"&gt;# turn off TCP offload&lt;/span&gt;
 ethtool -K eth0 tso off
 &lt;span class="c1"&gt;# turn off GRE offload&lt;/span&gt;
@@ -2492,7 +2492,7 @@ opcontrol --setup --no-vmlinux
 &lt;p&gt;Note: vmlinux must be UNSTRIPPED (HAVE symbols) in its ELF2 file.
 Extracting from /boot/vmlinuz-&amp;hellip; will not work.&lt;/p&gt;
 &lt;p&gt;Configure Kernel to run oprofile:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo 0 &amp;gt; /proc/sys/kernel/nmi_watchdog
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &amp;gt; /proc/sys/kernel/nmi_watchdog
 &lt;span class="c1"&gt;#  and collect&lt;/span&gt;
 opcontrol --reset
 opcontrol --separate&lt;span class="o"&gt;=&lt;/span&gt;lib,kernel
@@ -2659,7 +2659,7 @@ Navigate to the location of your zone files.&lt;/p&gt;
 
 
 &lt;p&gt;Create a Zone Signing Key(ZSK) with the following command.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dnssec-keygen -a NSEC3RSASHA1 -b 2048 -n ZONE example.com
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dnssec-keygen -a NSEC3RSASHA1 -b &lt;span class="m"&gt;2048&lt;/span&gt; -n ZONE example.com
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2668,7 +2668,7 @@ key to be generated; otherwise it&amp;rsquo;ll take a very long time. Sample
 output.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@master# &lt;span class="nb"&gt;cd&lt;/span&gt; /var/cache/bind
 root@master# dnssec-keygen -a NSEC3RSASHA1 &lt;span class="se"&gt;\&lt;/span&gt;
-                           -b 2048 &lt;span class="se"&gt;\&lt;/span&gt;
+                           -b &lt;span class="m"&gt;2048&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
                            -n ZONE &lt;span class="se"&gt;\&lt;/span&gt;
                            example.com
    Generating key pair..................+++ .............+++
@@ -2677,7 +2677,7 @@ root@master# dnssec-keygen -a NSEC3RSASHA1 &lt;span class="se"&gt;\&lt;/span
 
 
 &lt;p&gt;Create a Key Signing Key(KSK) with the following command.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -n ZONE example.com
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dnssec-keygen -f KSK -a NSEC3RSASHA1 -b &lt;span class="m"&gt;4096&lt;/span&gt; -n ZONE example.com
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2685,7 +2685,7 @@ root@master# dnssec-keygen -a NSEC3RSASHA1 &lt;span class="se"&gt;\&lt;/span
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@master# &lt;span class="nb"&gt;cd&lt;/span&gt; /var/cache/bind
 root@master# dnssec-keygen -f KSK &lt;span class="se"&gt;\&lt;/span&gt;
                            -a NSEC3RSASHA1 &lt;span class="se"&gt;\&lt;/span&gt;
-                           -b 4096 &lt;span class="se"&gt;\&lt;/span&gt;
+                           -b &lt;span class="m"&gt;4096&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
                            -n ZONE &lt;span class="se"&gt;\&lt;/span&gt;
                            example.com
    Generating key pair......................++.............................................................................................................................................................................................................++
@@ -2698,7 +2698,7 @@ KSK. We have to add the public keys which contain the DNSKEY record to
 the zone file. The following for loop will do this.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; key in &lt;span class="sb"&gt;`&lt;/span&gt;ls Kexample.com*.key&lt;span class="sb"&gt;`&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-echo &lt;span class="s2"&gt;&amp;quot;\$INCLUDE &lt;/span&gt;&lt;span class="nv"&gt;$key&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&amp;gt;&amp;gt; example.com.zone
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\$INCLUDE &lt;/span&gt;&lt;span class="nv"&gt;$key&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&amp;gt;&amp;gt; example.com.zone
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -2715,30 +2715,30 @@ echo &lt;span class="s2"&gt;&amp;quot;\$INCLUDE &lt;/span&gt;&lt;span class="n
 &lt;p&gt;Replace salt with something random. Here is an example with the output.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /var/cache/bind
 dnssec-signzone -A -3 &lt;span class="se"&gt;\&lt;/span&gt;
-    &lt;span class="k"&gt;$(&lt;/span&gt;head -c 1000 /dev/random &lt;span class="p"&gt;|&lt;/span&gt; sha1sum &lt;span class="p"&gt;|&lt;/span&gt; cut -b &lt;span class="m"&gt;1&lt;/span&gt;-16&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="k"&gt;$(&lt;/span&gt;head -c &lt;span class="m"&gt;1000&lt;/span&gt; /dev/random &lt;span class="p"&gt;|&lt;/span&gt; sha1sum &lt;span class="p"&gt;|&lt;/span&gt; cut -b &lt;span class="m"&gt;1&lt;/span&gt;-16&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
     -N INCREMENT &lt;span class="se"&gt;\&lt;/span&gt;
     -o example.com &lt;span class="se"&gt;\&lt;/span&gt;
     -t example.com.zone
 
    Verifying the zone using the following algorithms: NSEC3RSASHA1.
    Zone signing complete:
-   Algorithm: NSEC3RSASHA1: KSKs: 1 active, 0 stand-by, 0 revoked
-                           ZSKs: 1 active, 0 stand-by, 0 revoked
+   Algorithm: NSEC3RSASHA1: KSKs: &lt;span class="m"&gt;1&lt;/span&gt; active, &lt;span class="m"&gt;0&lt;/span&gt; stand-by, &lt;span class="m"&gt;0&lt;/span&gt; revoked
+                           ZSKs: &lt;span class="m"&gt;1&lt;/span&gt; active, &lt;span class="m"&gt;0&lt;/span&gt; stand-by, &lt;span class="m"&gt;0&lt;/span&gt; revoked
    example.com.zone.signed
-   Signatures generated:                       14
-   Signatures retained:                         0
-   Signatures dropped:                          0
-   Signatures successfully verified:            0
-   Signatures unsuccessfully verified:          0
-   Signing time in seconds:                 0.046
-   Signatures per second:                 298.310
-   Runtime in seconds:                      0.056
+   Signatures generated:                       &lt;span class="m"&gt;14&lt;/span&gt;
+   Signatures retained:                         &lt;span class="m"&gt;0&lt;/span&gt;
+   Signatures dropped:                          &lt;span class="m"&gt;0&lt;/span&gt;
+   Signatures successfully verified:            &lt;span class="m"&gt;0&lt;/span&gt;
+   Signatures unsuccessfully verified:          &lt;span class="m"&gt;0&lt;/span&gt;
+   Signing &lt;span class="nb"&gt;time&lt;/span&gt; in seconds:                 &lt;span class="m"&gt;0&lt;/span&gt;.046
+   Signatures per second:                 &lt;span class="m"&gt;298&lt;/span&gt;.310
+   Runtime in seconds:                      &lt;span class="m"&gt;0&lt;/span&gt;.056
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;A 16 character string must be entered as the &amp;ldquo;salt&amp;rdquo;. The following
 command&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;head -c 1000 /dev/random &lt;span class="p"&gt;|&lt;/span&gt; sha1sum &lt;span class="p"&gt;|&lt;/span&gt; cut -b 1-16
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;head -c &lt;span class="m"&gt;1000&lt;/span&gt; /dev/random &lt;span class="p"&gt;|&lt;/span&gt; sha1sum &lt;span class="p"&gt;|&lt;/span&gt; cut -b &lt;span class="m"&gt;1&lt;/span&gt;-16
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3003,7 +3003,7 @@ command in which we specified a -3 option followed by another elaborate
 command to generate a random string. This is the salt which can be found
 using the following dig query.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dig NSEC3PARAM example.com. @master.example.com. +short
-   1 0 10 7CBAA916230368F2
+   &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt; 7CBAA916230368F2
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3176,9 +3176,9 @@ Engine, add the analyzer::mime:: namespace to its full function name:&lt;/p&gt;
 local.bro script in /usr/share/bro/sfa/policy directory. This is also
 useful for troubleshooting script-land memory leakage.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;@load misc/profiling&lt;/span&gt;
-&lt;span class="k"&gt;redef&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="nn"&gt;::&lt;/span&gt;&lt;span class="n"&gt;enable_local_logging&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="kc"&gt;T&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;redef&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="n"&gt;profiling_interval&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="n"&gt;secs&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;redef&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="n"&gt;expensive_profiling_multiple&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;redef&lt;/span&gt; &lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="nn"&gt;::&lt;/span&gt;&lt;span class="n"&gt;enable_local_logging&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;T&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;redef&lt;/span&gt; &lt;span class="n"&gt;profiling_interval&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="n"&gt;secs&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;redef&lt;/span&gt; &lt;span class="n"&gt;expensive_profiling_multiple&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3690,7 +3690,7 @@ the table below. The possible values for &lt;level&gt; are:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo yum install mongodb-devel
 sudo service bro start
 sudo yum install cmake28
-sudo alternatives --install /usr/bin/cmake cmake /usr/bin/cmake28 90
+sudo alternatives --install /usr/bin/cmake cmake /usr/bin/cmake28 &lt;span class="m"&gt;90&lt;/span&gt;
 sudo yum install python-devel
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -3700,7 +3700,7 @@ sudo yum install python-devel
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./configure --enable-debug &lt;span class="se"&gt;\&lt;/span&gt;
    --disable-broccoli --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr --conf-files-dir&lt;span class="o"&gt;=&lt;/span&gt;/etc/bro
 make
-sudo make install  # goes into /usr/local
+sudo make install  &lt;span class="c1"&gt;# goes into /usr/local&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4610,7 +4610,143 @@ never needed this, because I’m the impatient bastard that just
 tilde-periods them if they don’t close right away.&lt;/p&gt;
 &lt;p&gt;You can use the EscapeChar configuration directive to change the tilde,
 if that conflicts with something. Or you can just type it twice to send
-it.&lt;/p&gt;</content><category term="ssh"></category></entry><entry><title>Libpcap to capture 10Gbps</title><link href="/egberts/articles/libpcap-to-capture-10gbps.html" rel="alternate"></link><published>2014-12-14T20:34:00-05:00</published><updated>2014-12-14T20:34:00-05:00</updated><author><name></name></author><id>tag:None,2014-12-14:/egberts/articles/libpcap-to-capture-10gbps.html</id><summary type="html">&lt;p&gt;Someone asked:&lt;/p&gt;
+it.&lt;/p&gt;</content><category term="ssh"></category></entry><entry><title>Open standard on Data Schema and Serialization</title><link href="/egberts/articles/open-standard-on-data-schema-and-serialization.html" rel="alternate"></link><published>2015-08-31T05:00:00-04:00</published><updated>2018-12-20T12:00:00-05:00</updated><author><name></name></author><id>tag:None,2015-08-31:/egberts/articles/open-standard-on-data-schema-and-serialization.html</id><summary type="html">&lt;p&gt;Doing a bit of research with regard to data schema and serializaton,
+preferably without being JSON_centric.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="justtable"&gt;
+    &lt;table class="justtable"&gt;
+        &lt;thead class="justtable"&gt;
+        &lt;tr class="justtable"&gt;
+            &lt;th class="justtable"&gt;Name&lt;/th&gt;
+            &lt;th class="justtable"&gt; Defining Structure/Type&lt;/th&gt;
+            &lt;th class="justtable"&gt; Structure is Extensible&lt;/th&gt;
+            &lt;th class="justtable"&gt; Data Serialization&lt;/th&gt;
+            &lt;th class="justtable"&gt; Data Validation&lt;/th&gt;
+            &lt;th class="justtable"&gt; Human-Friendly&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody class="justtable"&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;XML/XBRL&lt;/td&gt;
+                &lt;td class="justtable"&gt;         YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Protocol Buffers&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; ?&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;JSON&lt;/td&gt;
+                &lt;td class="justtable"&gt;              &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Avro&lt;/td&gt;
+                &lt;td class="justtable"&gt;             YES&lt;/td&gt;
+                &lt;td class="justtable"&gt;YES?&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; sort of&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;CSV&lt;/td&gt;
+                &lt;td class="justtable"&gt;               &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt; YES …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Doing a bit of research with regard to data schema and serializaton,
+preferably without being JSON_centric.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="justtable"&gt;
+    &lt;table class="justtable"&gt;
+        &lt;thead class="justtable"&gt;
+        &lt;tr class="justtable"&gt;
+            &lt;th class="justtable"&gt;Name&lt;/th&gt;
+            &lt;th class="justtable"&gt; Defining Structure/Type&lt;/th&gt;
+            &lt;th class="justtable"&gt; Structure is Extensible&lt;/th&gt;
+            &lt;th class="justtable"&gt; Data Serialization&lt;/th&gt;
+            &lt;th class="justtable"&gt; Data Validation&lt;/th&gt;
+            &lt;th class="justtable"&gt; Human-Friendly&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody class="justtable"&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;XML/XBRL&lt;/td&gt;
+                &lt;td class="justtable"&gt;         YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Protocol Buffers&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; ?&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;JSON&lt;/td&gt;
+                &lt;td class="justtable"&gt;              &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Avro&lt;/td&gt;
+                &lt;td class="justtable"&gt;             YES&lt;/td&gt;
+                &lt;td class="justtable"&gt;YES?&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; sort of&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;CSV&lt;/td&gt;
+                &lt;td class="justtable"&gt;               &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt;  &lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;Kwalify (YAML+JSON)&lt;/td&gt;
+                &lt;td class="justtable"&gt;YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;XML/NEIM&lt;/td&gt;
+                &lt;td class="justtable"&gt;         YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; n?&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class="justtable"&gt;
+                &lt;td class="justtable"&gt;OKFN/CSV + JSON&lt;/td&gt;
+                &lt;td class="justtable"&gt;  YES&lt;/td&gt;
+                &lt;td class="justtable"&gt; ?&lt;/td&gt;
+                &lt;td class="justtable"&gt; n&lt;/td&gt;
+                &lt;td class="justtable"&gt; n&lt;/td&gt;
+                &lt;td class="justtable"&gt; YES&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;&lt;/p&gt;</content><category term="research"></category></entry><entry><title>Libpcap to capture 10Gbps</title><link href="/egberts/articles/libpcap-to-capture-10gbps.html" rel="alternate"></link><published>2014-12-14T20:34:00-05:00</published><updated>2014-12-14T20:34:00-05:00</updated><author><name></name></author><id>tag:None,2014-12-14:/egberts/articles/libpcap-to-capture-10gbps.html</id><summary type="html">&lt;p&gt;Someone asked:&lt;/p&gt;
 &lt;p&gt;I want to capture packets from 10Gbps network card with 0 packet loss. I am
 using lipcap for 100Mbps NIC and it is working fine. Will libpcap be able to
 handle 10Gbps NIC traffic? If not what are the other alternative ways to achive
