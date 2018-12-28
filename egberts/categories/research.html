@@ -103,11 +103,6 @@
                   <!-- base.html pages ends -->
                 <li class="divider-vertical"></li>
                   <li >
-                    <a href="/egberts/categories/formal.html">
-                        <i class="fas fa-folder-open icon-large"></i>formal
-                    </a>
-                  </li>
-                  <li >
                     <a href="/egberts/categories/howto.html">
                         <i class="fas fa-folder-open icon-large"></i>HOWTO
                     </a>
@@ -150,6 +145,39 @@
         <div class="span9" id="content-base">
       <div class="article">
         <h2>
+          <a href="/egberts/articles/authentication-for-api.html">Authentication for API</a>
+        </h2>
+        <div class="well small"><!-- article_infos.html begins -->
+<footer class="post-info">
+  <!-- <span class="label">Date</span> -->
+  <abbr class="published" title="2018-12-28T06%3A30%3A00-05%3A00">
+        <i class="fas fa-calendar"></i>Fri 28 December 2018
+  </abbr>
+<!--
+    <span class="label">By</span>
+    <a href=""><i class="fas fa-user"></i></a>
+-->
+  <span class="label">Category</span>
+  <a href="/egberts/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
+
+
+<!-- taglist.html begins -->
+<!-- taglist.html ends -->
+<!-- translation.html begins -->
+<!-- translation.html ends -->
+</footer>
+<!-- article_infos.html ends -->
+</div>
+        <div class="summary"><h2 id="authentication-for-api">Authentication for API</h2>
+<p>When deploying a new web API, authentication approaches came to mind foremostly.  Needed to determine which type of authentication to use.  Large binning, salting of hash, and revocatable are my criteria.</p>
+<p>Some toolkits that went out the window firstly are: auth0, Fusion auth, and Gluu.</p>
+<p>So, some …</p>
+          <a class="btn primary xsmall" href="/egberts/articles/authentication-for-api.html">more ...</a>
+        </div>
+      </div>
+      <hr />
+      <div class="article">
+        <h2>
           <a href="/egberts/articles/tight-multiversion-python-re-development-cycle.html">Tight Multiversion Python Re-development Cycle</a>
         </h2>
         <div class="well small"><!-- article_infos.html begins -->
@@ -182,11 +210,102 @@
 <span class="n">mkdir</span> <span class="n">env3</span>
 <span class="c1"># Create the virtual environment support</span>
 <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">env</span>
-<span class="c1"># subdirectory bin created with all symlink&#39;d executables (ie., pytest,</span>
-<span class="n">python3</span><span class="p">,</span> <span class="n">activate</span><span class="p">)</span>
+<span class="c1"># subdirectory bin created with all symlink&#39;d executables (ie., pytest, python3, activate)</span>
 
 <span class="c1"># Following source command CANNOT be done from a script file but only …</span></pre></div>
           <a class="btn primary xsmall" href="/egberts/articles/tight-multiversion-python-re-development-cycle.html">more ...</a>
+        </div>
+      </div>
+      <hr />
+      <div class="article">
+        <h2>
+          <a href="/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html">Automata theory: formal languages and formal grammars</a>
+        </h2>
+        <div class="well small"><!-- article_infos.html begins -->
+<footer class="post-info">
+  <!-- <span class="label">Date</span> -->
+  <abbr class="published" title="2018-11-29T10%3A09%3A00-05%3A00">
+        <i class="fas fa-calendar"></i>Thu 29 November 2018
+  </abbr>
+<!--
+    <span class="label">By</span>
+    <a href=""><i class="fas fa-user"></i></a>
+-->
+  <span class="label">Category</span>
+  <a href="/egberts/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
+
+
+<!-- taglist.html begins -->
+<span class="label">Tags</span>
+    <a href="/egberts/tags/rst.html"><i class="fas fa-tag"></i>rst</a>
+    <a href="/egberts/tags/automata.html"><i class="fas fa-tag"></i>automata</a>
+    <a href="/egberts/tags/formal-language.html"><i class="fas fa-tag"></i>formal language</a>
+    <a href="/egberts/tags/formal-grammar.html"><i class="fas fa-tag"></i>formal grammar</a>
+<!-- taglist.html ends -->
+<!-- translation.html begins -->
+<!-- translation.html ends -->
+</footer>
+<!-- article_infos.html ends -->
+</div>
+        <div class="summary"><p>
+<div class="justtable">
+    <table class="justtable">
+        <thead class="justtable">
+        <tr class="justtable">
+            <th class="justtable">Chomsky hierarchy</th>
+            <th class="justtable"> Grammars</th>
+            <th class="justtable"> Languages</th>
+            <th class="justtable"> Abstract machines</th>
+        </tr>
+        </thead>
+        <tbody class="justtable">
+            <tr class="justtable">
+                <td class="justtable">Type-0</td>
+                <td class="justtable"> Unrestricted</td>
+                <td class="justtable"> Recursively enumerable</td>
+                <td class="justtable"> Turing machine</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">—</td>
+                <td class="justtable"> (no common name)</td>
+                <td class="justtable">Decidable</td>
+                <td class="justtable">Decider</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">Type-1</td>
+                <td class="justtable"> Context-sensitive</td>
+                <td class="justtable"> Context-sensitive</td>
+                <td class="justtable"> Linear-bounded</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">—</td>
+                <td class="justtable"> Positive range concatenation</td>
+                <td class="justtable"> Positive range concatenation*</td>
+                <td class="justtable"> PTIME Turing Machine</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">—</td>
+                <td class="justtable"> Indexed</td>
+                <td class="justtable"> Indexed*</td>
+                <td class="justtable"> Nested stack</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">—</td>
+                <td class="justtable"> —</td>
+                <td class="justtable"> —</td>
+                <td class="justtable"> Thread automaton</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">—</td>
+                <td class="justtable"> Linear context-free rewriting systems</td>
+                <td class="justtable"> Linear context-free rewriting language</td>
+                <td class="justtable"> restricted Tree stack automaton</td>
+            </tr>
+            <tr class="justtable">
+                <td class="justtable">—</td>
+                <td class="justtable"> Tree-adjoining</td>
+                <td class="justtable"> Tree-adjoining …</td></tr></tbody></table></div></p>
+          <a class="btn primary xsmall" href="/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html">more ...</a>
         </div>
       </div>
       <hr />
@@ -451,89 +570,6 @@ slug: anti-debugging-methods</p>
         </div>
       </div>
       <hr />
-      <div class="article">
-        <h2>
-          <a href="/egberts/articles/custom-home-router-verizon.html">Custom Home Router, Verizon</a>
-        </h2>
-        <div class="well small"><!-- article_infos.html begins -->
-<footer class="post-info">
-  <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2018-11-10T14%3A18%3A00-05%3A00">
-        <i class="fas fa-calendar"></i>Sat 10 November 2018
-  </abbr>
-<!--
-    <span class="label">By</span>
-    <a href=""><i class="fas fa-user"></i></a>
--->
-  <span class="label">Category</span>
-  <a href="/egberts/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
-
-
-<!-- taglist.html begins -->
-<span class="label">Tags</span>
-    <a href="/egberts/tags/verizon.html"><i class="fas fa-tag"></i>verizon</a>
-    <a href="/egberts/tags/router.html"><i class="fas fa-tag"></i>router</a>
-    <a href="/egberts/tags/homelan.html"><i class="fas fa-tag"></i>homelan</a>
-<!-- taglist.html ends -->
-<!-- translation.html begins -->
-<!-- translation.html ends -->
-</footer>
-<!-- article_infos.html ends -->
-</div>
-        <div class="summary"><h2 id="ethernet-via-ont">Ethernet via ONT</h2>
-<p>Your throughput is a bit higher using that Ethernet port on the ONT than
-letting an Verizon-provided broadband modem router bridge the MoAC cable
-into providing that Ethernet.</p>
-<ul>
-<li>ActionTec Rev A/C/D MoCa has 100 Mbps throughput</li>
-<li>ActionTec Rev E/F MoCa has 100 Mbps throughput …</li></ul>
-          <a class="btn primary xsmall" href="/egberts/articles/custom-home-router-verizon.html">more ...</a>
-        </div>
-      </div>
-      <hr />
-      <div class="article">
-        <h2>
-          <a href="/egberts/articles/overview-of-verizon-fios-network.html">Overview of Verizon FiOS Network</a>
-        </h2>
-        <div class="well small"><!-- article_infos.html begins -->
-<footer class="post-info">
-  <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2018-11-10T13%3A28%3A00-05%3A00">
-        <i class="fas fa-calendar"></i>Sat 10 November 2018
-  </abbr>
-<!--
-    <span class="label">By</span>
-    <a href=""><i class="fas fa-user"></i></a>
--->
-  <span class="label">Category</span>
-  <a href="/egberts/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
-
-
-<!-- taglist.html begins -->
-<span class="label">Tags</span>
-    <a href="/egberts/tags/verizon.html"><i class="fas fa-tag"></i>verizon</a>
-    <a href="/egberts/tags/isp.html"><i class="fas fa-tag"></i>isp</a>
-<!-- taglist.html ends -->
-<!-- translation.html begins -->
-<!-- translation.html ends -->
-</footer>
-<!-- article_infos.html ends -->
-</div>
-        <div class="summary"><h2 id="overview">Overview</h2>
-<p>Components, as listed in network order from your PC to the Internet:</p>
-<p><img src="HFC network.png" title="HFC network.png" alt="HFC network.png" width="800" /></p>
-<h2 id="home-network">Home Network</h2>
-<p>Your home network can be connected in one of three ways:</p>
-<ul>
-<li>Ethernet by ONT direct Cat-5 (preferred)</li>
-<li>Ethernet via Modem Router MoCA coaxial (common)</li>
-<li>Ethernet via Set-Top Box&rsquo;s MoCA coaxial (rare)</li>
-</ul>
-<h3 id="ethernet-via-ont-direct-cat-5-preferred">Ethernet via ONT …</h3>
-          <a class="btn primary xsmall" href="/egberts/articles/overview-of-verizon-fios-network.html">more ...</a>
-        </div>
-      </div>
-      <hr />
 
     <div class="pagination">
       <ul>
@@ -671,13 +707,6 @@ into providing that Ethernet.</p>
       </li>
 
   <li class="nav-header"><h4><i class="fas fa-folder icon-large"></i>categories</h4></li>
-    <li>
-      <span style="white-space: nowrap">
-        <a href="/egberts/categories/formal.html">
-        <i class="fas fa-folder-open icon-large"></i>formal
-        </a>
-      </span>
-    </li>
     <li>
       <span style="white-space: nowrap">
         <a href="/egberts/categories/howto.html">

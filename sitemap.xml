@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io/feed.json</loc>
-<lastmod>2018-12-20T12:48:38-00:00</lastmod>
+<lastmod>2018-12-28T06:51:19-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -21,6 +21,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://egberts.github.io//egberts/pages/about.html</loc>
 <lastmod>2018-07-31T21:09:00-04:00</lastmod>
 <changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://egberts.github.io//egberts/articles/authentication-for-api.html</loc>
+<lastmod>2018-12-28T06:30:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -222,7 +229,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io//egberts/articles/bitcoin-vulnerabilities.html</loc>
-<lastmod>2018-08-20T09:43:00-04:00</lastmod>
+<lastmod>2018-12-20T15:28:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -340,13 +347,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://egberts.github.io//egberts/categories/formal.html</loc>
-<lastmod>2018-11-29T10:09:00-05:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://egberts.github.io//egberts/categories/howto.html</loc>
 <lastmod>2018-11-25T06:15:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -362,14 +362,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io//egberts/categories/research.html</loc>
-<lastmod>2018-12-20T12:00:00-05:00</lastmod>
+<lastmod>2018-12-28T06:30:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://egberts.github.io//egberts/categories/security.html</loc>
-<lastmod>2018-07-07T16:21:00-05:00</lastmod>
+<lastmod>2018-12-20T15:28:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -761,14 +761,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io//egberts/tags/bitcoin.html</loc>
-<lastmod>2018-08-20T09:43:00-05:00</lastmod>
+<lastmod>2018-12-20T15:28:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://egberts.github.io//egberts/tags/vulnerabilities.html</loc>
-<lastmod>2018-08-20T09:43:00-05:00</lastmod>
+<lastmod>2018-12-20T15:28:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

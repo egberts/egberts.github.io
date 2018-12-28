@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2018-12-20T12:00:00-05:00</updated><entry><title>Tight Multiversion Python Re-development Cycle</title><link href="/egberts/articles/tight-multiversion-python-re-development-cycle.html" rel="alternate"></link><published>2018-12-12T10:45:00-05:00</published><updated>2018-12-12T10:45:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-12:/egberts/articles/tight-multiversion-python-re-development-cycle.html</id><summary type="html">&lt;p&gt;Tight Multiversion Python Re-development Cycle&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2018-12-28T06:30:00-05:00</updated><entry><title>Authentication for API</title><link href="/egberts/articles/authentication-for-api.html" rel="alternate"></link><published>2018-12-28T06:30:00-05:00</published><updated>2018-12-28T06:30:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-28:/egberts/articles/authentication-for-api.html</id><summary type="html">&lt;h2 id="authentication-for-api"&gt;Authentication for API&lt;/h2&gt;
+&lt;p&gt;When deploying a new web API, authentication approaches came to mind foremostly.  Needed to determine which type of authentication to use.  Large binning, salting of hash, and revocatable are my criteria.&lt;/p&gt;
+&lt;p&gt;Some toolkits that went out the window firstly are: auth0, Fusion auth, and Gluu.&lt;/p&gt;
+&lt;p&gt;So, some …&lt;/p&gt;</summary><content type="html">&lt;h2 id="authentication-for-api"&gt;Authentication for API&lt;/h2&gt;
+&lt;p&gt;When deploying a new web API, authentication approaches came to mind foremostly.  Needed to determine which type of authentication to use.  Large binning, salting of hash, and revocatable are my criteria.&lt;/p&gt;
+&lt;p&gt;Some toolkits that went out the window firstly are: auth0, Fusion auth, and Gluu.&lt;/p&gt;
+&lt;p&gt;So, some of the basic criteria are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;User and password login instead of plain HTTP session cookies.&lt;/li&gt;
+&lt;li&gt;HTTP-only over TLS v1.2+ (secured HTTP, HTTPS)&lt;/li&gt;
+&lt;li&gt;ECDSA 1K or better&lt;/li&gt;
+&lt;li&gt;SameSite &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie"&gt;1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;__Host prefix &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie"&gt;1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;preload HTTP Strict-Transport-Security header line &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security"&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Bearer token supplied by API clients&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t listen on port 80&amp;hellip; like ever.  Or revoke token if over non-port 443.&lt;/li&gt;
+&lt;li&gt;DO NOT use JWT &lt;a href="https://en.wikipedia.org/wiki/JSON_Web_Token"&gt;3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;DO NOT use CORS &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"&gt;4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="external-references"&gt;External References&lt;/h3&gt;</content></entry><entry><title>Tight Multiversion Python Re-development Cycle</title><link href="/egberts/articles/tight-multiversion-python-re-development-cycle.html" rel="alternate"></link><published>2018-12-12T10:45:00-05:00</published><updated>2018-12-12T10:45:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-12:/egberts/articles/tight-multiversion-python-re-development-cycle.html</id><summary type="html">&lt;p&gt;Tight Multiversion Python Re-development Cycle&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id="set-up-a-new-python-virtual-environment"&gt;Set up a new Python virtual environment&lt;/h3&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt; \&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;work&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;
 &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;env3&lt;/span&gt;
 &lt;span class="c1"&gt;# Create the virtual environment support&lt;/span&gt;
 &lt;span class="n"&gt;python3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;
-&lt;span class="c1"&gt;# subdirectory bin created with all symlink&amp;#39;d executables (ie., pytest,&lt;/span&gt;
-&lt;span class="n"&gt;python3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;activate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# subdirectory bin created with all symlink&amp;#39;d executables (ie., pytest, python3, activate)&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Following source command CANNOT be done from a script file but only …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Tight Multiversion Python Re-development Cycle&lt;/p&gt;
 &lt;hr&gt;
@@ -16,22 +34,18 @@
 &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;env3&lt;/span&gt;
 &lt;span class="c1"&gt;# Create the virtual environment support&lt;/span&gt;
 &lt;span class="n"&gt;python3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;
-&lt;span class="c1"&gt;# subdirectory bin created with all symlink&amp;#39;d executables (ie., pytest,&lt;/span&gt;
-&lt;span class="n"&gt;python3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;activate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# subdirectory bin created with all symlink&amp;#39;d executables (ie., pytest, python3, activate)&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Following source command CANNOT be done from a script file but only&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;the&lt;/span&gt; &lt;span class="nn"&gt;CURRENT&lt;/span&gt; &lt;span class="nn"&gt;shell&lt;/span&gt;
+&lt;span class="c1"&gt;# Following source command CANNOT be done from a script file but only from the CURRENT shell&lt;/span&gt;
 &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="nb"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Now ready to add new (or existing) Python package to within Python3&lt;/span&gt;
-&lt;span class="n"&gt;environment&lt;/span&gt;
+&lt;span class="c1"&gt;# Now ready to add new (or existing) Python package to within Python3 environment&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;jdoe&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;myrepo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Go into newly created package repo&lt;/span&gt;
 &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;myrepo&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Depending if package is ready, make said package &amp;#39;pseudo-installed&amp;#39;&lt;/span&gt;
-&lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;live&lt;/span&gt; &lt;span class="n"&gt;edit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;able&lt;/span&gt;
+&lt;span class="c1"&gt;# Depending if package is ready, make said package &amp;#39;pseudo-installed&amp;#39; and live edit-able&lt;/span&gt;
 &lt;span class="c1"&gt;# This enables you to skip the &amp;quot;install&amp;quot; part&lt;/span&gt;
 &lt;span class="c1"&gt;# of the tight &amp;quot;edit python source→pip install→ pytest → edit python&lt;/span&gt;
 &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; development loop.&lt;/span&gt;
@@ -44,7 +58,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Nice, uh?&lt;/p&gt;</content><category term="python"></category></entry><entry><title>Automata theory: formal languages and formal grammars</title><link href="/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html" rel="alternate"></link><published>2018-11-29T10:09:00-05:00</published><updated>2018-11-29T10:09:00-05:00</updated><author><name></name></author><id>tag:None,2018-11-29:/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html</id><summary type="html">&lt;p&gt;
+&lt;h2 id="nice-uh"&gt;Nice, uh?&lt;/h2&gt;</content><category term="python"></category></entry><entry><title>Automata theory: formal languages and formal grammars</title><link href="/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html" rel="alternate"></link><published>2018-11-29T10:09:00-05:00</published><updated>2018-11-29T10:09:00-05:00</updated><author><name></name></author><id>tag:None,2018-11-29:/egberts/articles/automata-theory-formal-languages-and-formal-grammars.html</id><summary type="html">&lt;p&gt;
 &lt;div class="justtable"&gt;
     &lt;table class="justtable"&gt;
         &lt;thead class="justtable"&gt;
@@ -2565,7 +2579,7 @@ the keys.:&lt;/p&gt;
 &lt;h2 id="references"&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://ftp.yz.yamagata-u.ac.jp/pub/network/isc/dnssec-guide/html/dnssec-guide.html#troubleshooting-unable-to-load-keys"&gt;https://ftp.yz.yamagata-u.ac.jp/pub/network/isc/dnssec-guide/html/dnssec-guide.html#troubleshooting-unable-to-load-keys&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="dnssec"></category><category term="dns"></category><category term="comparison"></category></entry><entry><title>Bitcoin Vulnerabilities</title><link href="/egberts/articles/bitcoin-vulnerabilities.html" rel="alternate"></link><published>2018-08-20T09:43:00-04:00</published><updated>2018-08-20T09:43:00-04:00</updated><author><name></name></author><id>tag:None,2018-08-20:/egberts/articles/bitcoin-vulnerabilities.html</id><summary type="html">&lt;p&gt;Vulnerabilities Found in Bitcoin.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Some errors Satoshi with Bitcoin made are:&lt;/p&gt;
+&lt;/ul&gt;</content><category term="dnssec"></category><category term="dns"></category><category term="comparison"></category></entry><entry><title>Bitcoin Vulnerabilities</title><link href="/egberts/articles/bitcoin-vulnerabilities.html" rel="alternate"></link><published>2018-08-20T09:43:00-04:00</published><updated>2018-12-20T15:28:00-05:00</updated><author><name></name></author><id>tag:None,2018-08-20:/egberts/articles/bitcoin-vulnerabilities.html</id><summary type="html">&lt;p&gt;Vulnerabilities Found in Bitcoin.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Some errors Satoshi with Bitcoin made are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Early version of bitcoind allows you to spend any coin by using &lt;code&gt;op_true op_return&lt;/code&gt; as signature.&lt;/li&gt;
 &lt;li&gt;It was initially possible to fork each version of the client on its own chain using &amp;ldquo;&lt;strong&gt;op_version&lt;/strong&gt;&amp;ldquo;&lt;/li&gt;

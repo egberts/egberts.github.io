@@ -1,15 +1,15 @@
 <!-- articles.html begins -->
-<!-- source file: articles/debugging-detection-prevention.md -->
-<!-- base.html begins, seeded by egberts/drafts/articles/debugging-detection-prevention.html  -->
+<!-- source file: articles/authentication-over-web-api.md -->
+<!-- base.html begins, seeded by egberts/articles/authentication-for-api.html  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Debugging Detection & Prevention</title>
+    <title>Authentication for API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="canonical" href="https://egberts.github.io/egberts/drafts/articles/debugging-detection-prevention.html">
+    <link rel="canonical" href="https://egberts.github.io/egberts/articles/authentication-for-api.html">
 
     <!-- Le styles -->
     <link rel="stylesheet"
@@ -147,10 +147,10 @@
         <article>
                 <header>
                         <h1>
-                                <a href="/egberts/drafts/articles/debugging-detection-prevention.html"
+                                <a href="/egberts/articles/authentication-for-api.html"
                                         rel="bookmark"
-                                        title="Permalink to Debugging Detection & Prevention">
-                                        Debugging Detection & Prevention
+                                        title="Permalink to Authentication for API">
+                                        Authentication for API
                                 </a>
 <!-- twitter_article.html begins -->
 
@@ -158,7 +158,7 @@
 
 <script
     charset="utf-8"
-    src="../../../egberts/theme/js/widgets.js"
+    src="../../egberts/theme/js/widgets.js"
     type="text/javascript">
     src="http://platform.twitter.com/widgets.js"
 </script>
@@ -166,7 +166,7 @@
 <a class="fab fa-twitter"
    target="_blank"
    rel="nofollow noopener noreferrer"
-   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Debugging%20Detection%20%26%C2%A0Prevention&tw_p=tweetbutton&url=https://egberts.github.io/egberts/drafts/articles/debugging-detection-prevention.html&via=egbertst"
+   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Authentication%20for%20API&tw_p=tweetbutton&url=https://egberts.github.io/egberts/articles/authentication-for-api.html&via=egbertst"
 >
 </a>
 -->
@@ -178,8 +178,8 @@
 <!-- article_infos.html begins -->
 <footer class="post-info">
   <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2018-11-14T00%3A00%3A00-05%3A00">
-        <i class="fas fa-calendar"></i>Wed 14 November 2018
+  <abbr class="published" title="2018-12-28T06%3A30%3A00-05%3A00">
+        <i class="fas fa-calendar"></i>Fri 28 December 2018
   </abbr>
 <!--
     <span class="label">By</span>
@@ -196,30 +196,23 @@
 </footer>
 <!-- article_infos.html ends -->
                 </div>
-                <p>research tags: debugger, malware</p>
-<p>Debugger Detection/Prevention</p>
+                <h2 id="authentication-for-api">Authentication for API</h2>
+<p>When deploying a new web API, authentication approaches came to mind foremostly.  Needed to determine which type of authentication to use.  Large binning, salting of hash, and revocatable are my criteria.</p>
+<p>Some toolkits that went out the window firstly are: auth0, Fusion auth, and Gluu.</p>
+<p>So, some of the basic criteria are:</p>
 <ul>
-<li>some source in [LordNoteworthy@github]. Most common/interesting ones:</li>
-<li>IsDebuggerPresent(), CheckRemoteDebuggerPresent() etc. (quite silly,</li>
-<li>mostly as a kinda-decoy) OS calls are not 100% obfuscatable =&gt; using them (unless they’re actually inlines or macros) is a Bad Idea™ (Bad Example: [zer0fl4g@github]). IF using them – obfuscate system calls and literals (such as obfuscating “OllyDbg” for FindWindow(), and obfuscating “FindWindow” for GetProcAddress()); more on obfuscating system calls below</li>
-<li>Not-so-obvious system calls, such as OpenProcess(“csrss.exe”),</li>
-<li>OutputDebugString(), UnhandledExceptionFilter() FindWindow() (silly, but…)</li>
-<li>Memory reads. NtGlobalFlag, heap flags, KdDebuggerEnabled, GetLastError() (cmp</li>
-<li>fs:[ebp+34h], ebp, cmp gs:[rbp+68h], ebp), TODO – anything else?  Reading from</li>
-<li>RAM without function call(!). DON’T USE DIRECTLY FOR COMPARISONS; INSTEAD – USE AS A PART OF DATA OBFUSCATION (IN PARTICULAR, WILL LOOK SIMILAR TO ‘GLOBAL READ OF KNOWN VALUE’ USED TO PREVENT OPTIMIZING OUT). EFFECTIVE PARTIAL COMPARES WHEN USING FOR DATA OBFUSCATION (USING &amp;MASK1 IN ONE PLACE, |MASK2 IN ANOTHER PLACE).  More devious: use the value to generate decryption key, then try to decrypt several pieces of code (with one decrypted by “correct” key, and another by “being-debugged” key, other combinations of “being-debugged” flags also can be accounted for). Then use this code to communicate to the server – which now can distinguish clients which are being debugged (gotcha!). Hare wondering if you are crazy:“Even more devious: use the value to generate encryption key, which is used to encrypt a well-defined constant, which is sent to the server – which then can try different keys to decrypt (gotcha!) ** Even more devious: use the value to generate encryption key, which is used to encrypt a well-defined constant, which is sent to the server – which then can try different keys to decrypt (gotcha!)</li>
-<li>“self-debug” (actually – debug a copy of the process). Only one ring 3</li>
-<li>debugger allowed at least in Windows.</li>
-<li>Hiding thread from debugger: NtSetInformationThread, NtCreateThreadEx (reportedly used by Steam at least at some point)</li>
-<li>MOV SS</li>
-<li>INT 2D</li>
-<li>“check within TLS callback” trick</li>
-<li>NB: using Zw* counterparts [TODO – elaborate]</li>
-<li>Messing with debuggers: BLOCKINPUT; NOT REALLY DETECTION, BUT… REP * [Kulchytskyy] Most interesting techniques (beyond [Ferrie]) NTCREATETHREADEX TO HIDE THREADS Asm to set SEH handlers (32-bit only); on table-based SEH in x64 Windows – see [NTInsider] ** KiUserExceptionDispatcher</li>
-<li>[Falliere].Techniques going beyond previous refs: PUSH SS/POP SS (ACTUALLY, IT IS DESCRIBED IN [FERRIE], BUT IMO EXPLANATION HERE IS BETTER) ICE breakpoint (0xF1); not to be confused with SoftICE.  ** Scanning for INT 3 (0xCC). False positives. Also should scan for 0xFA [Falliere] and probably others. Checksums are generally preferred.</li>
-<li>[OpenRCE] Techniques going beyond previous refs: LOCK CMPXCHG8B AS AN INVALID INSTRUCTION TO RAISE SEH Lots of debugger-specific trickery</li>
-<li>[Tully]. Techniques going beyond previous refs: REMOVING PE HEADER Messing with debuggers: *** OutputDebugString Exploit for OllyDbg (TODO: is it still up-to-date?)</li>
-<li>SoftICE detection (doesn’t make much sense now, esp. if your program is 64-bit, but some ideas might be applicable to other debuggers): lots of discussion in [Crackproof your software]</li>
+<li>User and password login instead of plain HTTP session cookies.</li>
+<li>HTTP-only over TLS v1.2+ (secured HTTP, HTTPS)</li>
+<li>ECDSA 1K or better</li>
+<li>SameSite <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">1</a></li>
+<li>__Host prefix <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">1</a></li>
+<li>preload HTTP Strict-Transport-Security header line <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">2</a></li>
+<li>Bearer token supplied by API clients</li>
+<li>Don&rsquo;t listen on port 80&hellip; like ever.  Or revoke token if over non-port 443.</li>
+<li>DO NOT use JWT <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">3</a></li>
+<li>DO NOT use CORS <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">4</a></li>
 </ul>
+<h3 id="external-references">External References</h3>
                 </div><!-- /.entry-content -->
         </article>
 </section>
