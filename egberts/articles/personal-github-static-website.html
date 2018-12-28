@@ -228,19 +228,20 @@ menu option, click on &ldquo;New repository&rdquo;.</p>
 replacing the &lt;username&gt; with your GitHub account username.</p>
 <p>NOTE: the second repo has a &ldquo;-src&rdquo; suffix added to the repo name.</p>
 <p>Click on the green &ldquo;Create Repository&rdquo; button.</p>
-<div class="codehilite"><pre><span></span>  <span class="c1"># On local machine</span>
+<div class="codehilite"><pre><span></span><span class="c1"># On local machine</span>
 
-  <span class="nb">cd</span> ~/work/websites  <span class="c1"># we had those already existing subdirectories</span>
-  git clone https://github.com/&lt;username&gt;/&lt;username&gt;.github.io-src
-  <span class="c1"># This is our main git project</span>
-  <span class="nb">cd</span> &lt;username&gt;.github.io-src
+<span class="nb">cd</span> ~/work/websites  <span class="c1"># we had those already existing subdirectories</span>
+git clone https://github.com/&lt;username&gt;/&lt;username&gt;.github.io-src
+
+<span class="c1"># This is our main git project</span>
+<span class="nb">cd</span> &lt;username&gt;.github.io-src
 </pre></div>
 
 
 <p>Now we add our final-stage repo submodule to our master project
 and call it <code>output</code> subdirectory</p>
-<div class="codehilite"><pre><span></span>  <span class="c1"># output subdirectory = final-stage static website</span>
-  git submodule add --force <span class="se">\</span>
+<div class="codehilite"><pre><span></span><span class="c1"># output subdirectory = final-stage static website</span>
+git submodule add --force <span class="se">\</span>
       --branch master  <span class="se">\</span>
       https://github.com/egberts/egberts.github.io.git output
 </pre></div>
@@ -255,8 +256,8 @@ branch named &lsquo;master&rsquo;&hellip; automatically.</p>
 <h2 id="installing-static-website-generator">Installing Static Website Generator</h2>
 <p>Now we can add our static website generator in here.
 I use Pelican, which uses <code>output</code> to hold my final-stage website</p>
-<div class="codehilite"><pre><span></span>  <span class="nb">cd</span> ~/work/websites/&lt;username&gt;.github.io-src  <span class="c1"># note the &#39;-src&#39; suffix</span>
-  pelican-quickstart
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/work/websites/&lt;username&gt;.github.io-src  <span class="c1"># note the &#39;-src&#39; suffix</span>
+pelican-quickstart
 </pre></div>
 
 
@@ -367,8 +368,7 @@ out.</p>
 of the &lsquo;output&rsquo; subdirectory.  Our &lsquo;git submodule&rsquo; setup does not like
 its &lsquo;output&rsquo; subdirectory being destroyed.  There is a configuration
 for that;  Edit the <code>pelicanconf.py</code> file:</p>
-<div class="codehilite"><pre><span></span>    #!bash
-    vim pelicanconf.py
+<div class="codehilite"><pre><span></span>vim pelicanconf.py
 </pre></div>
 
 
@@ -405,18 +405,31 @@ format.</p>
 
 <p>Then saved the file as &ldquo;<code>content/article/example.md</code>&ldquo;</p>
 <p>I then executed:</p>
-<div class="codehilite"><pre><span></span>    make html
+<div class="codehilite"><pre><span></span>make html
 </pre></div>
 
 
 <p>To view your newly created webpages, start up a local webserver using port
 8000.</p>
-<div class="codehilite"><pre><span></span>    make serve
+<div class="codehilite"><pre><span></span>make serve
 </pre></div>
 
 
-<p>Using your favorite web browser, visit the &lsquo;http://localhost:8000/&rsquo; and view the result
+<p>Using your favorite web browser, visit the <a href="http://localhost:8000/">http://localhost:8000/</a> and view the result
 of your first static website.</p>
+<p>Feel confident?  Publish the static web pages onto your GitHub personal website.</p>
+<div class="codehilite"><pre><span></span>make publish
+make github
+</pre></div>
+
+
+<p>And visit <a href="https://username.github.io/username">https://username.github.io/username/</a></p>
+<p>A workflow diagram is shown as:</p>
+<p><img alt="2-Repo Pelican Git Workflow" src="/images/pelican-2-git-repos.svg" title="2-Repo Pelican Git Workflow"></p>
+<h2 id="saving-it-all-to-repositories">Saving It All To Repositories</h2>
+<ol>
+<li>Git-pushed webpages to final-stage website repo</li>
+</ol>
                 </div><!-- /.entry-content -->
         </article>
 </section>
