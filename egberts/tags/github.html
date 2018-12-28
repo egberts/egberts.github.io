@@ -1,15 +1,15 @@
-<!-- articles.html begins -->
-<!-- source file: articles/debugging-detection-prevention.md -->
-<!-- base.html begins, seeded by egberts/drafts/articles/debugging-detection-prevention.html  -->
+<!-- tag.html begins -->
+<!-- index.html begins -->
+<!-- base.html begins, seeded by egberts/tags/github.html  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Debugging Detection & Prevention</title>
+    <title>Egbert Networks - github</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="canonical" href="https://egberts.github.io/egberts/drafts/articles/debugging-detection-prevention.html">
+    <link rel="canonical" href="https://egberts.github.io/egberts/tags/github.html">
 
     <!-- Le styles -->
     <link rel="stylesheet"
@@ -112,7 +112,7 @@
                         <i class="fas fa-folder-open icon-large"></i>javascript
                     </a>
                   </li>
-                  <li class="active">
+                  <li >
                     <a href="/egberts/categories/research.html">
                         <i class="fas fa-folder-open icon-large"></i>research
                     </a>
@@ -143,86 +143,56 @@
     <div class="container-fluid">
       <div class="row">
         <div class="span9" id="content-base">
-<section id="content">
-        <article>
-                <header>
-                        <h1>
-                                <a href="/egberts/drafts/articles/debugging-detection-prevention.html"
-                                        rel="bookmark"
-                                        title="Permalink to Debugging Detection & Prevention">
-                                        Debugging Detection & Prevention
-                                </a>
-<!-- twitter_article.html begins -->
-
-<!-- moved Twitter to SOCIAL/SOCIAL_LABELS
-
-<script
-    charset="utf-8"
-    src="../../../egberts/theme/js/widgets.js"
-    type="text/javascript">
-    src="http://platform.twitter.com/widgets.js"
-</script>
-
-<a class="fab fa-twitter"
-   target="_blank"
-   rel="nofollow noopener noreferrer"
-   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Debugging%20Detection%20%26%C2%A0Prevention&tw_p=tweetbutton&url=https://egberts.github.io/egberts/drafts/articles/debugging-detection-prevention.html&via=egbertst"
->
-</a>
--->
-<!-- twitter_article.html ends -->
-                        </h1>
-                </header>
-                <div class="entry-content">
-                <div class="well">
-<!-- article_infos.html begins -->
+      <div class="article">
+        <h2>
+          <a href="/egberts/articles/personal-github-static-website.html">Personal GitHub Static Website</a>
+        </h2>
+        <div class="well small"><!-- article_infos.html begins -->
 <footer class="post-info">
   <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2018-11-14T00%3A00%3A00-05%3A00">
-        <i class="fas fa-calendar"></i>Wed 14 November 2018
+  <abbr class="published" title="2018-12-28T09%3A25%3A00-05%3A00">
+        <i class="fas fa-calendar"></i>Fri 28 December 2018
   </abbr>
 <!--
     <span class="label">By</span>
     <a href=""><i class="fas fa-user"></i></a>
 -->
   <span class="label">Category</span>
-  <a href="/egberts/categories/research.html"><i class="fas fa-folder-open"></i>research</a>
+  <a href="/egberts/categories/howto.html"><i class="fas fa-folder-open"></i>HOWTO</a>
 
 
 <!-- taglist.html begins -->
+<span class="label">Tags</span>
+    <a href="/egberts/tags/github.html"><i class="fas fa-tag"></i>github</a>
+    <a href="/egberts/tags/blog.html"><i class="fas fa-tag"></i>blog</a>
 <!-- taglist.html ends -->
 <!-- translation.html begins -->
 <!-- translation.html ends -->
 </footer>
 <!-- article_infos.html ends -->
-                </div>
-                <p>research tags: debugger, malware</p>
-<p>Debugger Detection/Prevention</p>
-<ul>
-<li>some source in [LordNoteworthy@github]. Most common/interesting ones:</li>
-<li>IsDebuggerPresent(), CheckRemoteDebuggerPresent() etc. (quite silly,</li>
-<li>mostly as a kinda-decoy) OS calls are not 100% obfuscatable =&gt; using them (unless they’re actually inlines or macros) is a Bad Idea™ (Bad Example: [zer0fl4g@github]). IF using them – obfuscate system calls and literals (such as obfuscating “OllyDbg” for FindWindow(), and obfuscating “FindWindow” for GetProcAddress()); more on obfuscating system calls below</li>
-<li>Not-so-obvious system calls, such as OpenProcess(“csrss.exe”),</li>
-<li>OutputDebugString(), UnhandledExceptionFilter() FindWindow() (silly, but…)</li>
-<li>Memory reads. NtGlobalFlag, heap flags, KdDebuggerEnabled, GetLastError() (cmp</li>
-<li>fs:[ebp+34h], ebp, cmp gs:[rbp+68h], ebp), TODO – anything else?  Reading from</li>
-<li>RAM without function call(!). DON’T USE DIRECTLY FOR COMPARISONS; INSTEAD – USE AS A PART OF DATA OBFUSCATION (IN PARTICULAR, WILL LOOK SIMILAR TO ‘GLOBAL READ OF KNOWN VALUE’ USED TO PREVENT OPTIMIZING OUT). EFFECTIVE PARTIAL COMPARES WHEN USING FOR DATA OBFUSCATION (USING &amp;MASK1 IN ONE PLACE, |MASK2 IN ANOTHER PLACE).  More devious: use the value to generate decryption key, then try to decrypt several pieces of code (with one decrypted by “correct” key, and another by “being-debugged” key, other combinations of “being-debugged” flags also can be accounted for). Then use this code to communicate to the server – which now can distinguish clients which are being debugged (gotcha!). Hare wondering if you are crazy:“Even more devious: use the value to generate encryption key, which is used to encrypt a well-defined constant, which is sent to the server – which then can try different keys to decrypt (gotcha!) ** Even more devious: use the value to generate encryption key, which is used to encrypt a well-defined constant, which is sent to the server – which then can try different keys to decrypt (gotcha!)</li>
-<li>“self-debug” (actually – debug a copy of the process). Only one ring 3</li>
-<li>debugger allowed at least in Windows.</li>
-<li>Hiding thread from debugger: NtSetInformationThread, NtCreateThreadEx (reportedly used by Steam at least at some point)</li>
-<li>MOV SS</li>
-<li>INT 2D</li>
-<li>“check within TLS callback” trick</li>
-<li>NB: using Zw* counterparts [TODO – elaborate]</li>
-<li>Messing with debuggers: BLOCKINPUT; NOT REALLY DETECTION, BUT… REP * [Kulchytskyy] Most interesting techniques (beyond [Ferrie]) NTCREATETHREADEX TO HIDE THREADS Asm to set SEH handlers (32-bit only); on table-based SEH in x64 Windows – see [NTInsider] ** KiUserExceptionDispatcher</li>
-<li>[Falliere].Techniques going beyond previous refs: PUSH SS/POP SS (ACTUALLY, IT IS DESCRIBED IN [FERRIE], BUT IMO EXPLANATION HERE IS BETTER) ICE breakpoint (0xF1); not to be confused with SoftICE.  ** Scanning for INT 3 (0xCC). False positives. Also should scan for 0xFA [Falliere] and probably others. Checksums are generally preferred.</li>
-<li>[OpenRCE] Techniques going beyond previous refs: LOCK CMPXCHG8B AS AN INVALID INSTRUCTION TO RAISE SEH Lots of debugger-specific trickery</li>
-<li>[Tully]. Techniques going beyond previous refs: REMOVING PE HEADER Messing with debuggers: *** OutputDebugString Exploit for OllyDbg (TODO: is it still up-to-date?)</li>
-<li>SoftICE detection (doesn’t make much sense now, esp. if your program is 64-bit, but some ideas might be applicable to other debuggers): lots of discussion in [Crackproof your software]</li>
-</ul>
-                </div><!-- /.entry-content -->
-        </article>
-</section>
+</div>
+        <div class="summary"><p>How did I created a GitHub.IO personal website using two-repo/git-submodule
+approach?</p>
+<p>In five general steps:</p>
+<ol>
+<li>Created the final-stage website repo</li>
+<li>Created the static website generator repo</li>
+<li>Install static website generator</li>
+<li>Create static webpages</li>
+<li>Git-pushed webpages to final-stage website repo</li>
+</ol>
+<h2 id="creating-final-stage-website-repo">Creating Final-Stage Website Repo</h2>
+<p>Need to create a GitHub …</p>
+          <a class="btn primary xsmall" href="/egberts/articles/personal-github-static-website.html">more ...</a>
+        </div>
+      </div>
+      <hr />
+
+      <section id="content" class="body">
+        <h1>Pages</h1>
+          <li><a href="/egberts/pages/uses.html">Uses</a></li>
+          <li><a href="/egberts/pages/about.html">About</a></li>
+      </section>
         </div><!--/span-->
 
         <div class="span3 well sidebar-nav" id="sidebar">
@@ -315,12 +285,6 @@
         <i class="fas fa-atom icon-large"></i>atom feed</a>
       </span>
     </li>
-      <li>
-        <span style="white-space: nowrap">
-          <a href="mailto:me at egbert.net" target="_blank" rel="nofollow noopener noreferrer">
-          <i class="fas fa-envelope icon-large"></i>e-mail</a>
-        </span>
-      </li>
       <li>
         <span style="white-space: nowrap">
           <a href="https://twitter.com/egbertst" target="_blank" rel="nofollow noopener noreferrer">
@@ -568,6 +532,22 @@
     <!--    <i class="fas fa-tag icon-large"></i> -->
         <a href="/egberts/tags/debugging.html" >
         debugging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/github.html" >
+        github
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/blog.html" >
+        blog
         </a>
     </span>
   </li>

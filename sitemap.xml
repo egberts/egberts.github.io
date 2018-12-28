@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io/feed.json</loc>
-<lastmod>2018-12-28T06:51:19-00:00</lastmod>
+<lastmod>2018-12-28T10:11:19-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -21,6 +21,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://egberts.github.io//egberts/pages/about.html</loc>
 <lastmod>2018-07-31T21:09:00-04:00</lastmod>
 <changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://egberts.github.io//egberts/articles/personal-github-static-website.html</loc>
+<lastmod>2018-12-28T09:25:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -348,7 +355,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io//egberts/categories/howto.html</loc>
-<lastmod>2018-11-25T06:15:00-05:00</lastmod>
+<lastmod>2018-12-28T09:25:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -370,6 +377,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://egberts.github.io//egberts/categories/security.html</loc>
 <lastmod>2018-12-20T15:28:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://egberts.github.io//egberts/tags/github.html</loc>
+<lastmod>2018-12-28T09:25:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://egberts.github.io//egberts/tags/blog.html</loc>
+<lastmod>2018-12-28T09:25:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

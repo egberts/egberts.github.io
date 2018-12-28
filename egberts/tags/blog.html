@@ -1,15 +1,15 @@
-<!-- articles.html begins -->
-<!-- source file: articles/pelican-restructuredtext.rst -->
-<!-- base.html begins, seeded by egberts/drafts/articles/rst-example.html  -->
+<!-- tag.html begins -->
+<!-- index.html begins -->
+<!-- base.html begins, seeded by egberts/tags/blog.html  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Example RST markup used in Pelican</title>
+    <title>Egbert Networks - blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="canonical" href="https://egberts.github.io/egberts/drafts/articles/rst-example.html">
+    <link rel="canonical" href="https://egberts.github.io/egberts/tags/blog.html">
 
     <!-- Le styles -->
     <link rel="stylesheet"
@@ -143,118 +143,56 @@
     <div class="container-fluid">
       <div class="row">
         <div class="span9" id="content-base">
-<section id="content">
-        <article>
-                <header>
-                        <h1>
-                                <a href="/egberts/drafts/articles/rst-example.html"
-                                        rel="bookmark"
-                                        title="Permalink to Example RST markup used in Pelican">
-                                        Example RST markup used in Pelican
-                                </a>
-<!-- twitter_article.html begins -->
-
-<!-- moved Twitter to SOCIAL/SOCIAL_LABELS
-
-<script
-    charset="utf-8"
-    src="../../../egberts/theme/js/widgets.js"
-    type="text/javascript">
-    src="http://platform.twitter.com/widgets.js"
-</script>
-
-<a class="fab fa-twitter"
-   target="_blank"
-   rel="nofollow noopener noreferrer"
-   href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Great%20info%20on%20Example%20RST%20markup%20used%20in%20Pelican&tw_p=tweetbutton&url=https://egberts.github.io/egberts/drafts/articles/rst-example.html&via=egbertst"
->
-</a>
--->
-<!-- twitter_article.html ends -->
-                        </h1>
-                </header>
-                <div class="entry-content">
-                <div class="well">
-<!-- article_infos.html begins -->
+      <div class="article">
+        <h2>
+          <a href="/egberts/articles/personal-github-static-website.html">Personal GitHub Static Website</a>
+        </h2>
+        <div class="well small"><!-- article_infos.html begins -->
 <footer class="post-info">
   <!-- <span class="label">Date</span> -->
-  <abbr class="published" title="2017-11-20T16%3A58%3A00-05%3A00">
-        <i class="fas fa-calendar"></i>Mon 20 November 2017
+  <abbr class="published" title="2018-12-28T09%3A25%3A00-05%3A00">
+        <i class="fas fa-calendar"></i>Fri 28 December 2018
   </abbr>
 <!--
     <span class="label">By</span>
     <a href=""><i class="fas fa-user"></i></a>
 -->
   <span class="label">Category</span>
-  <a href="/egberts/categories/example.html"><i class="fas fa-folder-open"></i>example</a>
+  <a href="/egberts/categories/howto.html"><i class="fas fa-folder-open"></i>HOWTO</a>
 
 
 <!-- taglist.html begins -->
 <span class="label">Tags</span>
-    <a href="/egberts/tags/rst.html"><i class="fas fa-tag"></i>rst</a>
+    <a href="/egberts/tags/github.html"><i class="fas fa-tag"></i>github</a>
+    <a href="/egberts/tags/blog.html"><i class="fas fa-tag"></i>blog</a>
 <!-- taglist.html ends -->
 <!-- translation.html begins -->
 <!-- translation.html ends -->
 </footer>
 <!-- article_infos.html ends -->
-                </div>
-                <p>This will be turned into <abbr title="HyperText Markup Language">HTML</abbr>.</p>
-<div class="section" id="section-header">
-<h2>Section Header</h2>
-<div class="section" id="subsection-header">
-<h3>Subsection Header</h3>
-<ul class="simple">
-<li>A bullet list item</li>
-<li>Second item<ul>
-<li>A sub item</li>
-</ul>
-</li>
-<li>Spacing between items creates separate lists</li>
-<li>Third item</li>
-</ul>
-<ol class="arabic">
-<li><p class="first">An enumerated list item</p>
-</li>
-<li><p class="first">Second item</p>
-<ol class="loweralpha">
-<li><p class="first">Sub item that goes on at length and thus needs
-to be wrapped. Note the indentation that must
-match the beginning of the text, not the
-enumerator.</p>
-<ol class="lowerroman">
-<li><p class="first">List items can even include</p>
-<p>paragraph breaks.</p>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p class="first">Third item</p>
-</li>
-<li><p class="first">Another enumerated list item</p>
-</li>
-<li><p class="first">Second item</p>
-</li>
-</ol>
-<img alt="" src="example.jpg" />
-<p>A sentence with links to <a class="reference external" href="https://www.wikipedia.org/">Wikipedia</a> and the <a class="reference external" href="https://www.kernel.org/">Linux kernel archive</a>.</p>
-<p>Another sentence with an <a class="reference external" href="https://www.python.org/">anonymous link to the Python website</a>.</p>
-<pre class="literal-block">
-some literal text
-</pre>
-<p>This may also be used inline at the end of a paragraph, like so:</p>
-<pre class="literal-block">
-some more literal text
-</pre>
-<pre class="code python literal-block">
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;A literal block directive explicitly marked as python code&quot;</span><span class="p">)</span>
-</pre>
 </div>
-</div>
+        <div class="summary"><p>How did I created a GitHub.IO personal website using two-repo/git-submodule
+approach?</p>
+<p>In five general steps:</p>
+<ol>
+<li>Created the final-stage website repo</li>
+<li>Created the static website generator repo</li>
+<li>Install static website generator</li>
+<li>Create static webpages</li>
+<li>Git-pushed webpages to final-stage website repo</li>
+</ol>
+<h2 id="creating-final-stage-website-repo">Creating Final-Stage Website Repo</h2>
+<p>Need to create a GitHub …</p>
+          <a class="btn primary xsmall" href="/egberts/articles/personal-github-static-website.html">more ...</a>
+        </div>
+      </div>
+      <hr />
 
-                </div><!-- /.entry-content -->
-        </article>
-</section>
+      <section id="content" class="body">
+        <h1>Pages</h1>
+          <li><a href="/egberts/pages/uses.html">Uses</a></li>
+          <li><a href="/egberts/pages/about.html">About</a></li>
+      </section>
         </div><!--/span-->
 
         <div class="span3 well sidebar-nav" id="sidebar">
@@ -347,12 +285,6 @@ some more literal text
         <i class="fas fa-atom icon-large"></i>atom feed</a>
       </span>
     </li>
-      <li>
-        <span style="white-space: nowrap">
-          <a href="mailto:me at egbert.net" target="_blank" rel="nofollow noopener noreferrer">
-          <i class="fas fa-envelope icon-large"></i>e-mail</a>
-        </span>
-      </li>
       <li>
         <span style="white-space: nowrap">
           <a href="https://twitter.com/egbertst" target="_blank" rel="nofollow noopener noreferrer">
@@ -600,6 +532,22 @@ some more literal text
     <!--    <i class="fas fa-tag icon-large"></i> -->
         <a href="/egberts/tags/debugging.html" >
         debugging
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/github.html" >
+        github
+        </a>
+    </span>
+  </li>
+  <li class="tag-10 nowrap">
+    <span style="white-space: nowrap">
+    <!--    <i class="fas fa-tag icon-large"></i> -->
+        <a href="/egberts/tags/blog.html" >
+        blog
         </a>
     </span>
   </li>

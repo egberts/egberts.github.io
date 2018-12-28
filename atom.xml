@@ -1,5 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2018-12-28T06:30:00-05:00</updated><entry><title>Authentication for API</title><link href="/egberts/articles/authentication-for-api.html" rel="alternate"></link><published>2018-12-28T06:30:00-05:00</published><updated>2018-12-28T06:30:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-28:/egberts/articles/authentication-for-api.html</id><summary type="html">&lt;h2 id="authentication-for-api"&gt;Authentication for API&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2018-12-28T09:25:00-05:00</updated><entry><title>Personal GitHub Static Website</title><link href="/egberts/articles/personal-github-static-website.html" rel="alternate"></link><published>2018-12-28T09:25:00-05:00</published><updated>2018-12-28T09:25:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-28:/egberts/articles/personal-github-static-website.html</id><summary type="html">&lt;p&gt;How did I created a GitHub.IO personal website using two-repo/git-submodule
+approach?&lt;/p&gt;
+&lt;p&gt;In five general steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Created the final-stage website repo&lt;/li&gt;
+&lt;li&gt;Created the static website generator repo&lt;/li&gt;
+&lt;li&gt;Install static website generator&lt;/li&gt;
+&lt;li&gt;Create static webpages&lt;/li&gt;
+&lt;li&gt;Git-pushed webpages to final-stage website repo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="creating-final-stage-website-repo"&gt;Creating Final-Stage Website Repo&lt;/h2&gt;
+&lt;p&gt;Need to create a GitHub …&lt;/p&gt;</summary><content type="html">&lt;p&gt;How did I created a GitHub.IO personal website using two-repo/git-submodule
+approach?&lt;/p&gt;
+&lt;p&gt;In five general steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Created the final-stage website repo&lt;/li&gt;
+&lt;li&gt;Created the static website generator repo&lt;/li&gt;
+&lt;li&gt;Install static website generator&lt;/li&gt;
+&lt;li&gt;Create static webpages&lt;/li&gt;
+&lt;li&gt;Git-pushed webpages to final-stage website repo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="creating-final-stage-website-repo"&gt;Creating Final-Stage Website Repo&lt;/h2&gt;
+&lt;p&gt;Need to create a GitHub repo to hold the final-stage, personal, static website.&lt;/p&gt;
+&lt;p&gt;From upper-right corner of github.com web GUI, there is a &amp;ldquo;+&amp;rdquo; plus sign pulldown
+menu option, click on &amp;ldquo;New repository&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;In the &amp;ldquo;Repository name&amp;rdquo; textbox, enter in &amp;ldquo;&amp;lt;username&amp;gt;.github.io&amp;rdquo; after
+replacing the &amp;lt;username&amp;gt; with your GitHub account username.&lt;/p&gt;
+&lt;p&gt;Click on the green &amp;ldquo;Create Repository&amp;rdquo; button.&lt;/p&gt;
+&lt;p&gt;No need to get, clone, nor fill this repo up on our local machine yet.
+We let our static website generator do that&amp;hellip; later.&lt;/p&gt;
+&lt;h2 id="static-website-generator-repo"&gt;Static Website Generator Repo&lt;/h2&gt;
+&lt;p&gt;For the second part, we create a second repository to hold all things related to
+our favorite static website generator tools and our initial blog stuff.&lt;/p&gt;
+&lt;h3 id="creating-static-website-repo"&gt;Creating Static Website Repo&lt;/h3&gt;
+&lt;p&gt;From upper-right corner of github.com web GUI, there is a &amp;ldquo;+&amp;rdquo; plus sign pulldown
+menu option, click on &amp;ldquo;New repository&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;In the &amp;ldquo;Repository name&amp;rdquo; textbox, enter in &amp;ldquo;&amp;lt;username&amp;gt;.github.io-src&amp;rdquo; after
+replacing the &amp;lt;username&amp;gt; with your GitHub account username.&lt;/p&gt;
+&lt;p&gt;NOTE: the second repo has a &amp;ldquo;-src&amp;rdquo; suffix added to the repo name.&lt;/p&gt;
+&lt;p&gt;Click on the green &amp;ldquo;Create Repository&amp;rdquo; button.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="c1"&gt;# On local machine&lt;/span&gt;
+
+  &lt;span class="nb"&gt;cd&lt;/span&gt; ~/work/websites  &lt;span class="c1"&gt;# we had those already existing subdirectories&lt;/span&gt;
+  git clone https://github.com/&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io-src
+  &lt;span class="c1"&gt;# This is our main git project&lt;/span&gt;
+  &lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;username&amp;gt;.github.io-src
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we add our final-stage repo submodule to our master project
+and call it &lt;code&gt;output&lt;/code&gt; subdirectory&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="c1"&gt;# output subdirectory = final-stage static website&lt;/span&gt;
+  git submodule add --force &lt;span class="se"&gt;\&lt;/span&gt;
+      --branch master  &lt;span class="se"&gt;\&lt;/span&gt;
+      https://github.com/egberts/egberts.github.io.git output
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;WARNING: If you used &lt;code&gt;git submodule update&lt;/code&gt; instead of &amp;lsquo;add&amp;rsquo;, you will find yourself
+in a world of hurt with regard to trying to &amp;lsquo;git push&amp;rsquo; your final website back
+up; &lt;code&gt;git submodule update&lt;/code&gt; will only take a fixed point of your final website
+and leave that repo as &amp;ldquo;branch-less&amp;rdquo;.   Better to stay on the master branch
+and let your static website generator put all their updates to the latest
+branch named &amp;lsquo;master&amp;rsquo;&amp;hellip; automatically.&lt;/p&gt;
+&lt;h2 id="installing-static-website-generator"&gt;Installing Static Website Generator&lt;/h2&gt;
+&lt;p&gt;Now we can add our static website generator in here.
+I use Pelican, which uses &lt;code&gt;output&lt;/code&gt; to hold my final-stage website&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="nb"&gt;cd&lt;/span&gt; ~/work/websites/&amp;lt;username&amp;gt;.github.io-src  &lt;span class="c1"&gt;# note the &amp;#39;-src&amp;#39; suffix&lt;/span&gt;
+  pelican-quickstart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This &lt;code&gt;pelican-quickstart&lt;/code&gt; utility will ask you a series of questions to make
+things easier.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Welcome to pelican-quickstart v4.0.1.
+
+    This script will help you create a new Pelican-based website.
+
+    Please answer the following questions so this script can generate the files
+    needed by Pelican.
+
+
+    &amp;gt; Where do you want to create your new web site? [.]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You are already within the main project repo (whose repository name ended with a
+&amp;ldquo;-src&amp;rdquo; suffix) subdirectory.  This is what the &amp;ldquo;&lt;code&gt;[.]&lt;/code&gt;&amp;rdquo; means: current directory.
+We want that.  Press ENTER to continue.&lt;/p&gt;
+&lt;p&gt;Next is the title of the website:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &amp;gt; What will be the title of this web site?
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I typically enter in &amp;ldquo;Egbert Network&amp;rdquo;.  Most people put in &amp;ldquo;Blogs of &amp;lt;Your
+Name&amp;gt;&amp;rdquo; or something like that.  This data entry is used to put title of your
+main webpage (as in HTML &amp;lt;title&amp;gt;).  &lt;code&gt;SITENAME&lt;/code&gt; is the Python variable
+being updated in &lt;code&gt;pelicanconf.py&lt;/code&gt; configuration file.
+Often used in many website template for various purposes, most commonly
+in the HTML &amp;lt;title&amp;gt; of the main index.html page.&lt;/p&gt;
+&lt;p&gt;Next is the author of this website:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &amp;gt; Who will be the author of this web site?
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Some will give a long form of their name here.
+This is only useful for a website who have multiples of
+authors.
+I leave it empty/blank and simply press ENTER.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;AUTHOR&lt;/code&gt; is the Python variable updated in &lt;code&gt;pelicanconf.py&lt;/code&gt; configuration file.&lt;/p&gt;
+&lt;p&gt;Language default is asked next:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &amp;gt; What will be the default language of this web site? [en]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Press ENTER to continue unless you are posting a non-English website then you
+choose a two-letter notation representing your choice of language.  Look at the
+ISO 639-1 column in https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;DEFAULT_LANG&lt;/code&gt; is the Python variable updated in &lt;code&gt;pelicanconf.py&lt;/code&gt; configuration file.&lt;/p&gt;
+&lt;p&gt;The next question is not clear but basically it is asking you what the base URL
+is that you will be putting your final website at:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; Do you want to specify a URL prefix? e.g., https://example.com   (Y/n)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;SITEURL&lt;/code&gt; is the Python variable updated in &lt;code&gt;pelicanconf.py&lt;/code&gt; configuration file.&lt;/p&gt;
+&lt;p&gt;In my case of deploying a personal GitHub website as described within this
+article, we must answer &amp;ldquo;Y&amp;rdquo;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; What is your URL prefix? (see above example; no trailing slash)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The interesting thing about the wording &amp;ldquo;URL prefix&amp;rdquo; is that one MAY assume that
+you could NOT put anything after the domain name, like in &amp;ldquo;https://example.com&amp;rdquo;.
+Not so.  You CAN (and in our case, SHOULD) put something after a domain name and
+a slash, such as https://github.io/&amp;lt;username&amp;gt; in our setup.  Just that it
+CANNOT end with a slash symbol.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; Do you want to enable article pagination? (Y/n)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Article pagination is where you have too many articles and may want to break
+that up over several web pages.  Default Yes is a good idea here.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;DEFAULT_PAGINATION&lt;/code&gt; is the Python variable updated in &lt;code&gt;pelicanconf.py&lt;/code&gt; configuration file.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; How many articles per page do you want? [10]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Depending on how many articles you put out and how often, you may want to change
+this number to either 5 (shallow view) or 100 (long view).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; What is your time zone? [Europe/Paris]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Timezone.  You can find your available timezone label using the following tools
+&lt;code&gt;tzselect&lt;/code&gt; at another terminal. On macos/Mac OSX, you can visit the
+/usr/share/zoneinfo and determine your choices of timezones.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;TIMEZONE&lt;/code&gt; is the Python variable updated in &lt;code&gt;pelicanconf.py&lt;/code&gt; configuration file.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; Do you want to generate a tasks.py/Makefile to automate generation and publishing? (Y/n)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This one is weird to me.  Took a couple of tries before I finally figured it
+out.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; Do you want to upload your website using FTP? (y/N)
+&amp;gt; Do you want to upload your website using SSH? (y/N)
+&amp;gt; Do you want to upload your website using Dropbox? (y/N)
+&amp;gt; Do you want to upload your website using S3? (y/N)
+&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N)
+&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) y
+&amp;gt; Is this your personal page (username.github.io)? (y/N) y
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;GITHUB_PAGES_BRANCH&lt;/code&gt; is the Make variable updated in &lt;code&gt;Makefile&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;BEFORE YOU EXECUTE &amp;lsquo;pelican&amp;rsquo; command, you must disable the destruction
+of the &amp;lsquo;output&amp;rsquo; subdirectory.  Our &amp;lsquo;git submodule&amp;rsquo; setup does not like
+its &amp;lsquo;output&amp;rsquo; subdirectory being destroyed.  There is a configuration
+for that;  Edit the &lt;code&gt;pelicanconf.py&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    #!bash
+    vim pelicanconf.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And add (or change) the &lt;code&gt;DELETE_OUTPUT_DIRECTORY&lt;/code&gt; option to &amp;ldquo;False&amp;rdquo;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ## Delete the output directory, and all of its contents, before generating new
+    ## files. This can be useful in preventing
+    ## older, unnecessary files from persisting in your output. However, this is a
+    ## destructive setting and should be
+    ## handled with extreme care.
+
+    DELETE_OUTPUT_DIRECTORY = False
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;IMHO: &lt;code&gt;DELETE_OUTPUT_DIRECTORY&lt;/code&gt; should have defaulted to False.&lt;/p&gt;
+&lt;h2 id="creating-static-web-pages"&gt;Creating Static Web Pages&lt;/h2&gt;
+&lt;p&gt;This is the easy part.&lt;/p&gt;
+&lt;p&gt;Create an article.  Create and edit a file.  Its filename must ended with a
+&amp;ldquo;.md&amp;rdquo; or &amp;ldquo;.rst&amp;rdquo; suffix, depending on whether you like Markdown format or ReST
+format.&lt;/p&gt;
+&lt;p&gt;I started out with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Title: Example
+    Date: 2018-11-18 05:00
+    Tags: sappy
+    Status: published
+    Category: research
+
+    My First Blog
+    =============
+
+    Not much to go on but this is my first blog
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then saved the file as &amp;ldquo;&lt;code&gt;content/article/example.md&lt;/code&gt;&amp;ldquo;&lt;/p&gt;
+&lt;p&gt;I then executed:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    make html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To view your newly created webpages, start up a local webserver using port
+8000.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    make serve
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Using your favorite web browser, visit the &amp;lsquo;http://localhost:8000/&amp;rsquo; and view the result
+of your first static website.&lt;/p&gt;</content><category term="github"></category><category term="blog"></category></entry><entry><title>Authentication for API</title><link href="/egberts/articles/authentication-for-api.html" rel="alternate"></link><published>2018-12-28T06:30:00-05:00</published><updated>2018-12-28T06:30:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-28:/egberts/articles/authentication-for-api.html</id><summary type="html">&lt;h2 id="authentication-for-api"&gt;Authentication for API&lt;/h2&gt;
 &lt;p&gt;When deploying a new web API, authentication approaches came to mind foremostly.  Needed to determine which type of authentication to use.  Large binning, salting of hash, and revocatable are my criteria.&lt;/p&gt;
 &lt;p&gt;Some toolkits that went out the window firstly are: auth0, Fusion auth, and Gluu.&lt;/p&gt;
 &lt;p&gt;So, some …&lt;/p&gt;</summary><content type="html">&lt;h2 id="authentication-for-api"&gt;Authentication for API&lt;/h2&gt;
