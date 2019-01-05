@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io/feed.json</loc>
-<lastmod>2018-12-28T10:11:19-00:00</lastmod>
+<lastmod>2019-01-05T08:42:15-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -21,6 +21,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://egberts.github.io//egberts/pages/about.html</loc>
 <lastmod>2018-07-31T21:09:00-04:00</lastmod>
 <changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://egberts.github.io//egberts/articles/dhcp-and-weird-hostnames.html</loc>
+<lastmod>2019-01-05T08:30:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -369,7 +376,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io//egberts/categories/research.html</loc>
-<lastmod>2018-12-28T06:30:00-05:00</lastmod>
+<lastmod>2019-01-05T08:30:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -377,6 +384,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://egberts.github.io//egberts/categories/security.html</loc>
 <lastmod>2018-12-20T15:28:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://egberts.github.io//egberts/tags/dhcp.html</loc>
+<lastmod>2019-01-05T08:30:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://egberts.github.io//egberts/tags/security.html</loc>
+<lastmod>2019-01-05T08:30:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -439,13 +460,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://egberts.github.io//egberts/tags/http.html</loc>
-<lastmod>2018-11-25T06:50:00-05:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://egberts.github.io//egberts/tags/security.html</loc>
 <lastmod>2018-11-25T06:50:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -671,13 +685,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://egberts.github.io//egberts/tags/fios.html</loc>
 <lastmod>2018-10-15T11:02:00-05:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://egberts.github.io//egberts/tags/dhcp.html</loc>
-<lastmod>2018-10-14T16:31:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

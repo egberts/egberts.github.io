@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2018-12-28T09:25:00-05:00</updated><entry><title>Personal GitHub Static Website</title><link href="/egberts/articles/personal-github-static-website.html" rel="alternate"></link><published>2018-12-28T09:25:00-05:00</published><updated>2018-12-28T09:25:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-28:/egberts/articles/personal-github-static-website.html</id><summary type="html">&lt;p&gt;How did I created a GitHub.IO personal website using two-repo/git-submodule
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Egbert Networks</title><link href="https://egberts.github.io/" rel="alternate"></link><link href="https://egberts.github.io/atom.xml" rel="self"></link><id>https://egberts.github.io/</id><updated>2019-01-05T08:30:00-05:00</updated><entry><title>DHCP and Weird Hostnames</title><link href="/egberts/articles/dhcp-and-weird-hostnames.html" rel="alternate"></link><published>2019-01-05T08:30:00-05:00</published><updated>2019-01-05T08:30:00-05:00</updated><author><name></name></author><id>tag:None,2019-01-05:/egberts/articles/dhcp-and-weird-hostnames.html</id><summary type="html">&lt;p&gt;Believe it or not, I dusted off my Ninetendo 3DS and Apple iPods.&lt;/p&gt;
+&lt;p&gt;When it came time to configure it and attach it to my ISC DHCP server, the
+server rejected the devices&amp;rsquo; DHCP-REQUEST message.&lt;/p&gt;
+&lt;p&gt;A closer look showed that the hostname was funky for various reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Nintendo 3DS had …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;Believe it or not, I dusted off my Ninetendo 3DS and Apple iPods.&lt;/p&gt;
+&lt;p&gt;When it came time to configure it and attach it to my ISC DHCP server, the
+server rejected the devices&amp;rsquo; DHCP-REQUEST message.&lt;/p&gt;
+&lt;p&gt;A closer look showed that the hostname was funky for various reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Nintendo 3DS had a space in the middle of its requested hostname in its DHCP-REQUEST: as in &amp;ldquo;Nintendo 3DS&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apple iPod couldn&amp;rsquo;t request due to no hostname.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Google Samsung Android phone couldn&amp;rsquo;t request because of no hostname.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="dhcp-for-nintendo-3ds"&gt;DHCP for Nintendo 3DS&lt;/h3&gt;
+&lt;p&gt;Temporary fixed only for Nintendo 3DS is to include the following into
+&lt;code&gt;dhcpd.conf.options&lt;/code&gt; (or &lt;code&gt;dhcpd.conf&lt;/code&gt; for those flat-file folks):&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;option&lt;/span&gt; &lt;span class="nt"&gt;host-name&lt;/span&gt; &lt;span class="o"&gt;~=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Nintendo 3DS&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="err"&gt;ddns-hostname&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;concat&lt;/span&gt; &lt;span class="err"&gt;(&amp;quot;Nintendo3DS&amp;quot;,&lt;/span&gt; &lt;span class="err"&gt;binary-to-ascii&lt;/span&gt; &lt;span class="err"&gt;(16,&lt;/span&gt; &lt;span class="err"&gt;8,&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;x&amp;quot;,&lt;/span&gt; &lt;span class="err"&gt;substring&lt;/span&gt; &lt;span class="err"&gt;(hardware,&lt;/span&gt; &lt;span class="err"&gt;1,&lt;/span&gt; &lt;span class="err"&gt;6)))&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="err"&gt;log(concat(&amp;quot;Changing&lt;/span&gt; &lt;span class="n"&gt;hostname1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;, option host-name, &amp;quot;&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;, ddns-hostname));&lt;/span&gt;
+&lt;span class="s2"&gt;}&lt;/span&gt;
+
+&lt;span class="s2"&gt;if (option host-name ~= &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Nintendo&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;DS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;) {&lt;/span&gt;
+&lt;span class="s2"&gt;   ddns-hostname = concat (&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;Nintendo3DS&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;, binary-to-ascii (16, 8, &amp;quot;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;, substring (hardware, 1, 6)));&lt;/span&gt;
+&lt;span class="s2"&gt;   log(concat(&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;Changing&lt;/span&gt; &lt;span class="n"&gt;hostname2&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;, option host-name, &amp;quot;&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ddns-hostname&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="dhcp-for-apple-ipod"&gt;DHCP for Apple iPod&lt;/h3&gt;
+&lt;p&gt;For Apple iPod, a specific MAC address subclass is needed here.  Added the
+following to &lt;code&gt;dhcpd.conf.options&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;iPod&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;match&lt;/span&gt; &lt;span class="nx"&gt;hardware&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;match&lt;/span&gt; &lt;span class="nx"&gt;pick&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;option&lt;/span&gt; &lt;span class="nx"&gt;dhcp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;identifier&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;hardware&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And added the following to &lt;code&gt;dhcpd.conf.reserved&lt;/code&gt; (or &lt;code&gt;dhcpd.conf&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;subclass&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;iPod&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;00&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;23&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;df&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;ee&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;62&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;53&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;Apple&lt;/span&gt; &lt;span class="nt"&gt;iPod&lt;/span&gt;
+
+&lt;span class="nt"&gt;group&lt;/span&gt; &lt;span class="nt"&gt;blue&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;Apple&lt;/span&gt; &lt;span class="err"&gt;iPod&lt;/span&gt;
+    &lt;span class="err"&gt;host&lt;/span&gt; &lt;span class="err"&gt;ipod1.home.&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;hardware&lt;/span&gt; &lt;span class="err"&gt;ethernet&lt;/span&gt; &lt;span class="err"&gt;00:23:&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;ee&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;62&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;fixed-address&lt;/span&gt; &lt;span class="err"&gt;192.168.1.153&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="dhcp-for-google-samsung-android-phone"&gt;DHCP for Google Samsung Android Phone&lt;/h3&gt;
+&lt;p&gt;That was annoying.  No way to change hostname on this phone.  Must be a very
+old model.&lt;/p&gt;
+&lt;p&gt;The workaround to this kind of phone is to following the &amp;ldquo;DHCP for Apple iPod&amp;rdquo;
+section above.&lt;/p&gt;</content><category term="dhcp"></category><category term="security"></category></entry><entry><title>Personal GitHub Static Website</title><link href="/egberts/articles/personal-github-static-website.html" rel="alternate"></link><published>2018-12-28T09:25:00-05:00</published><updated>2018-12-28T09:25:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-28:/egberts/articles/personal-github-static-website.html</id><summary type="html">&lt;p&gt;How did I created a GitHub.IO personal website using two-repo/git-submodule
 approach?&lt;/p&gt;
 &lt;p&gt;In five general steps:&lt;/p&gt;
 &lt;ol&gt;
@@ -39,19 +103,20 @@ menu option, click on &amp;ldquo;New repository&amp;rdquo;.&lt;/p&gt;
 replacing the &amp;lt;username&amp;gt; with your GitHub account username.&lt;/p&gt;
 &lt;p&gt;NOTE: the second repo has a &amp;ldquo;-src&amp;rdquo; suffix added to the repo name.&lt;/p&gt;
 &lt;p&gt;Click on the green &amp;ldquo;Create Repository&amp;rdquo; button.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="c1"&gt;# On local machine&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# On local machine&lt;/span&gt;
 
-  &lt;span class="nb"&gt;cd&lt;/span&gt; ~/work/websites  &lt;span class="c1"&gt;# we had those already existing subdirectories&lt;/span&gt;
-  git clone https://github.com/&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io-src
-  &lt;span class="c1"&gt;# This is our main git project&lt;/span&gt;
-  &lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;username&amp;gt;.github.io-src
+&lt;span class="nb"&gt;cd&lt;/span&gt; ~/work/websites  &lt;span class="c1"&gt;# we had those already existing subdirectories&lt;/span&gt;
+git clone https://github.com/&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io-src
+
+&lt;span class="c1"&gt;# This is our main git project&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;username&amp;gt;.github.io-src
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now we add our final-stage repo submodule to our master project
 and call it &lt;code&gt;output&lt;/code&gt; subdirectory&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="c1"&gt;# output subdirectory = final-stage static website&lt;/span&gt;
-  git submodule add --force &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# output subdirectory = final-stage static website&lt;/span&gt;
+git submodule add --force &lt;span class="se"&gt;\&lt;/span&gt;
       --branch master  &lt;span class="se"&gt;\&lt;/span&gt;
       https://github.com/egberts/egberts.github.io.git output
 &lt;/pre&gt;&lt;/div&gt;
@@ -66,8 +131,8 @@ branch named &amp;lsquo;master&amp;rsquo;&amp;hellip; automatically.&lt;/p&gt;
 &lt;h2 id="installing-static-website-generator"&gt;Installing Static Website Generator&lt;/h2&gt;
 &lt;p&gt;Now we can add our static website generator in here.
 I use Pelican, which uses &lt;code&gt;output&lt;/code&gt; to hold my final-stage website&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="nb"&gt;cd&lt;/span&gt; ~/work/websites/&amp;lt;username&amp;gt;.github.io-src  &lt;span class="c1"&gt;# note the &amp;#39;-src&amp;#39; suffix&lt;/span&gt;
-  pelican-quickstart
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/work/websites/&amp;lt;username&amp;gt;.github.io-src  &lt;span class="c1"&gt;# note the &amp;#39;-src&amp;#39; suffix&lt;/span&gt;
+pelican-quickstart
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -178,8 +243,7 @@ out.&lt;/p&gt;
 of the &amp;lsquo;output&amp;rsquo; subdirectory.  Our &amp;lsquo;git submodule&amp;rsquo; setup does not like
 its &amp;lsquo;output&amp;rsquo; subdirectory being destroyed.  There is a configuration
 for that;  Edit the &lt;code&gt;pelicanconf.py&lt;/code&gt; file:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    #!bash
-    vim pelicanconf.py
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vim pelicanconf.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -216,18 +280,31 @@ format.&lt;/p&gt;
 
 &lt;p&gt;Then saved the file as &amp;ldquo;&lt;code&gt;content/article/example.md&lt;/code&gt;&amp;ldquo;&lt;/p&gt;
 &lt;p&gt;I then executed:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    make html
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make html
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To view your newly created webpages, start up a local webserver using port
 8000.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    make serve
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make serve
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Using your favorite web browser, visit the &amp;lsquo;http://localhost:8000/&amp;rsquo; and view the result
-of your first static website.&lt;/p&gt;</content><category term="github"></category><category term="blog"></category></entry><entry><title>Authentication for API</title><link href="/egberts/articles/authentication-for-api.html" rel="alternate"></link><published>2018-12-28T06:30:00-05:00</published><updated>2018-12-28T06:30:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-28:/egberts/articles/authentication-for-api.html</id><summary type="html">&lt;h2 id="authentication-for-api"&gt;Authentication for API&lt;/h2&gt;
+&lt;p&gt;Using your favorite web browser, visit the &lt;a href="http://localhost:8000/"&gt;http://localhost:8000/&lt;/a&gt; and view the result
+of your first static website.&lt;/p&gt;
+&lt;p&gt;Feel confident?  Publish the static web pages onto your GitHub personal website.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make publish
+make github
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And visit &lt;a href="https://username.github.io/username"&gt;https://username.github.io/username/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A workflow diagram is shown as:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2-Repo Pelican Git Workflow" src="/images/pelican-2-git-repos.svg" title="2-Repo Pelican Git Workflow"&gt;&lt;/p&gt;
+&lt;h2 id="saving-it-all-to-repositories"&gt;Saving It All To Repositories&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Git-pushed webpages to final-stage website repo&lt;/li&gt;
+&lt;/ol&gt;</content><category term="github"></category><category term="blog"></category></entry><entry><title>Authentication for API</title><link href="/egberts/articles/authentication-for-api.html" rel="alternate"></link><published>2018-12-28T06:30:00-05:00</published><updated>2018-12-28T06:30:00-05:00</updated><author><name></name></author><id>tag:None,2018-12-28:/egberts/articles/authentication-for-api.html</id><summary type="html">&lt;h2 id="authentication-for-api"&gt;Authentication for API&lt;/h2&gt;
 &lt;p&gt;When deploying a new web API, authentication approaches came to mind foremostly.  Needed to determine which type of authentication to use.  Large binning, salting of hash, and revocatable are my criteria.&lt;/p&gt;
 &lt;p&gt;Some toolkits that went out the window firstly are: auth0, Fusion auth, and Gluu.&lt;/p&gt;
 &lt;p&gt;So, some …&lt;/p&gt;</summary><content type="html">&lt;h2 id="authentication-for-api"&gt;Authentication for API&lt;/h2&gt;
